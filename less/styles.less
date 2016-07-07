@@ -2,6 +2,36 @@
 Custom styles
 ========================================================================== */
 
+@font-face {
+  font-family: 'righteous';
+  src: url('../fonts/righteous/RighteousRegular.eot');
+  src: url('../fonts/righteous/RighteousRegular.eot') format('embedded-opentype'),
+       url('../fonts/righteous/RighteousRegular.woff2') format('woff2'),
+       url('../fonts/righteous/RighteousRegular.woff') format('woff'),
+       url('../fonts/righteous/RighteousRegular.ttf') format('truetype'),
+       url('../fonts/righteous/RighteousRegular.svg#RighteousRegular') format('svg');
+}
+
+@font-face {
+  font-family: 'roboto-light';
+  src: url('../fonts/roboto/light/RobotoCondensedLight.eot');
+  src: url('../fonts/roboto/light/RobotoCondensedLight.eot') format('embedded-opentype'),
+       url('../fonts/roboto/light/RobotoCondensedLight.woff2') format('woff2'),
+       url('../fonts/roboto/light/RobotoCondensedLight.woff') format('woff'),
+       url('../fonts/roboto/light/RobotoCondensedLight.ttf') format('truetype'),
+       url('../fonts/roboto/light/RobotoCondensedLight.svg#RobotoCondensedLight') format('svg');
+}
+
+@font-face {
+  font-family: 'roboto-regular';
+  src: url('../fonts/roboto/regular/RobotoCondensedRegular.eot');
+  src: url('../fonts/roboto/regular/RobotoCondensedRegular.eot') format('embedded-opentype'),
+       url('../fonts/roboto/regular/RobotoCondensedRegular.woff2') format('woff2'),
+       url('../fonts/roboto/regular/RobotoCondensedRegular.woff') format('woff'),
+       url('../fonts/roboto/regular/RobotoCondensedRegular.ttf') format('truetype'),
+       url('../fonts/roboto/regular/RobotoCondensedRegular.svg#RobotoCondensedRegular') format('svg');
+}
+
 h1, h2, h3, h4, h5, h6, p, span {
    margin: 0;
 }
@@ -19,9 +49,39 @@ li {
    list-style: none;
 }
 
-a, a:focus, a:active, a:visited, button, select, input[type="submit"], input[type="button"], input[type="text"]:focus, input[type="file"]:focus {
+a,
+a:hover,
+a:focus,
+a:active,
+a:visited,
+button,
+select,
+input[type="submit"],
+input[type="button"],
+input[type="text"]:focus,
+input[type="file"]:focus {
+
    outline: none;
    text-decoration: none;
+}
+
+a {
+  cursor: pointer;
+  // transition: all 0.3s ease-in-out;
+}
+
+.navbar-categories {
+  background-color: #37474e;
+  padding: @padding-base-vertical 0;
+
+  li {
+    padding: @padding-base-vertical @padding-large-horizontal;
+
+    a {
+      font-family: 'roboto-light', arial, sans-serif;
+      color: #d3dce0;
+    }
+  }
 }
 
 .register-form {

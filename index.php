@@ -5,28 +5,39 @@
 	$products = glob($dirname . "*.*");
 
 	$categorias = [
-    'Abstractas',
-    'Animales',
-    'Bicicletas',
-    'Comics',
-    'Creatividad',
-    'Fantasía',
-    'Películas',
-    'Comida',
-    'Diversión',
-    'Juegos',
-    'Monstruos',
-    'Música',
-    'Naturaleza',
-    'Patrones',
-    'Política',
-    'Cultura',
-    'Robots',
-    'Eslogans',
-    'Espacio',
-    'Deportes',
-    'Tipografía'
+    ['Abstractas','asterisk'],
   ];
+
+	$catArray = [
+		array(
+			'title' => 'Abstractas',
+			'icon' => 'asterisk'
+		)
+	];
+
+
+	$glyphicons = [
+		'asterisk',
+		'cloud',
+		'pencil',
+		'glass',
+		'music',
+		'search',
+		'heart',
+		'star',
+		'user',
+		'off',
+		'signal',
+		'cog',
+		'home',
+		'flag',
+		'headphones',
+		'tag',
+		'picture',
+		'marker',
+		'tint',
+		'gift',
+	];
 
 	if (estaLogueado())
 	{
@@ -41,20 +52,24 @@
 <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-        <aside>
+        <aside class="navbar-categories">
           <ul>
-            <?php foreach ($categorias as $categoria) { ?>
+
+            <?php foreach ($catArray as $categoria) { ?>
       				<li>
-                <a href="#" title="<?php echo $categoria ?>"><?php echo $categoria ?></a>
+                <a href="#" title="<?php echo $categoria['title'] ?>">
+										<span class='glyphicon glyphicon-<?php echo $categoria['icon'] ?>' aria-hidden="true"></span>
+										<?php echo $categoria['title'] ?>
+								</a>
       				</li>
       			<?php } ?>
+
           </ul>
         </aside>
       </div>
       <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
         <div class="row">
           <div class="col-md-12">
-
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
