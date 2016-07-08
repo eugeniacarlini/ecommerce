@@ -1,26 +1,25 @@
 <?php
 
+require_once("auth.php");
 
 class Producto {
     private $id;
     private $titulo;
     private $precio;
-    private $imagen;
     private $categoria;
     private $descripcion;
     private $idUsuario;
 
     public function __construct(Array $miproducto)
     {
-      //revisar
+      $auth = Auth::getInstance();
+      $usuarioLogueado = $auth->getUsuarioLogueado();
       $this->id = array_key_exists("id", $miproducto) ? $miproducto["id"] : null;
       $this->titulo = $miproducto["titulo"];
       $this->precio = $miproducto["precio"];
-      $this->imagen = $miproducto["imagen"];
       $this->categoria = $miproducto["categoria"];
       $this->descripcion = $miproducto["descripcion"];
-      //revisar
-      //$this->idUsuario = $auth->usuarioLogueado->getID();
+      $this->idUsuario = $usuarioLogueado->getId();
     }
 
     public function getID()
@@ -36,11 +35,6 @@ class Producto {
     public function getPrecio()
     {
       return $this->precio;
-    }
-
-    public function getImagen()
-    {
-      return $this->imagen;
     }
 
     public function getCategoria()
@@ -73,10 +67,6 @@ class Producto {
       return $this->precio = $precio;
     }
 
-    public function setImagen($imagen)
-    {
-      return $this->imagen = $imagen;
-    }
 
     public function setCategoria($categoria)
     {
@@ -88,26 +78,11 @@ class Producto {
       return $this->descripcion = $descripcion;
     }
 
-    // public function setIDUsuario($idUsuario);
-    // {
-    //   return $this->idUsuario = $idUsuario;
-    // }
-
-    function guardarProducto($miUsuario)
+    public function setidUsuario($idUsuario)
     {
-    	if ($_FILES["uploaded-product"]["error"] == UPLOAD_ERR_OK)
-    	{
-    		$tmp_name = $_FILES['uploaded-product']['tmp_name'];
-    		$path = $_FILES['uploaded-product']['name'];
-    		$extention = pathinfo($path, PATHINFO_EXTENSION);
-
-    		$miArchivo = dirname(__FILE__);
-    		$miArchivo = $miArchivo . "/uploads/products/";
-    		$miArchivo = $miArchivo . $path . "." . $extention;
-
-    		move_uploaded_file($tmp_name, $miArchivo);
-    	}
+      return $this->idUsuario = $idUsuario;
     }
+
 
     public function guardarImagen()
     {

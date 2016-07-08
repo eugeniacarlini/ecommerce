@@ -10,9 +10,65 @@
 
 	$catArray = [
 		array(
-			'title' => 'Abstractas',
+			'title' => 'Abstracto',
 			'icon' => 'asterisk'
-		)
+		),
+		array(
+			'title' => 'Animales',
+			'icon' => 'asterisk'
+		),
+		array(
+			'title' => 'Animales',
+			'icon' => 'asterisk'
+		),
+		array(
+			'title' => 'Animales',
+			'icon' => 'asterisk'
+		),
+		array(
+			'title' => 'Animales',
+			'icon' => 'asterisk'
+		),
+		array(
+			'title' => 'Animales',
+			'icon' => 'asterisk'
+		),
+		array(
+			'title' => 'Animales',
+			'icon' => 'asterisk'
+		),
+		array(
+			'title' => 'Animales',
+			'icon' => 'asterisk'
+		),
+		array(
+			'title' => 'Animales',
+			'icon' => 'asterisk'
+		),
+		array(
+			'title' => 'Animales',
+			'icon' => 'asterisk'
+		),
+		array(
+			'title' => 'Animales',
+			'icon' => 'asterisk'
+		),
+		array(
+			'title' => 'Animales',
+			'icon' => 'asterisk'
+		),
+		array(
+			'title' => 'Animales',
+			'icon' => 'asterisk'
+		),
+		array(
+			'title' => 'Animales',
+			'icon' => 'asterisk'
+		),
+		array(
+			'title' => 'Animales',
+			'icon' => 'asterisk'
+		),
 	];
 
 
@@ -82,7 +138,10 @@
                   <img class="thumbnail img-responsive" src="img/1.jpg">
                 </div>
                 <div class="item">
-                  <img class="thumbnail img-responsive" src="img/1.jpg">
+                  <img class="thumbnail img-responsive" src="img/2.jpg">
+                </div>
+                <div class="item">
+                  <img class="thumbnail img-responsive" src="img/3.jpg">
                 </div>
               </div>
 

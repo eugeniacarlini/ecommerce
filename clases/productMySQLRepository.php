@@ -19,11 +19,11 @@ class ProductMySQLRepository extends ProductRepository {
 		{
 			if ($this->getProductoById($miProducto->getId()))
 			{
-				$stmt = $this->miConexion->prepare("UPDATE producto SET titulo = :titulo, precio = :precio, categoria = :categoria, descripcion = :descripcion WHERE id = :id");
+				$stmt = $this->miConexion->prepare("UPDATE producto SET titulo = :titulo, precio = :precio, categoria = :categoria, descripcion = :descripcion, idUsuario = :idUsuario WHERE id = :id");
 			}
 			else
 			{
-				$stmt = $this->miConexion->prepare("INSERT INTO producto (id, titulo, precio, categoria, descripcion) values (:id, :titulo, :precio, :categoria, :descripcion)");
+				$stmt = $this->miConexion->prepare("INSERT INTO producto (id, titulo, precio, categoria, descripcion) values , idUsuario(:id, :titulo, :precio, :categoria, :descripcion, idUsuario = :idUsuario)");
 			}
 
 			$stmt->bindValue(":id", $miProducto->getId());
@@ -31,20 +31,21 @@ class ProductMySQLRepository extends ProductRepository {
 		}
 		else
 		{
-			$stmt = $this->miConexion->prepare("INSERT INTO producto (titulo, precio, categoria, descripcion) values (:titulo, :precio, :categoria, :descripcion)");
+			$stmt = $this->miConexion->prepare("INSERT INTO producto (titulo, precio, categoria, descripcion, idUsuario) values (:titulo, :precio, :categoria, :descripcion, :idUsuario)");
 		}
 
 		$stmt->bindValue(":titulo", $miProducto->getTitulo());
 		$stmt->bindValue(":precio", $miProducto->getPrecio());
 		$stmt->bindValue(":categoria", $miProducto->getCategoria());
 		$stmt->bindValue(":descripcion", $miProducto->getDescripcion());
+		$stmt->bindValue(":idUsuario", $miProducto->getIdUsuario());
 
 		$stmt->execute();
 
-		// if ($miProducto->getId() == null)
-		// {
-		// 	$miProducto->setId($miConexion->lastInsertId());
-		// }
+		//  if ($miProducto->getId() == null)
+		//  {
+		//  	$miProducto->setId($miConexion->lastInsertId());
+		//  }
 	}
 
 
