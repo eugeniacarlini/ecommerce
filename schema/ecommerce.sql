@@ -7,6 +7,10 @@
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.5.19
 
+DROP DATABASE IF EXISTS ecommerce;
+CREATE DATABASE ecommerce;
+use ecommerce;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
