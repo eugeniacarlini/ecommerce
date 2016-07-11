@@ -15,84 +15,60 @@
 		),
 		array(
 			'title' => 'Animales',
-			'icon' => 'asterisk'
+			'icon' => 'cloud'
 		),
 		array(
 			'title' => 'Animales',
-			'icon' => 'asterisk'
+			'icon' => 'pencil'
 		),
 		array(
 			'title' => 'Animales',
-			'icon' => 'asterisk'
+			'icon' => 'glass'
 		),
 		array(
 			'title' => 'Animales',
-			'icon' => 'asterisk'
+			'icon' => 'music'
 		),
 		array(
 			'title' => 'Animales',
-			'icon' => 'asterisk'
+			'icon' => 'search'
 		),
 		array(
 			'title' => 'Animales',
-			'icon' => 'asterisk'
+			'icon' => 'heart'
 		),
 		array(
 			'title' => 'Animales',
-			'icon' => 'asterisk'
+			'icon' => 'star'
 		),
 		array(
 			'title' => 'Animales',
-			'icon' => 'asterisk'
+			'icon' => 'user'
 		),
 		array(
 			'title' => 'Animales',
-			'icon' => 'asterisk'
+			'icon' => 'off'
 		),
 		array(
 			'title' => 'Animales',
-			'icon' => 'asterisk'
+			'icon' => 'signal'
 		),
 		array(
 			'title' => 'Animales',
-			'icon' => 'asterisk'
+			'icon' => 'cog'
 		),
 		array(
 			'title' => 'Animales',
-			'icon' => 'asterisk'
+			'icon' => 'home'
 		),
 		array(
 			'title' => 'Animales',
-			'icon' => 'asterisk'
+			'icon' => 'flag'
 		),
 		array(
 			'title' => 'Animales',
-			'icon' => 'asterisk'
-		),
-	];
-
-
-	$glyphicons = [
-		'asterisk',
-		'cloud',
-		'pencil',
-		'glass',
-		'music',
-		'search',
-		'heart',
-		'star',
-		'user',
-		'off',
-		'signal',
-		'cog',
-		'home',
-		'flag',
-		'headphones',
-		'tag',
-		'picture',
-		'marker',
-		'tint',
-		'gift',
+			'icon' => 'headphones'
+		)
 	];
 
 	if (estaLogueado())
@@ -110,7 +86,6 @@
       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
         <aside class="navbar-categories">
           <ul>
-
             <?php foreach ($catArray as $categoria) { ?>
       				<li>
                 <a href="#" title="<?php echo $categoria['title'] ?>">
@@ -119,7 +94,6 @@
 								</a>
       				</li>
       			<?php } ?>
-
           </ul>
         </aside>
       </div>
@@ -132,7 +106,6 @@
                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
               </ol>
-
               <div class="carousel-inner" role="listbox">
                 <div class="item active">
                   <img class="thumbnail img-responsive" src="img/1.jpg">
@@ -144,7 +117,6 @@
                   <img class="thumbnail img-responsive" src="img/3.jpg">
                 </div>
               </div>
-
               <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Anterior</span>
@@ -163,7 +135,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="product-row row">
 					<?php foreach ($products as $product) { ?>
 	          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 	            <article class="thumbnail text-center">
