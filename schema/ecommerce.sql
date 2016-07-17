@@ -25,7 +25,12 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-
+CREATE TABLE IF NOT EXISTS `user_follow` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `follower` INT NOT NULL,
+  `following` INT NOT NULL,
+  `subscribed` INT NOT NULL DEFAULT 0000-00-00 00:00:00,
+  PRIMARY KEY (`id`))
 --
 -- Estructura de tabla para la tabla `producto`
 --
