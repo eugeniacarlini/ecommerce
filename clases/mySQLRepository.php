@@ -1,7 +1,7 @@
 <?php
 
 require_once("userMySQLRepository.php");
-	require_once("productMySQLRepository.php");
+require_once("productMySQLRepository.php");
 
 class MySQLRepository {
 	private $userRepository;

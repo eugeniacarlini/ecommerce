@@ -77,9 +77,14 @@ a {
   li {
     padding: @padding-base-vertical @padding-large-horizontal;
 
-    a {
+    .category {
       font-family: 'roboto-light', arial, sans-serif;
+      font-size: @font-size-base - 2;
       color: #d3dce0;
+
+      span {
+        margin-right: @padding-base-horizontal - 7;
+      }
     }
   }
 }

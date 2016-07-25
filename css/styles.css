@@ -6795,9 +6795,13 @@ a {
 .navbar-categories li {
   padding: 6px 16px;
 }
-.navbar-categories li a {
+.navbar-categories li .category {
   font-family: 'roboto-light', arial, sans-serif;
+  font-size: 12px;
   color: #d3dce0;
+}
+.navbar-categories li .category span {
+  margin-right: 5px;
 }
 .product-row {
   background-color: #ffffff;

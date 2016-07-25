@@ -1,11 +1,11 @@
 <?php
-require_once("clases/auth.php");
-require_once("clases/validar.php");
-require_once("clases/jsonRepository.php");
-require_once("clases/mySQLRepository.php");
-require_once("clases/usuario.php");
-require_once("clases/producto.php");
-require_once 'clases/AuthProduct.php';
+require_once('clases/auth.php');
+require_once('clases/validar.php');
+require_once('clases/jsonRepository.php');
+require_once('clases/mySQLRepository.php');
+require_once('clases/usuario.php');
+require_once('clases/producto.php');
+require_once('clases/AuthProduct.php');
 
 $tipoRepositorio = "mysql";
 $repositorio = null;
@@ -32,7 +32,7 @@ function usuarioValido($mail, $pass)
 			return true;
 		}
 	}
-
+	
 	return false;
 }
 

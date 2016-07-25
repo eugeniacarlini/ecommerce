@@ -18,55 +18,55 @@
 			'icon' => 'cloud'
 		),
 		array(
-			'title' => 'Animales',
+			'title' => 'Bicicletas',
 			'icon' => 'pencil'
 		),
 		array(
-			'title' => 'Animales',
+			'title' => 'Comics',
 			'icon' => 'glass'
 		),
 		array(
-			'title' => 'Animales',
+			'title' => 'Creatividad',
 			'icon' => 'music'
 		),
 		array(
-			'title' => 'Animales',
+			'title' => 'Fantasía',
 			'icon' => 'search'
 		),
 		array(
-			'title' => 'Animales',
+			'title' => 'Películas',
 			'icon' => 'heart'
 		),
 		array(
-			'title' => 'Animales',
+			'title' => 'Comidas',
 			'icon' => 'star'
 		),
 		array(
-			'title' => 'Animales',
+			'title' => 'Diversión',
 			'icon' => 'user'
 		),
 		array(
-			'title' => 'Animales',
+			'title' => 'Juegos',
 			'icon' => 'off'
 		),
 		array(
-			'title' => 'Animales',
+			'title' => 'Música',
 			'icon' => 'signal'
 		),
 		array(
-			'title' => 'Animales',
+			'title' => 'Naturaleza',
 			'icon' => 'cog'
 		),
 		array(
-			'title' => 'Animales',
+			'title' => 'Patrones',
 			'icon' => 'home'
 		),
 		array(
-			'title' => 'Animales',
+			'title' => 'Deportes',
 			'icon' => 'flag'
 		),
 		array(
-			'title' => 'Animales',
+			'title' => 'Tipografía',
 			'icon' => 'headphones'
 		)
 	];
@@ -88,9 +88,9 @@
           <ul>
             <?php foreach ($catArray as $categoria) { ?>
       				<li>
-                <a href="#" title="<?php echo $categoria['title'] ?>">
-										<span class='glyphicon glyphicon-<?php echo $categoria['icon'] ?>' aria-hidden="true"></span>
-										<?php echo $categoria['title'] ?>
+                <a class="category" href="#" title="<?php echo $categoria['title'] ?>">
+									<span class='glyphicon glyphicon-<?php echo $categoria['icon'] ?>' aria-hidden="true"></span>
+									<?php echo $categoria['title'] ?>
 								</a>
       				</li>
       			<?php } ?>
