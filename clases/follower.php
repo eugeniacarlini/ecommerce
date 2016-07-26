@@ -8,12 +8,14 @@ class Follower
   private $id_follower;
   private $id_following;
 
+
   function __construct(Array $miFollower)
   {
+    $this->id = array_key_exists("id", $miUsuario) ? $miUsuario["id"] : null;
     $auth = Auth::getInstance();
     $usuarioLogueado = $auth->getUsuarioLogueado();
     $this->id_follower = $usuarioLogueado->getId();
-    $this->id_following = $miproducto["id_Usuario"];
+    $this->id_following =
   }
 
   public function getId_Follower()

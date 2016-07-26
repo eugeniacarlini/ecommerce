@@ -25,12 +25,12 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `user_follow` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `follower` INT NOT NULL,
-  `following` INT NOT NULL,
-  `subscribed` INT NOT NULL DEFAULT 0000-00-00 00:00:00,
-  PRIMARY KEY (`id`))
+-- CREATE TABLE IF NOT EXISTS `user_follow` (
+--   `id` INT NOT NULL AUTO_INCREMENT,
+--   `follower` INT NOT NULL,
+--   `following` INT NOT NULL,
+--   `subscribed` INT NOT NULL DEFAULT 0000-00-00 00:00:00,
+--   PRIMARY KEY (`id`))
 --
 -- Estructura de tabla para la tabla `producto`
 --
@@ -40,10 +40,16 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `titulo` varchar(100) NOT NULL,
   `precio` int(100) NOT NULL,
   `imagen` int(11) DEFAULT NULL,
-  `categoria` varchar(100) NOT NULL,
+  `id_categoria` varchar(100) NOT NULL,
   `descripcion` text NOT NULL,
   `idUsuario` int(11) NOT NULL
+  FOREIGN KEY (id_categoria) REFERENCES categorias(id)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- CREATE TABLE IF NOT EXISTS `categoria` (
+-- `id` int(11) NOT NULL,
+--   `nombre` varchar(100) NOT NULL,
+-- ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -66,6 +72,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `sexo` int(10) unsigned NOT NULL,
   `password` text NOT NULL,
   `mail` varchar(400) NOT NULL
+
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --

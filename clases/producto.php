@@ -19,7 +19,7 @@ class Producto {
       $this->precio = $miproducto["precio"];
       $this->categoria = $miproducto["categoria"];
       $this->descripcion = $miproducto["descripcion"];
-      $this->idUsuario = $usuarioLogueado->getId();
+      $this->idUsuario = array_key_exists("idUsuario", $miproducto) ? $miproducto["idUsuario"]: $usuarioLogueado->getId();
     }
 
     public function getID()
