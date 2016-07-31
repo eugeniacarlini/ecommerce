@@ -49,6 +49,10 @@ li {
    list-style: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 a,
 a:hover,
 a:focus,
@@ -79,7 +83,6 @@ a {
 
     .category {
       font-family: 'roboto-light', arial, sans-serif;
-      font-size: @font-size-base - 2;
       color: #d3dce0;
 
       span {
@@ -93,8 +96,32 @@ a {
   background-color: @gray-lighten;
 }
 
+.product {
+  max-width: 100%;
+}
+
 .register-form {
   border: 1px solid silver;
   border-radius: 5px;
   padding: 20px;
+}
+
+#owl-demo .item img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.product-image,
+.product-description,
+.perfil-usuario {
+  margin: 40px 0;
+}
+
+.perfil-usuario {
+  margin-top: 20px;
+}
+
+#following li {
+  display: inline-block;
 }

@@ -6,13 +6,12 @@
 // Mixin and adjust the regular image class
 .thumbnail {
   display: block;
-  padding: @thumbnail-padding;
-  margin-bottom: @line-height-computed;
+  margin: 20px 0;
   line-height: @line-height-base;
   background-color: @thumbnail-bg;
   border: 1px solid @thumbnail-border;
   border-radius: @thumbnail-border-radius;
-  box-shadow: 0 0 2px #f0f0f0;
+  // box-shadow: 0 0 2px #f0f0f0;
   .transition(border .2s ease-in-out);
 
   > img,
@@ -31,7 +30,8 @@
 
   // Image captions
   .caption {
-    padding: @thumbnail-caption-padding;
+    padding: 0px;
+    margin: 20px 0 0 0;
     color: @thumbnail-caption-color;
   }
 }

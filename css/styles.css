@@ -1075,7 +1075,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
-  background-color: #f5f5f5;
+  background-color: #ececec;
 }
 input,
 button,
@@ -2280,7 +2280,7 @@ th {
   border-top: 2px solid #ddd;
 }
 .table .table {
-  background-color: #f5f5f5;
+  background-color: #ececec;
 }
 .table-condensed > thead > tr > th,
 .table-condensed > tbody > tr > th,
@@ -4020,7 +4020,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #555555;
-  background-color: #f5f5f5;
+  background-color: #ececec;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
   cursor: default;
@@ -4066,7 +4066,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .nav-tabs.nav-justified > .active > a,
   .nav-tabs.nav-justified > .active > a:hover,
   .nav-tabs.nav-justified > .active > a:focus {
-    border-bottom-color: #f5f5f5;
+    border-bottom-color: #ececec;
   }
 }
 .nav-pills > li {
@@ -4134,7 +4134,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .nav-tabs-justified > .active > a,
   .nav-tabs-justified > .active > a:hover,
   .nav-tabs-justified > .active > a:focus {
-    border-bottom-color: #f5f5f5;
+    border-bottom-color: #ececec;
   }
 }
 .tab-content > .tab-pane {
@@ -4990,13 +4990,11 @@ a.badge:focus {
 }
 .thumbnail {
   display: block;
-  padding: 10px;
-  margin-bottom: 20px;
+  margin: 20px 0;
   line-height: 1.42857143;
   background-color: #ffffff;
   border: 1px solid #ffffff;
   border-radius: 0px;
-  box-shadow: 0 0 2px #f0f0f0;
   -webkit-transition: border 0.2s ease-in-out;
   -o-transition: border 0.2s ease-in-out;
   transition: border 0.2s ease-in-out;
@@ -5012,7 +5010,8 @@ a.thumbnail.active {
   border-color: #337ab7;
 }
 .thumbnail .caption {
-  padding: 9px;
+  padding: 0px;
+  margin: 20px 0 0 0;
   color: #333333;
 }
 .alert {
@@ -6771,6 +6770,9 @@ ul {
 li {
   list-style: none;
 }
+img {
+  max-width: 100%;
+}
 a,
 a:hover,
 a:focus,
@@ -6797,7 +6799,6 @@ a {
 }
 .navbar-categories li .category {
   font-family: 'roboto-light', arial, sans-serif;
-  font-size: 12px;
   color: #d3dce0;
 }
 .navbar-categories li .category span {
@@ -6806,8 +6807,27 @@ a {
 .product-row {
   background-color: #ffffff;
 }
+.product {
+  max-width: 100%;
+}
 .register-form {
   border: 1px solid silver;
   border-radius: 5px;
   padding: 20px;
+}
+#owl-demo .item img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.product-image,
+.product-description,
+.perfil-usuario {
+  margin: 40px 0;
+}
+.perfil-usuario {
+  margin-top: 20px;
+}
+#following li {
+  display: inline-block;
 }

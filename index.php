@@ -83,7 +83,7 @@
 
 <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
         <aside class="navbar-categories">
           <ul>
             <?php foreach ($catArray as $categoria) { ?>
@@ -97,41 +97,34 @@
           </ul>
         </aside>
       </div>
-      <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+
+      <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+
         <div class="row">
           <div class="col-md-12">
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-              </ol>
-              <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                  <img class="thumbnail img-responsive" src="img/1.jpg">
-                </div>
-                <div class="item">
-                  <img class="thumbnail img-responsive" src="img/2.jpg">
-                </div>
-                <div class="item">
-                  <img class="thumbnail img-responsive" src="img/3.jpg">
-                </div>
-              </div>
-              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-              </a>
-              <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Siguiente</span>
-              </a>
-            </div>
+						<div id="demo">
+		          <div class="row">
+		            <div class="span12">
+		              <div id="owl-demo" class="owl-carousel">
+		                <div class="item">
+											<img src="img/1.jpg" alt="The Last of us">
+										</div>
+		                <div class="item">
+											<img src="img/2.jpg" alt="GTA V">
+										</div>
+		                <div class="item">
+											<img src="img/3.jpg" alt="Mirror Edge">
+										</div>
+		              </div>
+		            </div>
+		          </div>
+			      </div>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-md-12">
-            <h1>Productos destacados</h1>
+          <div class="col-md-12 row">
+            <h3>Productos destacados</h3>
           </div>
         </div>
 
@@ -140,12 +133,12 @@
 	          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 	            <article class="thumbnail text-center">
                 <li>
-                  <a href="#" title="">
+                  <a href="specsProduct.php" title="">
                     <?php echo '<img src="' . $product . '" />' ?>
                     <div class="caption">
-                      <h1>Title</h1>
-                      <h2>Description</h2>
-                      <p>Price</p>
+                      <h3>Great Outdoors</h3>
+                      <h4>Diseñada por Eugenia Carlini</h4>
+                      <h5>$250</h5>
                     </div>
                   </a>
                 </li>
@@ -156,5 +149,9 @@
       </div>
     </div>
   </div>
+
+	<script src="libs/jquery-1.9.1.min.js"></script>
+	<script src="libs/owl.carousel.js"></script>
+	<script src="js/main.js"></script>
 
   <?php include("includes/footer.php"); ?>
