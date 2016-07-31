@@ -128,7 +128,7 @@
           </div>
         </div>
 
-        <div class="product-row row">
+        <div class="product-row padding-row row">
 					<?php foreach ($products as $product) { ?>
 	          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 	            <article class="thumbnail text-center">

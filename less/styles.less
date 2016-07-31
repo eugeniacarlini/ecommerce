@@ -64,14 +64,12 @@ input[type="submit"],
 input[type="button"],
 input[type="text"]:focus,
 input[type="file"]:focus {
-
-   outline: none;
-   text-decoration: none;
+ outline: none;
+ text-decoration: none;
 }
 
 a {
   cursor: pointer;
-  // transition: all 0.3s ease-in-out;
 }
 
 .navbar-categories {
@@ -96,6 +94,10 @@ a {
   background-color: @gray-lighten;
 }
 
+.padding-row {
+  padding: 20px 0;
+}
+
 .product {
   max-width: 100%;
 }
@@ -113,15 +115,21 @@ a {
 }
 
 .product-image,
-.product-description,
-.perfil-usuario {
+.product-description {
   margin: 40px 0;
 }
 
-.perfil-usuario {
+#perfil-usuario {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #following li {
   display: inline-block;
+}
+
+.user-data-profile,
+.user-products {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
