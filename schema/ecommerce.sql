@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 `id` int(10) unsigned NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
-  `sexo` int(10) unsigned NOT NULL,
+  `sexo` varchar(100) NOT NULL,
   `password` text NOT NULL,
   `mail` varchar(400) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
@@ -67,12 +67,6 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `apellido`, `sexo`, `password`, `mail`) VALUES
-(1, 'gonzalo', 'vanni', 1, '$2y$10$rqRToow1PTszcaby2i.Jp.TOtfyuwtLFWYnOO0JS9ATlAaRoNJd5O', 'gonza@gmail.com'),
-(2, 'euge', 'carlini', 1, '$2y$10$btnWE7TatCdvrRXX.uvyrey5jF8G1JDe.C.hXFPZStxB4fUpyVMsa', 'soyfacil@muy.com'),
-(3, 'nestor', 'vanni', 0, '$2y$10$4RGjJKKCI0SkxJ5eb.AndOZq6tmTzVE/mciXpGfixtjjYPLXDFmWi', 'hola@hola.com'),
-(4, 'gra', 'vanni', 1, '$2y$10$gmE2C8VSLXhFQqzUpSrC4ubIYInfDTRkiRBlj82nHRt2kFCBKGk9W', 'hola@holaaaaa.com'),
-(5, 'euge', 'carlini', 0, '$2y$10$CBb6wFKnk4ADWXPbDyPkRuY0uod8PGHCQkVDBQhYtxV1Zs2EFIrv.', 'eugeniacarlini@gmail.com');
 
 --
 -- Índices para tablas volcadas
