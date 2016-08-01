@@ -137,9 +137,9 @@ else
           </div>
           <div class="form-group">
             <label for="imagen">Imagen</label>
-            <input type="file" id="uploaded-product" name="uploaded-product" />
+            <input type="file" id="imagen" name="imagen" />
           </div>
-          <input type="submit" class="btn btn-success btn-block" id="submit-product" name="submit-product" value="Cargar" />
+          <input type="submit" class="btn btn-success btn-block" name="subirProducto" value="Cargar" />
         </form>
       </div>
     </div>

@@ -98,7 +98,7 @@ if ($auth->estaLogueado())
             <label for="imagen">Avatar</label>
             <input type="file" id="imagen" name="imagen">
           </div>
-          <input type="submit" class="btn btn-success btn-block" id="submit-product" name="submit-product" value="Registrarme" />
+          <input type="submit" class="btn btn-success btn-block" name="registrarme" value="Registrarme" />
         </form>
       </div>
     </div>

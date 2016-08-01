@@ -77,15 +77,17 @@ class Usuario {
 	{
 		if ($_FILES["imagen"]["error"] == UPLOAD_ERR_OK)
 		{
-			// No hubo errores :)
-			$path = $_FILES['imagen']['name'];
-			$ext = pathinfo($path, PATHINFO_EXTENSION);
+			$tmp_name = $_FILES["imagen"]["tmp_name"];
+			$name = $_FILES['imagen']['name'];
 
-			$miArchivo = dirname(__FILE__);
-			$miArchivo = $miArchivo . "/img/";
-			$miArchivo = $miArchivo . $this->getId() . "." . $ext;
+			$ext = pathinfo($name, PATHINFO_EXTENSION);
 
-			move_uploaded_file($_FILES["imagen"]["tmp_name"], $miArchivo);
+			$uploads_dir = dirname(__FILE__);
+
+			// $uploads_dir = $uploads_dir . "/uploads/avatars";
+			$pathFinal = $uploads_dir . $this->getId() . "." . $ext;
+
+			move_uploaded_file($tmp_name, $pathFinal/$name . "." . $ext);
 		}
 	}
 }

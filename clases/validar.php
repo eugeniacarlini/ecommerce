@@ -31,31 +31,37 @@ class Validar {
 
         if (trim($miUsuario["nombre"]) == "")
         {
-            $errores[] = "Falta el nombre";
+            $errores[] = "Por favor complete el nombre";
         }
         if (trim($miUsuario["apellido"]) == "")
         {
-            $errores[] = "Falta el apellido";
+            $errores[] = "Por favor complete el apellido";
         }
+        if ($miUsuario["mail"] == "" )
+        {
+            $errores[] = "Por favor complete el email";
+        } elseif (!filter_var($miUsuario["mail"], FILTER_VALIDATE_EMAIL))
+        {
+            $errores[] = "Por favor introduzca un email válido";
+        }
+
+
+
         if (trim($miUsuario["password"]) == "")
         {
-            $errores[] = "Falta la pass";
+            $errores[] = "Por favor complete la contraseña";
         }
         if (trim($miUsuario["cpass"]) == "")
         {
-            $errores[] = "Falta el cpass";
+            $errores[] = "Por favor confirme la contraseña";
         }
         if ($miUsuario["password"] != $miUsuario["cpass"])
         {
-            $errores[] = "Pass y Cpass son distintas";
+            $errores[] = "Las contraseñas son distintas";
         }
-        if ($miUsuario["mail"] == "")
+        if (in_array($miUsuario["sexo"], array("", "Femenino", "Masculino")) == "")
         {
-            $errores[] = "Falta el mail";
-        }
-        if (!filter_var($miUsuario["mail"], FILTER_VALIDATE_EMAIL))
-        {
-            $errores[] = "El mail tiene forma fea";
+            $errores[] = "Por favor elija un sexo";
         }
         if ($this->userRepository->existeElMail($miUsuario["mail"]))
         {

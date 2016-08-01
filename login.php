@@ -70,7 +70,7 @@ else
 							<input type="checkbox" />Recordarme
 						</label>
 					</div>
-          <input type="submit" class="btn btn-success btn-block" id="submit-product" name="submit-product" value="Ingresar" />
+          <input type="submit" class="btn btn-success btn-block" name="login" value="Ingresar" />
         </form>
       </div>
     </div>

@@ -84,19 +84,19 @@ class Producto {
     }
 
 
-    public function guardarImagen()
-    {
-      if ($_FILES["imagen"]["error"] == UPLOAD_ERR_OK)
-      {
-        // No hubo errores :slightly_smiling_face:
-        $path = $_FILES['imagen']['name'];
-        $ext = pathinfo($path, PATHINFO_EXTENSION);
-
-        $miArchivo = dirname(__FILE__);
-        $miArchivo = $miArchivo . "/uploads/avatars/";
-        $miArchivo = $miArchivo . $this->getId() . "." . $ext;
-
-        move_uploaded_file($_FILES["imagen"]["tmp_name"], $miArchivo);
-      }
-    }
+    // public function guardarImagen()
+    // {
+    //   if ($_FILES["imagen"]["error"] == UPLOAD_ERR_OK)
+    //   {
+    //     // No hubo errores :slightly_smiling_face:
+    //     $path = $_FILES['imagen']['name'];
+    //     $ext = pathinfo($path, PATHINFO_EXTENSION);
+    //
+    //     $miArchivo = dirname(__FILE__);
+    //     $miArchivo = $miArchivo . "/uploads/avatars/";
+    //     $miArchivo = $miArchivo . $this->getId() . "." . $ext;
+    //
+    //     move_uploaded_file($_FILES["imagen"]["tmp_name"], $miArchivo);
+    //   }
+    // }
 }
