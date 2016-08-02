@@ -42,10 +42,10 @@ class ProductMySQLRepository extends ProductRepository {
 
 		$stmt->execute();
 
-		//  if ($miProducto->getId() == null)
-		//  {
-		//  	$miProducto->setId($miConexion->lastInsertId());
-		//  }
+		if ($miProducto->getId() == null)
+		{
+			$miProducto->setId($this->miConexion->lastInsertId());
+		}
 	}
 
 

@@ -58,10 +58,10 @@ class UserMySQLRepository extends UserRepository {
 
 		$stmt->execute();
 
-		// if ($miUsuario->getId() == null)
-		// {
-		// 	$miUsuario->setId($miConexion->lastInsertId());
-		// }
+		if ($miUsuario->getId() == null)
+		{
+			$miUsuario->setId($this->miConexion->lastInsertId());
+		}
 	}
 
 	private function arrayToUsuario(Array $miUsuario) {

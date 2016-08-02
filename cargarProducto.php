@@ -76,9 +76,8 @@
 					$productoArr = $_POST;
 					$producto = new Producto($_POST);
 
-
 					$repositorio->getProductRepository()->guardarProducto($producto);
-					$producto->guardarImagen($producto);
+					$producto->guardarImagenProducto($producto);
 					//redir
 					header("location:index.php");exit;
 				}
@@ -136,8 +135,8 @@ else
             </select>
           </div>
           <div class="form-group">
-            <label for="imagen">Imagen</label>
-            <input type="file" id="imagen" name="imagen" />
+            <label for="imagen-producto">Imagen</label>
+            <input type="file" id="imagen-producto" name="imagen-producto" />
           </div>
           <input type="submit" class="btn btn-success btn-block" name="subirProducto" value="Cargar" />
         </form>

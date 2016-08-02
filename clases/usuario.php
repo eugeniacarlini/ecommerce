@@ -86,6 +86,8 @@ class Usuario {
 
 			// $uploads_dir = $uploads_dir . "/uploads/avatars";
 			$pathFinal = $uploads_dir . $this->getId() . "." . $ext;
+			
+			var_dump($tmp_name, $name, $ext, $uploads_dir, $pathFinal);exit;
 
 			move_uploaded_file($tmp_name, $pathFinal/$name . "." . $ext);
 		}
