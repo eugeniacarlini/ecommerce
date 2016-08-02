@@ -78,18 +78,15 @@ class Usuario {
 		if ($_FILES["imagen"]["error"] == UPLOAD_ERR_OK)
 		{
 			$tmp_name = $_FILES["imagen"]["tmp_name"];
-			$name = $_FILES['imagen']['name'];
+			$path = $_FILES['imagen']['name'];
 
-			$ext = pathinfo($name, PATHINFO_EXTENSION);
+			$ext = pathinfo($path, PATHINFO_EXTENSION);
 
-			$uploads_dir = dirname(__FILE__);
+			$miArchivo = dirname(__FILE__) . '/../uploads/avatars/';
+			$miArchivo = $miArchivo . $this->getId() . "." . $ext;
 
-			// $uploads_dir = $uploads_dir . "/uploads/avatars";
-			$pathFinal = $uploads_dir . $this->getId() . "." . $ext;
-			
-			var_dump($tmp_name, $name, $ext, $uploads_dir, $pathFinal);exit;
-
-			move_uploaded_file($tmp_name, $pathFinal/$name . "." . $ext);
+			move_uploaded_file($tmp_name, $miArchivo);
 		}
 	}
+
 }

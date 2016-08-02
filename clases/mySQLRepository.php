@@ -10,7 +10,7 @@ class MySQLRepository {
 
 	public function __construct()
 	{
-		$this->connection = new PDO('mysql:host=localhost:3306;dbname=ecommerce', 'root', '123456');
+		$this->connection = new PDO('mysql:host=localhost;dbname=ecommerce', 'root', 'root');
   }
 
 	public function getUserRepository()
