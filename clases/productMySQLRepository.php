@@ -78,7 +78,7 @@ class ProductMySQLRepository extends ProductRepository {
 
 		$stmt->execute();
 
-		$usuariosArray = $stmt->fetchAll();
+		$productosArray = $stmt->fetchAll();
 
 		return $this->muchosArraysAMuchosProductos($productosArray);
 	}

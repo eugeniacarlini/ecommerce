@@ -1,53 +1,29 @@
 <?php
 require_once("soporte.php");
+$usuarioActivo = getUsuarioLogueado();
 
-if (!$auth->estaLogueado())
-{
-header("location:index.php");exit;
-}
-if (!isset($_GET["idUser"]))
-{
-header("location:index.php");exit;
-}
-$usuarioAVer = $repositorio->getUserRepository()->getUsuarioById($_GET["idUser"]);
-$files = glob("img/" . $usuarioAVer["id"] . ".{png,jpg,jpeg,gif,bmp,svg}", GLOB_BRACE);
+$dirname = "uploads/avatars/";
+$products = glob($dirname . "*.*");
+
+// if (!$auth->estaLogueado())
+// {
+// header("location:index.php");exit;
+// }
+// if (!isset($_GET["idUser"]))
+// {
+// header("location:index.php");exit;
+//}
+$usuarioAVer = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
+
+$imagen = glob($dirname . "*.*");
 ?>
-<html>
-<head>
-<title>Perfil</title>
-</head>
-<body>
-<?php include("header.php"); ?>
-<?php if (is_null($usuarioAVer)) { ?>
-El usuario no existe
-<?php } else { ?>
-<ul>
-		<li>
-			Nombre: <?php echo $usuarioAVer->getNombre(); ?>
-		</li>
-		<li>
-			Apellido: <?php echo $usuarioAVer->getApellido(); ?>
-		</li>
-		<li>
-			Mail: <?php echo $usuarioAVer->getMail(); ?>
-		</li>
-		<li>
-			Sexo: <?php echo $usuarioAVer->getSexo(); ?>
-		</li>
-</ul>
-<?php } ?>
-<?php if (!empty($files)) { ?>
-<img src="<?php echo $files[0] ?>"/>
-<?php } ?>
-</body>
-</html>
 
-
-	$usuarioLogueado = getUsuarioLogueado();
-
-	$pNombre = $usuarioLogueado["nombre"];
-	$pApellido = $usuarioLogueado["apellido"];
-	$pMail = $usuarioLogueado["mail"];
+<?php
+	// $usuarioLogueado = getUsuarioLogueado();
+	//
+	// $pNombre = $usuarioLogueado["nombre"];
+	// $pApellido = $usuarioLogueado["apellido"];
+	// $pMail = $usuarioLogueado["mail"];
 
 	// if ($usuarioLogueado["id"] != $_GET["idUser"]) {
 	// 	enviarAFelicidad();
@@ -78,43 +54,42 @@ El usuario no existe
 				</div>
 			<?php } ?>
 			<div>
+				<p>
+					Avatar
+				</p>
+				<img class="img-rounded" src="<?php echo $imagen[0] ?>" alt="" />
+				<input type="file" id="imagen" name="imagen" />
+				<button type="button" name="button" class="btn btn-success">Cargar</button>
+			</div>
+			<div>
 				<label for="nombre">Nombre:</label>
-				<input id="nombre" type="text" name="nombre" value="<?php echo $pNombre ?>" />
+				<input id="nombre" type="text" name="nombre" value="<?php echo $usuarioAVer->getNombre() ?>" />
 			</div>
 			<div>
 				<label for="apellido">Apellido:</label>
-				<input id="apellido" type="text" name="apellido" value="<?php echo $pApellido ?>" />
+				<input id="apellido" type="text" name="apellido" value="<?php echo $usuarioAVer->getApellido() ?>" />
 			</div>
 			<div>
 				<label for="mail">Mail:</label>
-				<input id="mail" type="text" name="mail" value="<?php echo $pMail ?>" />
+				<input id="mail" type="text" name="mail" value="<?php echo $usuarioAVer->getMail() ?>" />
 			</div>
-			<div>
+			<!-- <div>
 				<label for="pass">Contrase&ntilde;a:</label>
 				<input id="pass" type="password" name="pass" />
 			</div>
 			<div>
 				<label for="cpass">Confirmar Contrase&ntilde;a:</label>
 				<input id="cpass" type="password" name="cpass" />
-			</div>
+			</div> -->
 			<div>
 				<label for="sexo">Sexo:</label>
 				<select name="sexo" id="sexo">
-					<?php foreach ($sexos as $key => $sexo) { ?>
-						<?php if (isset($_POST["sexo"]) && $key == $_POST["sexo"]) { ?>
-							<option selected value="<?php echo $key?>"><?php echo $sexo?></option>
-						<?php } else { ?>
-							<option value="<?php echo $key?>"><?php echo $sexo?></option>
-						<?php } ?>
-					<?php } ?>
+					<option value="<?php echo $usuarioAVer->getSexo() ?>"><?php echo $usuarioAVer->getSexo(); ?></option>
 				</select>
 			</div>
-			<div>
-				<label for="imagen">Avatar:</label>
-				<input type="file" id="imagen" name="imagen" />
-			</div>
-			<div>
-				<input id="submit-product" type="submit" name="submit-product" value="Enviar" />
+			<div class="form-group">
+				<button type="button" name="button" class="btn btn-success">Guardar</button>
+				<input id="submit-product" type="submit" name="submit-product" value="Guardar cambios" />
 			</div>
 		</form>
 	<?php } ?>

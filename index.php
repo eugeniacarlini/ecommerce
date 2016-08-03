@@ -4,10 +4,6 @@
 	$dirname = "uploads/products/";
 	$products = glob($dirname . "*.*");
 
-	$categorias = [
-    ['Abstractas','asterisk'],
-  ];
-
 	$catArray = [
 		array(
 			'title' => 'Abstracto',
@@ -137,6 +133,7 @@
                     <?php echo '<img src="' . $product . '" />' ?>
                     <div class="caption">
                       <h3>Great Outdoors</h3>
+                      <h3><?php echo $ver ?></h3>
                       <h4>Diseñada por Eugenia Carlini</h4>
                       <h5>$250</h5>
                     </div>
