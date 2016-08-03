@@ -58,7 +58,7 @@
 								Hola, <?php echo $usuario->getNombre() ?> <span class="caret"></span>
 							</a>
 		          <ul class="dropdown-menu">
-		            <li><a href="ver.php">Mi perfil</a></li>
+		            <li><a href="verPerfil.php">Mi perfil</a></li>
 		            <li><a href="cargarProducto.php">Subir producto</a></li>
 		            <li><a href="logout.php">Cerrar sesión</a></li>
 		          </ul>
