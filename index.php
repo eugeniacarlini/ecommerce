@@ -1,71 +1,71 @@
 <?php
 	require_once("soporte.php");
-
-	$dirname = "uploads/products/";
+ 	$dirname = "uploads/products/";
 	$products = glob($dirname . "*.*");
+	$todosLosProductos = $repositorio->getProductRepository()->getAllProducts();
 
 	$catArray = [
 		array(
-			'title' => 'Abstracto',
-			'icon' => 'asterisk'
-		),
-		array(
-			'title' => 'Animales',
-			'icon' => 'cloud'
-		),
-		array(
-			'title' => 'Bicicletas',
-			'icon' => 'pencil'
-		),
-		array(
-			'title' => 'Comics',
-			'icon' => 'glass'
-		),
-		array(
-			'title' => 'Creatividad',
-			'icon' => 'music'
-		),
-		array(
-			'title' => 'Fantasía',
-			'icon' => 'search'
-		),
-		array(
-			'title' => 'Películas',
-			'icon' => 'heart'
-		),
-		array(
-			'title' => 'Comidas',
-			'icon' => 'star'
-		),
-		array(
-			'title' => 'Diversión',
-			'icon' => 'user'
-		),
-		array(
-			'title' => 'Juegos',
-			'icon' => 'off'
-		),
-		array(
-			'title' => 'Música',
-			'icon' => 'signal'
-		),
-		array(
-			'title' => 'Naturaleza',
-			'icon' => 'cog'
-		),
-		array(
-			'title' => 'Patrones',
-			'icon' => 'home'
-		),
-		array(
-			'title' => 'Deportes',
-			'icon' => 'flag'
-		),
-		array(
-			'title' => 'Tipografía',
-			'icon' => 'headphones'
-		)
-	];
+		'title' => 'Abstracto',
+		'icon' => 'asterisk'
+	),
+	array(
+		'title' => 'Animales',
+		'icon' => 'cloud'
+	),
+	array(
+		'title' => 'Bicicletas',
+		'icon' => 'pencil'
+	),
+	array(
+		'title' => 'Comics',
+		'icon' => 'glass'
+	),
+	array(
+		'title' => 'Creatividad',
+		'icon' => 'music'
+	),
+	array(
+		'title' => 'Fantasía',
+		'icon' => 'search'
+	),
+	array(
+		'title' => 'Películas',
+		'icon' => 'heart'
+	),
+	array(
+		'title' => 'Comidas',
+		'icon' => 'star'
+	),
+	array(
+		'title' => 'Diversión',
+		'icon' => 'user'
+	),
+	array(
+		'title' => 'Juegos',
+		'icon' => 'off'
+	),
+	array(
+		'title' => 'Música',
+		'icon' => 'signal'
+	),
+	array(
+		'title' => 'Naturaleza',
+		'icon' => 'cog'
+	),
+	array(
+		'title' => 'Patrones',
+		'icon' => 'home'
+	),
+	array(
+		'title' => 'Deportes',
+		'icon' => 'flag'
+	),
+	array(
+		'title' => 'Tipografía',
+		'icon' => 'headphones'
+	)
+];
 
 	if (estaLogueado())
 	{
@@ -125,17 +125,16 @@
         </div>
 
         <div class="product-row padding-row row">
-					<?php foreach ($products as $product) { ?>
+					<?php foreach ($todosLosProductos as $producto) { ?>
 	          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 	            <article class="thumbnail text-center">
                 <li>
                   <a href="specsProduct.php" title="">
                     <?php echo '<img src="' . $product . '" />' ?>
                     <div class="caption">
-                      <h3>Great Outdoors</h3>
-                      <h3><?php echo $ver ?></h3>
-                      <h4>Diseñada por Eugenia Carlini</h4>
-                      <h5>$250</h5>
+                      <h3><?php echo $producto->getTitulo() ?></h3>
+                      <h4><?php //echo $producto->getAutor() ?></h4>
+                      <h5>$<?php echo $producto->getPrecio() ?></h5>
                     </div>
                   </a>
                 </li>

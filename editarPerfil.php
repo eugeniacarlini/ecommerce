@@ -1,6 +1,6 @@
 <?php
 require_once("soporte.php");
-$usuarioActivo = getUsuarioLogueado();
+//$usuarioActivo = getUsuarioLogueado();
 
 $dirname = "uploads/avatars/";
 $products = glob($dirname . "*.*");
@@ -13,7 +13,7 @@ $products = glob($dirname . "*.*");
 // {
 // header("location:index.php");exit;
 //}
-$usuarioAVer = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
+//$usuarioAVer = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
 
 $imagen = glob($dirname . "*.*");
 

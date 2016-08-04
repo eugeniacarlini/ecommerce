@@ -66,6 +66,10 @@ class Auth {
     }
 
     public function getUsuarioLogueado() {
-        return $_SESSION["usuarioLogueado"];
+        if ($this->estaLogueado())
+        {
+          return $_SESSION["usuarioLogueado"];
+        }
+        return null;
     }
 }

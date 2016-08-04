@@ -83,7 +83,7 @@ class ProductMySQLRepository extends ProductRepository {
 		return $this->muchosArraysAMuchosProductos($productosArray);
 	}
 
-	private function muchosArraysAMuchosProductos(Array $productoArray)
+	private function muchosArraysAMuchosProductos(Array $productosArray)
 	{
 		$productos = [];
 
