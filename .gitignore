@@ -1,1 +1,7 @@
-*.php
+# Archivos temporales del IDE
+~*
+*.so
+*.log
+
+# PDO connection
+/clases/mySQLRepository.php
