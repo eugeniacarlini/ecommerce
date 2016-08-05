@@ -94,4 +94,22 @@ class ProductMySQLRepository extends ProductRepository {
 		return $productos;
 	}
 
+	public function queryProductos()
+	{
+		if(empty($_GET['pag'])) {
+			$pagina = 1;
+		}	else {
+			$pagina = $_GET['pag'];
+		}
+
+		$comienzo = $pagina * 8;
+		$stmt = $this->miConexion->prepare("SELECT * FROM producto LIMIT $comienzo, 8");
+
+		$stmt->execute();
+
+		$productosArray = $stmt->fetchAll();
+
+		return $this->muchosArraysAMuchosProductos($productosArray);
+	}
+
 }

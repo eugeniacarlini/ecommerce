@@ -3,6 +3,7 @@
  	$dirname = "uploads/products/";
 	$products = glob($dirname . "*.*");
 	$todosLosProductos = $repositorio->getProductRepository()->getAllProducts();
+	$todosLosProductos = $repositorio->getProductRepository()->queryProductos();
 
 	$catArray = [
 		array(
@@ -142,12 +143,17 @@
 	          </div>
 					<?php } ?>
         </div>
+
+				<div class="row">
+					<a id="next" href="index.php?pag=1" class="btn btn-success btn-block">Ver mas</a>
+				</div>
       </div>
     </div>
   </div>
 
 	<script src="libs/jquery-1.9.1.min.js"></script>
 	<script src="libs/owl.carousel.js"></script>
+	<script src="libs/jquery.jscroll.min.js"></script>
 	<script src="js/main.js"></script>
 
   <?php include("includes/footer.php"); ?>
