@@ -1254,15 +1254,15 @@ h6 .small,
 }
 h1,
 .h1 {
-  font-size: 36px;
+  font-size: 24px;
 }
 h2,
 .h2 {
-  font-size: 30px;
+  font-size: 22px;
 }
 h3,
 .h3 {
-  font-size: 24px;
+  font-size: 20px;
 }
 h4,
 .h4 {
@@ -1270,7 +1270,7 @@ h4,
 }
 h5,
 .h5 {
-  font-size: 14px;
+  font-size: 17px;
 }
 h6,
 .h6 {
@@ -4159,6 +4159,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     border-radius: 0px;
   }
 }
+.navbar-header a.navbar-brand {
+  font-size: 36px;
+}
 @media (min-width: 768px) {
   .navbar-header {
     float: left;
@@ -4267,6 +4270,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand > img {
   display: block;
+}
+.navbar-brand a {
+  font-size: 24px;
 }
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand,
@@ -4482,7 +4488,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-brand {
   color: #ff3b28;
-  font-size: 36px;
+  font-size: 24px;
   font-family: 'righteous', arial, sans-serif;
   padding-left: 0px;
 }
@@ -6803,7 +6809,6 @@ a {
   padding: 6px 16px;
 }
 .navbar-categories li .category {
-  font-family: 'ptsansregular', arial, sans-serif;
   color: #d3dce0;
 }
 .navbar-categories li .category span {

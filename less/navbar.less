@@ -29,6 +29,11 @@
 // styling of responsive aspects.
 
 .navbar-header {
+
+  a.navbar-brand {
+    font-size: @font-size-h1 + 12px;
+  }
+
   &:extend(.clearfix all);
 
   @media (min-width: @grid-float-breakpoint) {
@@ -174,6 +179,10 @@
 
   > img {
     display: block;
+  }
+
+  a {
+    font-size: @font-size-h1;
   }
 
   @media (min-width: @grid-float-breakpoint) {

@@ -120,7 +120,7 @@
 
         <div class="row">
           <div class="col-md-12 row">
-            <h3>Productos destacados</h3>
+            <h1>Productos destacados</h1>
           </div>
         </div>
 
