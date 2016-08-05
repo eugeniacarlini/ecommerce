@@ -32,6 +32,16 @@ Custom styles
        url('../fonts/roboto/regular/RobotoCondensedRegular.svg#RobotoCondensedRegular') format('svg');
 }
 
+@font-face {
+  font-family: 'ptsansregular';
+  src: url('../fonts/pt-sans/regular/ptsansregular.eot');
+  src: url('../fonts/pt-sans/regular/ptsansregular.eot') format('embedded-opentype'),
+       url('../fonts/pt-sans/regular/ptsansregular.woff2') format('woff2'),
+       url('../fonts/pt-sans/regular/ptsansregular.woff') format('woff'),
+       url('../fonts/pt-sans/regular/ptsansregular.ttf') format('truetype'),
+       url('../fonts/pt-sans/regular/ptsansregular.svg#ptsansregular') format('svg');
+}
+
 h1, h2, h3, h4, h5, h6, p, span {
    margin: 0;
 }
@@ -80,7 +90,7 @@ a {
     padding: @padding-base-vertical @padding-large-horizontal;
 
     .category {
-      font-family: 'roboto-light', arial, sans-serif;
+      font-family: 'ptsansregular', arial, sans-serif;
       color: #d3dce0;
 
       span {

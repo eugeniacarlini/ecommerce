@@ -1071,7 +1071,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "roboto-regular", Helvetica, Arial, sans-serif;
+  font-family: "ptsansregular", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
@@ -5971,7 +5971,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "roboto-regular", Helvetica, Arial, sans-serif;
+  font-family: "ptsansregular", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6089,7 +6089,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "roboto-regular", Helvetica, Arial, sans-serif;
+  font-family: "ptsansregular", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6750,6 +6750,11 @@ Custom styles
   src: url('../fonts/roboto/regular/RobotoCondensedRegular.eot');
   src: url('../fonts/roboto/regular/RobotoCondensedRegular.eot') format('embedded-opentype'), url('../fonts/roboto/regular/RobotoCondensedRegular.woff2') format('woff2'), url('../fonts/roboto/regular/RobotoCondensedRegular.woff') format('woff'), url('../fonts/roboto/regular/RobotoCondensedRegular.ttf') format('truetype'), url('../fonts/roboto/regular/RobotoCondensedRegular.svg#RobotoCondensedRegular') format('svg');
 }
+@font-face {
+  font-family: 'ptsansregular';
+  src: url('../fonts/pt-sans/regular/ptsansregular.eot');
+  src: url('../fonts/pt-sans/regular/ptsansregular.eot') format('embedded-opentype'), url('../fonts/pt-sans/regular/ptsansregular.woff2') format('woff2'), url('../fonts/pt-sans/regular/ptsansregular.woff') format('woff'), url('../fonts/pt-sans/regular/ptsansregular.ttf') format('truetype'), url('../fonts/pt-sans/regular/ptsansregular.svg#ptsansregular') format('svg');
+}
 h1,
 h2,
 h3,
@@ -6798,7 +6803,7 @@ a {
   padding: 6px 16px;
 }
 .navbar-categories li .category {
-  font-family: 'roboto-light', arial, sans-serif;
+  font-family: 'ptsansregular', arial, sans-serif;
   color: #d3dce0;
 }
 .navbar-categories li .category span {
