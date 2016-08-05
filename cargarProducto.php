@@ -87,7 +87,6 @@ else
           <div class="form-group">
             <label for="descripcion">Descripción</label>
 						<textarea class="form-control" id="descripcion" name="descripcion" rows="4" cols="40" placeholder="Máximo 200 caracteres"></textarea>
-            <!-- <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $pDescripcion ?>" /> -->
           </div>
           <div class="form-group">
             <label for="precio">Precio</label>

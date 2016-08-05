@@ -1,21 +1,9 @@
 <?php
 require_once("soporte.php");
-//$usuarioActivo = getUsuarioLogueado();
+$usuarioActivo = getUsuarioLogueado();
+$usuarioAVer = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
 
-$dirname = "uploads/avatars/";
-$products = glob($dirname . "*.*");
-
-// if (!$auth->estaLogueado())
-// {
-// header("location:index.php");exit;
-// }
-// if (!isset($_GET["idUser"]))
-// {
-// header("location:index.php");exit;
-//}
-//$usuarioAVer = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
-
-$imagen = glob($dirname . "*.*");
+$imagen = glob('uploads/avatars/' . "*.*");
 
 // $usuarioLogueado = getUsuarioLogueado();
 //
@@ -75,13 +63,16 @@ $imagen = glob($dirname . "*.*");
 							</div>
 							<div class="form-group">
 								<a href="verPerfil.php" title="Volver" class="btn btn-default">Volver</a>
-								<button type="button" name="button" class="btn btn-success">Guardar cambios</button>
+								<input type="submit" name="guardar-cambios" value="Guardar cambios" class="btn btn-success">
+								<input type="submit" name="borrar-perfil" value="Borrar perfil" class="btn btn-danger pull-right">
 							</div>
 						</div>
 						<div class="col-md-5">
-							<div class="form-group">
-								<img class="img-rounded center-block" src="<?php echo $imagen[0] ?>" alt="" />
-								<input type="file" id="imagen" name="imagen" class="center-block" />
+							<div class="form-group text-center">
+								<img class="img-rounded" src="<?php echo $imagen[0] ?>" alt="" />
+								<label class="btn btn-default">
+									Elige una imagen<input type="file" id="imagen" name="imagen" style="display: none;">
+								</label>
 							</div>
 						</div>
 					</div>

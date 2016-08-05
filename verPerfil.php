@@ -34,12 +34,11 @@
           </div>
         <?php } ?>
 				<img class="img-rounded center-block" src="<?php echo $imagen[0] ?>" alt="" />
-				<input type="file" id="imagen" name="imagen" class="center-block" />
 				<p><?php echo $usuarioPerfil->getNombre() ?></p>
 				<p><?php echo $usuarioPerfil->getApellido() ?></p>
 				<p><?php echo $usuarioPerfil->getMail() ?></p>
-				<a href="editarPerfil.php" title="Editar perfil" class="btn btn-success btn-block">Editar perfil</a>
-				<a href="index.php" title="Volver" class="btn btn-default btn-block">Volver</a>
+				<a href="index.php" title="Volver" class="btn btn-default">Volver</a>
+				<a href="editarPerfil.php" title="Editar perfil" class="btn btn-success">Editar perfil</a>
       </form>
     </div>
   </div>

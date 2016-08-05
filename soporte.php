@@ -32,7 +32,7 @@ function usuarioValido($mail, $pass)
 			return true;
 		}
 	}
-	
+
 	return false;
 }
 
