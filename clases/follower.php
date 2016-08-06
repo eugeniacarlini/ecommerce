@@ -14,8 +14,8 @@ class Follower
     $this->id = array_key_exists("id", $miUsuario) ? $miUsuario["id"] : null;
     $auth = Auth::getInstance();
     $usuarioLogueado = $auth->getUsuarioLogueado();
-    $this->id_follower = $usuarioLogueado->getId();
-    $this->id_following =
+    // $this->id_follower = $usuarioLogueado->getId();
+    // $this->id_following =
   }
 
   public function getId_Follower()

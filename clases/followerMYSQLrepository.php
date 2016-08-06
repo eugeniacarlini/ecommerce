@@ -1,8 +1,8 @@
 <?php
-require_once "soporte.php"
-
-
-class FollowerMYSQLrepository extends {
+require_once ("soporte.php");
+require_once ("spectsProduct.php");
+require_once("follower.php?>");
+class FollowerMYSQLrepository {
 
 	private $miConexion;
 
@@ -33,10 +33,8 @@ public function guardarFollower(Follower $follower)
     $stmt = $this->miConexion->prepare("INSERT INTO user_follow (id, follower, following) values (:id, :follower, :following)");
   }
 
-  $stmt->bindValue(":id", $follower->());
-  $stmt->bindValue(":follower", $follower->());
-  $stmt->bindValue(":following", $follower->());
-
-
+  $stmt->bindValue(":id", $follower->getId());
+  // $stmt->bindValue(":follower", $follower->());
+  // $stmt->bindValue(":following", $follower->());
   $stmt->execute();
 }

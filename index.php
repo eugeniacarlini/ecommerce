@@ -4,6 +4,8 @@
 	$products = glob($dirname . "*.*");
 	$todosLosProductos = $repositorio->getProductRepository()->getAllProducts();
 
+	$formatos = ['.jpg', '.png'];
+
 	$catArray = [
 		array(
 		'title' => 'Abstracto',
@@ -129,8 +131,10 @@
 	          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 	            <article class="thumbnail text-center">
                 <li>
-                  <a href="specsProduct.php" title="">
-										<img src="uploads/products/<?php echo $producto->getID() . '.jpg' ?>" />
+                  <a href="specsProduct.php?id=<?php echo $producto->getID() ?>">
+										<?php foreach ($formatos as $formato): ?>
+											<img src="uploads/products/<?php echo $producto->getID() . $formato ?>" />
+										<?php endforeach; ?>
                     <div class="caption">
                       <h3><?php echo $producto->getTitulo() ?></h3>
                       <h4><?php //echo $producto->getAutor() ?></h4>
