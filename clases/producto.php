@@ -67,7 +67,6 @@ class Producto {
       return $this->precio = $precio;
     }
 
-
     public function setCategoria($categoria)
     {
       return $this->categoria = $categoria;
@@ -88,6 +87,8 @@ class Producto {
       if ($_FILES["imagen-producto"]["error"] == UPLOAD_ERR_OK)
       {
         $tmp_producto = $_FILES["imagen-producto"]["tmp_name"];
+        $path = $_FILES["imagen-producto"]["name"];
+
         $ext = pathinfo($path, PATHINFO_EXTENSION);
 
         $miArchivo = dirname(__FILE__) . '/../uploads/products/';
@@ -96,4 +97,16 @@ class Producto {
         move_uploaded_file($tmp_producto, $miArchivo);
       }
     }
+
+    // public function getExtension()
+    // {
+    //   if ($extension === '.jpg')
+    //   {
+    //     return $this->extension = $extension;
+    //   }
+    //   elseif ($extension === '.png')
+    //   {
+    //     return $this->extension = $extension;
+    //   }
+    // }
 }

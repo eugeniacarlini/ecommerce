@@ -1,5 +1,4 @@
 <?php
-
 require_once("mySQLRepository.php");
 require_once("producto.php");
 require_once("productRepository.php");
@@ -48,7 +47,6 @@ class ProductMySQLRepository extends ProductRepository {
 		}
 	}
 
-
 	private function arrayToProducto(Array $miProducto) {
 		return new Producto($miProducto);
 	}
@@ -68,7 +66,7 @@ class ProductMySQLRepository extends ProductRepository {
 			return null;
 		}
 
-		return $this->arrayToProduct($productoArray);
+		return $this->arrayToProducto($productoArray);
 	}
 
 	public function getAllproducts()
@@ -93,4 +91,16 @@ class ProductMySQLRepository extends ProductRepository {
 		return $productos;
 	}
 
+	public function mostrarCategoria($categoria)
+	{
+		$stmt = $this->miConexion->prepare("SELECT * FROM producto WHERE categoria = :categoria");
+
+		$stmt->bindValue(":categoria", $categoria);
+
+		$stmt->execute();
+
+		$productosArray = $stmt->fetchAll();
+
+		return $this->muchosArraysAMuchosProductos($productosArray);
+	}
 }

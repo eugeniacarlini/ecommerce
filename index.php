@@ -1,73 +1,16 @@
 <?php
 	require_once("soporte.php");
- 	$dirname = "uploads/products/";
-	$products = glob($dirname . "*.*");
+	require_once("clases/producto.php");
+
+ 	$dirname = "uploads/products/*";
+	$products = glob("$dirname" . ".{jpg,png}", GLOB_BRACE);
+
 	$todosLosProductos = $repositorio->getProductRepository()->getAllProducts();
 
-	$formatos = ['.jpg', '.png'];
+	// $extensionRemera = $producto->getExtension();
 
-	$catArray = [
-		array(
-		'title' => 'Abstracto',
-		'icon' => 'asterisk'
-	),
-	array(
-		'title' => 'Animales',
-		'icon' => 'cloud'
-	),
-	array(
-		'title' => 'Bicicletas',
-		'icon' => 'pencil'
-	),
-	array(
-		'title' => 'Comics',
-		'icon' => 'glass'
-	),
-	array(
-		'title' => 'Creatividad',
-		'icon' => 'music'
-	),
-	array(
-		'title' => 'Fantasía',
-		'icon' => 'search'
-	),
-	array(
-		'title' => 'Películas',
-		'icon' => 'heart'
-	),
-	array(
-		'title' => 'Comidas',
-		'icon' => 'star'
-	),
-	array(
-		'title' => 'Diversión',
-		'icon' => 'user'
-	),
-	array(
-		'title' => 'Juegos',
-		'icon' => 'off'
-	),
-	array(
-		'title' => 'Música',
-		'icon' => 'signal'
-	),
-	array(
-		'title' => 'Naturaleza',
-		'icon' => 'cog'
-	),
-	array(
-		'title' => 'Patrones',
-		'icon' => 'home'
-	),
-	array(
-		'title' => 'Deportes',
-		'icon' => 'flag'
-	),
-	array(
-		'title' => 'Tipografía',
-		'icon' => 'headphones'
-	)
-];
+
+	include('includes/categories.php');
 
 	if (estaLogueado())
 	{
@@ -86,7 +29,7 @@
           <ul>
             <?php foreach ($catArray as $categoria) { ?>
       				<li>
-                <a class="category" href="#" title="<?php echo $categoria['title'] ?>">
+                <a class="category" href="categoryProduct.php?id=<?php echo $categoria['title'] ?>" title="<?php echo $categoria['title'] ?>">
 									<span class='glyphicon glyphicon-<?php echo $categoria['icon'] ?>' aria-hidden="true"></span>
 									<?php echo $categoria['title'] ?>
 								</a>
@@ -132,9 +75,7 @@
 	            <article class="thumbnail text-center">
                 <li>
                   <a href="specsProduct.php?id=<?php echo $producto->getID() ?>">
-										<?php foreach ($formatos as $formato): ?>
-											<img src="uploads/products/<?php echo $producto->getID() . $formato ?>" />
-										<?php endforeach; ?>
+										<img src="uploads/products/<?php echo $producto->getID() . '.jpg' ?>" />
                     <div class="caption">
                       <h3><?php echo $producto->getTitulo() ?></h3>
                       <h4><?php //echo $producto->getAutor() ?></h4>

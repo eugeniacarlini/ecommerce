@@ -43,15 +43,15 @@
 
 		// Si no hay errores....
 		if (empty($erroresProduct))
-				{
-					$productoArr = $_POST;
-					$producto = new Producto($_POST);
+		{
+			$productoArr = $_POST;
+			$producto = new Producto($_POST);
 
-					$repositorio->getProductRepository()->guardarProducto($producto);
-					$producto->guardarImagenProducto($producto);
-					//redir
-					header("location:index.php");exit;
-				}
+			$repositorio->getProductRepository()->guardarProducto($producto);
+			$producto->guardarImagenProducto($producto);
+			//redir
+			header("location:index.php");exit;
+		}
 		}
 ?>
 
