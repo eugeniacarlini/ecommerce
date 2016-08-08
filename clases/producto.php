@@ -92,7 +92,8 @@ class Producto {
         $ext = pathinfo($path, PATHINFO_EXTENSION);
 
         $miArchivo = dirname(__FILE__) . '/../uploads/products/';
-        $miArchivo = $miArchivo . $this->getId() . "." . $ext;
+        $miArchivo = $miArchivo . $this->getId() . ".". $ext;
+        //var_dump($miArchivo);exit;
 
         move_uploaded_file($tmp_producto, $miArchivo);
       }

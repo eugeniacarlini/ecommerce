@@ -7,7 +7,7 @@
 		//$miProducto = getProductsById($_GET["id"]);
 
   $dirname = "uploads/products/";
-  $products = glob($dirname . "*.*");
+  //$products = glob($dirname . "*.*");
 
 	if (estaLogueado())
 	{
