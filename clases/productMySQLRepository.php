@@ -51,7 +51,7 @@ class ProductMySQLRepository extends ProductRepository {
 		return new Producto($miProducto);
 	}
 
-  public static function getProductoById($id)
+  public function getProductoById($id)
 	{
 		$stmt = $this->miConexion->prepare("SELECT * from producto where id = :id");
 

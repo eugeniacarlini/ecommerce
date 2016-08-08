@@ -4,7 +4,7 @@
   require_once("clases/productMySQLRepository.php");
 	//require_once('clases/followerMYSQLrepository.php');
 	$usuarioActivo = getUsuarioLogueado();
-		//$miProducto = getProductsById($_GET["id"]);
+	$miProducto = $repositorio->getProductRepository()->getProductoById($_GET["id"]);
 
   $dirname = "uploads/products/";
   //$products = glob($dirname . "*.*");
@@ -32,11 +32,11 @@
         <div class="col-md-7">
 					<div class="product-description">
             <h1 class="title">
-							<?php echo $miProducto->getTitulo() ?>
+							<?php echo $miProducto->getTitulo().'!!' ?>
 							Great Outdoors
 						</h1>
 						<h3 class="description">Diseñado por
-							<a href="#perfil-usuario"><?php echo $miProducto->getUsuario() ?></a>
+							<a href="#perfil-usuario"><?php echo $miProducto->getIdUsuario() ?></a>
 						</h3>
             <h5 class="price">
             	<?php echo $miProducto->getPrecio() ?>
