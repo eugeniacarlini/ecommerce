@@ -3,11 +3,9 @@
   require_once("clases/producto.php");
   require_once("clases/productMySQLRepository.php");
 	//require_once('clases/followerMYSQLrepository.php');
+	require_once('clases/follower.php');
 	$usuarioActivo = getUsuarioLogueado();
 	$miProducto = $repositorio->getProductRepository()->getProductoById($_GET["id"]);
-
-  $dirname = "uploads/products/";
-  //$products = glob($dirname . "*.*");
 
 	if (estaLogueado())
 	{
@@ -45,12 +43,14 @@
             <button type="button" class="btn btn-success btn-lg">Comprar</button>
 
 						<form action="" method="post">
-							<input type="hidden" class="form-control" id="id-usuario" name="id-usuario" value="<?php echo $usuarioActivo->getId()?>" />
-							<input type="submit" name="follow" value="Follow">
+							<input type="text" class="form-control" id="id-usuario" name="id-follower" value="<?php echo $usuarioActivo->getId()?>" />
+							<input type="text" name="id-following" value="<?php echo $miProducto->getIdUsuario()?>">
+							<button type="submit" name="button">Follow</button>
 							<?php
-							// $producto = new Follower($_POST);
-							//
-							// $repositorio->followerMYSQLrepository->guardarFollower($follower);
+							// var_dump($_POST);exit;
+								// $follower = new Follower($_POST);
+								// var_dump($follower);exit;
+								// $repositorio->followerMYSQLrepository->guardarFollower($follower);
 
 							?>
 						</form>

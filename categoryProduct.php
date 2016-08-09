@@ -4,6 +4,9 @@
 	$products = glob($dirname . "*.*");
   $todosLosProductos = $repositorio->getProductRepository()->mostrarCategoria($_GET['id']);
 
+
+
+
 	include('includes/categories.php');
 
 	if (estaLogueado())
@@ -67,7 +70,7 @@
             <article class="thumbnail text-center">
               <li>
                 <a href="specsProduct.php?id=<?php echo $producto->getID() ?>">
-									<img src="uploads/products/<?php echo $producto->getID() . '.png' ?>" />
+									<img src="uploads/products/<?php echo $producto->getID() . '.jpg' ?>" />
                   <div class="caption">
                     <h3><?php echo $producto->getTitulo() ?></h3>
                     <h4><?php //echo $producto->getAutor() ?></h4>

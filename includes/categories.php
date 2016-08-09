@@ -2,7 +2,7 @@
 
 $catArray = [
   array(
-  'title' => 'Abstracto',
+  'title' => 'Abstractas',
   'icon' => 'asterisk'
 ),
 array(

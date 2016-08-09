@@ -33,8 +33,8 @@ public function guardarFollower(Follower $follower)
     $stmt = $this->miConexion->prepare("INSERT INTO user_follow (id, follower, following) values (:id, :follower, :following)");
   }
 
-  $stmt->bindValue(":id", $follower->getId());
-  // $stmt->bindValue(":follower", $follower->());
-  // $stmt->bindValue(":following", $follower->());
+
+  $stmt->bindValue(":follower", $follower->get());
+  $stmt->bindValue(":following", $follower->());
   $stmt->execute();
 }

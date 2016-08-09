@@ -99,15 +99,18 @@ class Producto {
       }
     }
 
-    // public function getExtension()
-    // {
-    //   if ($extension === '.jpg')
-    //   {
-    //     return $this->extension = $extension;
-    //   }
-    //   elseif ($extension === '.png')
-    //   {
-    //     return $this->extension = $extension;
-    //   }
-    // }
+    public function getExtension()
+    {
+      $name = $this->getId();
+      $matching = glob("uploads/products/" . $name . ".*");
+
+      $info = pathinfo($matching[0]);
+      $ext = $info['extension'];
+      return $ext;
+    }
+
+    public function getURLImagen()
+    {
+      return "uploads/products/" . $this->getId() . "." . $this->getExtension();
+    }
 }
