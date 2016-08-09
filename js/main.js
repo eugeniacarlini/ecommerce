@@ -5,3 +5,9 @@ $("#owl-demo").owlCarousel({
   singleItem : true,
   autoPlay   : true
 });
+
+$("#product-hightlights").owlCarousel({
+  items : 4,
+  lazyLoad : true,
+  navigation : true
+});

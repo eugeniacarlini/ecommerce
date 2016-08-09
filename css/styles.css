@@ -1121,7 +1121,7 @@ img {
   padding: 10px;
   line-height: 1.42857143;
   background-color: #ffffff;
-  border: 1px solid #ffffff;
+  border: 1px solid #ff3b28;
   border-radius: 0px;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -4997,13 +4997,17 @@ a.badge:focus {
 .thumbnail {
   display: block;
   margin: 20px 0;
+  padding: 20px 0;
   line-height: 1.42857143;
   background-color: #ffffff;
-  border: 1px solid #ffffff;
+  border: 1px solid transparent;
   border-radius: 0px;
   -webkit-transition: border 0.2s ease-in-out;
   -o-transition: border 0.2s ease-in-out;
   transition: border 0.2s ease-in-out;
+}
+.thumbnail:hover {
+  border: 1px solid #ff3b28;
 }
 .thumbnail > img,
 .thumbnail a > img {
