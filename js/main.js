@@ -9,5 +9,6 @@ $("#owl-demo").owlCarousel({
 $("#product-hightlights").owlCarousel({
   items : 4,
   lazyLoad : true,
-  navigation : true
+  navigation : true,
+  pagination: false
 });

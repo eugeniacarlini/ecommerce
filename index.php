@@ -88,7 +88,7 @@
 
 				<div class="product-row padding-row row">
 					<div class="col-md-12">
-							<div id="product-hightlights" class="owl-carousel">
+							<div id="product-hightlights" class="owl-carousel owl-theme">
 								<?php foreach ($todosLosProductos as $producto) { ?>
 									<article class="item thumbnail text-center">
 										<a href="specsProduct.php?id=<?php echo $producto->getID() ?>	">

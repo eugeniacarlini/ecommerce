@@ -4996,7 +4996,7 @@ a.badge:focus {
 }
 .thumbnail {
   display: block;
-  margin: 20px 0;
+  margin: 0;
   padding: 20px 0;
   line-height: 1.42857143;
   background-color: #ffffff;
@@ -6835,6 +6835,9 @@ a {
   display: block;
   max-width: 100%;
   height: auto;
+}
+#owl-demo .item {
+  margin: 3px;
 }
 .product-image,
 .product-description {
