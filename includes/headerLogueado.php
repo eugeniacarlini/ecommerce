@@ -1,5 +1,6 @@
 <?php
 	$usuario = getUsuarioLogueado();
+	$imagen = glob('uploads/avatars/' . "*.*");
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +56,8 @@
           <ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								Hola, <?php echo $usuario->getNombre() ?> <span class="caret"></span>
+								<img class="avatar img-circle" src="<?php echo $imagen[0] ?>" alt="Avatar" />
+								<?php echo $usuario->getNombre() ?> <span class="caret"></span>
 							</a>
 		          <ul class="dropdown-menu">
 		            <li><a href="verPerfil.php">Mi perfil</a></li>

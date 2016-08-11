@@ -26,7 +26,6 @@ class ProductMySQLRepository extends ProductRepository {
 			}
 
 			$stmt->bindValue(":id", $miProducto->getId());
-
 		}
 		else
 		{

@@ -6,7 +6,7 @@ $("#owl-demo").owlCarousel({
   autoPlay   : true
 });
 
-$("#product-hightlights").owlCarousel({
+$("#products-highlights").owlCarousel({
   items : 4,
   lazyLoad : true,
   navigation : true,
