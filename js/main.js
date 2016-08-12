@@ -12,3 +12,8 @@ $("#products-highlights").owlCarousel({
   navigation : true,
   pagination: false
 });
+
+$('.selectpicker').selectpicker({
+  style: 'btn-info',
+  size: 4
+});

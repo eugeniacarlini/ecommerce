@@ -40,13 +40,11 @@ class Validar {
         if ($miUsuario["mail"] == "" )
         {
             $errores[] = "Por favor complete el email";
-        } elseif (!filter_var($miUsuario["mail"], FILTER_VALIDATE_EMAIL))
+        }
+        elseif (!filter_var($miUsuario["mail"], FILTER_VALIDATE_EMAIL))
         {
             $errores[] = "Por favor introduzca un email válido";
         }
-
-
-
         if (trim($miUsuario["password"]) == "")
         {
             $errores[] = "Por favor complete la contraseña";
@@ -70,6 +68,36 @@ class Validar {
         return $errores;
     }
 
+    public function validarEditarUsuario($miUsuario)
+    {
+      $errores = [];
+
+      if (trim($miUsuario["nombre"]) == "")
+      {
+          $errores[] = "Por favor complete el nombre";
+      }
+      if (trim($miUsuario["apellido"]) == "")
+      {
+          $errores[] = "Por favor complete el apellido";
+      }
+      if ($miUsuario["mail"] == "" )
+      {
+          $errores[] = "Por favor complete el email";
+      } elseif (!filter_var($miUsuario["mail"], FILTER_VALIDATE_EMAIL))
+      {
+          $errores[] = "Por favor introduzca un email válido";
+      }
+      if (in_array($miUsuario["sexo"], array("", "Femenino", "Masculino")) == "")
+      {
+          $errores[] = "Por favor elija un sexo";
+      }
+      // if ($this->userRepository->existeElMail($miUsuario["mail"]))
+      // {
+      //     $errores[] = "Usuario ya registrado";
+      // }
+      return $errores;
+    }
+
     public function validarLogin()
     {
       $errores = [];
@@ -88,6 +116,7 @@ class Validar {
 
       return $errores;
     }
+
 
     public function validarProducto($miProducto)
     {

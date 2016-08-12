@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sticky - Comprá, publicá y vendé tu remera</title>
   <link rel="stylesheet" href="libs/bootstrap.min.css" >
+  <link rel="stylesheet" href="libs/bootstrap-select.min.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
 

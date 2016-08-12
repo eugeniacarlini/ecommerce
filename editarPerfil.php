@@ -5,24 +5,29 @@ $usuarioAVer = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo-
 
 $imagen = glob('uploads/avatars/' . "*.*");
 
-// $usuarioLogueado = getUsuarioLogueado();
-//
-// $pNombre = $usuarioLogueado["nombre"];
-// $pApellido = $usuarioLogueado["apellido"];
-// $pMail = $usuarioLogueado["mail"];
+if ($_POST)
+{
+	$errores = $validar->validarEditarUsuario($_POST);
 
-// if ($usuarioLogueado["id"] != $_GET["idUser"]) {
-// 	enviarAFelicidad();
-// }
+	if (empty($errores))
+	{
+		$miUsuario = $_POST;
+		$usuario = new Usuario($_POST);
+		// var_dump($usuario);exit;
+		// Editar datos del perfil del usuario en la BDD
+		$repositorio->getUserRepository()->editarUsuario($usuario);
+		header("location:index.php");exit;
+	}
+}
 
-	if (estaLogueado())
-	{
-		include("includes/headerLogueado.php");
-	}
-	else
-	{
-		include("includes/headerNoLogueado.php");
-	}
+if (estaLogueado())
+{
+	include("includes/headerLogueado.php");
+}
+else
+{
+	include("includes/headerNoLogueado.php");
+}
 ?>
 
 <div class="container">
@@ -54,6 +59,10 @@ $imagen = glob('uploads/avatars/' . "*.*");
 							<div class="form-group">
 								<label for="mail">Email</label>
 								<input type="email" class="form-control" id="mail" name="mail" value="<?php echo $usuarioAVer->getMail() ?>" />
+							</div>
+							<div class="form-group">
+								<label for="password">Contraseña</label>
+								<input type="password" class="form-control" id="password" name="password" />
 							</div>
 							<div class="form-group">
 								<label for="sexo">Sexo</label>

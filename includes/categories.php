@@ -63,4 +63,6 @@ array(
 )
 ];
 
+sort($catArray);
+
 ?>

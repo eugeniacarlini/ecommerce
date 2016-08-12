@@ -12,6 +12,7 @@
   <title>Sticky - Comprá, publicá y vendé tu remera</title>
   <link rel="stylesheet" href="libs/bootstrap.min.css" >
   <link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="libs/bootstrap-select.min.css">
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
 
 	<link href="libs/owl.carousel.css" rel="stylesheet">

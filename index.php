@@ -23,20 +23,7 @@
 <div class="container">
     <div class="row">
 
-      <div class="col-xs-12 col-sm-12 col-md-2">
-        <aside class="navbar-categories">
-          <ul>
-            <?php foreach ($catArray as $categoria) { ?>
-      				<li>
-                <a class="category" href="categoryProduct.php?id=<?php echo $categoria['title'] ?>" title="<?php echo $categoria['title'] ?>">
-									<span class='glyphicon glyphicon-<?php echo $categoria['icon'] ?>' aria-hidden="true"></span>
-									<?php echo $categoria['title'] ?>
-								</a>
-      				</li>
-      			<?php } ?>
-          </ul>
-        </aside>
-      </div>
+			<?php include('includes/menu-categorias.php'); ?>
 
       <div class="col-xs-12 col-sm-12 col-md-10">
 				<div id="demo">
@@ -81,12 +68,14 @@
 						</div>
 					</div>
 				</div>
+
       </div>
 
     </div>
   </div>
 
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="libs/jquery-1.9.1.min.js"></script>
+	<script src="libs/bootstrap-select.min.js"></script>
 	<script src="libs/owl.carousel.js"></script>
 	<script src="js/main.js"></script>
 
