@@ -9,6 +9,7 @@ class Producto {
     private $categoria;
     private $descripcion;
     private $idUsuario;
+    private $fechaPublicacion;
 
     public function __construct(Array $miproducto)
     {
@@ -19,6 +20,7 @@ class Producto {
       $this->precio = $miproducto["precio"];
       $this->categoria = $miproducto["categoria"];
       $this->descripcion = $miproducto["descripcion"];
+      $this->fechaPublicacion = $miproducto["fechaPublicacion"];
       $this->idUsuario = array_key_exists("idUsuario", $miproducto) ? $miproducto["idUsuario"]: $usuarioLogueado->getId();
     }
 
@@ -52,6 +54,11 @@ class Producto {
       return $this->idUsuario;
     }
 
+    public function getFechaPublicacion()
+    {
+      return $this->fechaPublicacion;
+    }
+
     public function setID($id)
     {
       return $this->id = $id;
@@ -82,6 +89,11 @@ class Producto {
       return $this->idUsuario = $idUsuario;
     }
 
+    public function setFechaPublicacion($fechaPublicacion)
+    {
+      return $this->fechaPublicacion = $fechaPublicacion;
+    }
+
     public function guardarImagenProducto()
     {
       if ($_FILES["imagen-producto"]["error"] == UPLOAD_ERR_OK)
@@ -93,7 +105,6 @@ class Producto {
 
         $miArchivo = dirname(__FILE__) . '/../uploads/products/';
         $miArchivo = $miArchivo . $this->getId() . ".". $ext;
-        //var_dump($miArchivo);exit;
 
         move_uploaded_file($tmp_producto, $miArchivo);
       }

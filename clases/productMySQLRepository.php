@@ -18,18 +18,18 @@ class ProductMySQLRepository extends ProductRepository {
 		{
 			if ($this->getProductoById($miProducto->getId()))
 			{
-				$stmt = $this->miConexion->prepare("UPDATE producto SET titulo = :titulo, precio = :precio, categoria = :categoria, descripcion = :descripcion, idUsuario = :idUsuario WHERE id = :id");
+				$stmt = $this->miConexion->prepare("UPDATE producto SET titulo = :titulo, precio = :precio, categoria = :categoria, descripcion = :descripcion, idUsuario = :idUsuario, fechaPublicacion = :fechaPublicacion WHERE id = :id");
 			}
 			else
 			{
-				$stmt = $this->miConexion->prepare("INSERT INTO producto (id, titulo, precio, categoria, descripcion) values , idUsuario(:id, :titulo, :precio, :categoria, :descripcion, idUsuario = :idUsuario)");
+				$stmt = $this->miConexion->prepare("INSERT INTO producto (id, titulo, precio, categoria, descripcion) values , idUsuario(:id, :titulo, :precio, :categoria, :descripcion, idUsuario = :idUsuario, fechaPublicacion = :fechaPublicacion)");
 			}
 
 			$stmt->bindValue(":id", $miProducto->getId());
 		}
 		else
 		{
-			$stmt = $this->miConexion->prepare("INSERT INTO producto (titulo, precio, categoria, descripcion, idUsuario) values (:titulo, :precio, :categoria, :descripcion, :idUsuario)");
+			$stmt = $this->miConexion->prepare("INSERT INTO producto (titulo, precio, categoria, descripcion, idUsuario, fechaPublicacion) values (:titulo, :precio, :categoria, :descripcion, :idUsuario, :fechaPublicacion)");
 		}
 
 		$stmt->bindValue(":titulo", $miProducto->getTitulo());
@@ -37,6 +37,7 @@ class ProductMySQLRepository extends ProductRepository {
 		$stmt->bindValue(":categoria", $miProducto->getCategoria());
 		$stmt->bindValue(":descripcion", $miProducto->getDescripcion());
 		$stmt->bindValue(":idUsuario", $miProducto->getIdUsuario());
+		$stmt->bindValue(":fechaPublicacion", $miProducto->getFechaPublicacion());
 
 		$stmt->execute();
 
@@ -44,6 +45,7 @@ class ProductMySQLRepository extends ProductRepository {
 		{
 			$miProducto->setId($this->miConexion->lastInsertId());
 		}
+
 	}
 
 	private function arrayToProducto(Array $miProducto) {
@@ -70,7 +72,7 @@ class ProductMySQLRepository extends ProductRepository {
 
 	public function getAllproducts()
 	{
-		$stmt = $this->miConexion->prepare("SELECT * from producto");
+		$stmt = $this->miConexion->prepare("SELECT * from producto ORDER BY fechaPublicacion DESC");
 
 		$stmt->execute();
 

@@ -3,6 +3,8 @@
 	require_once("clases/producto.php");
 	require_once("clases/validar.php");
 
+	$date = date("Y-m-d H:i:s");
+
 	$pTitulo = "";
 	$pDescripcion = "";
 	$pPrice = "";
@@ -69,6 +71,7 @@ else
       <div class="col-md-offset-3 col-md-5">
         <h1>Cargar producto</h1>
         <form class="register-form" action="" method="post" enctype="multipart/form-data">
+					<input type="text" name="fechaPublicacion" value="<?php echo $date;	?>">
           <?php if (!empty($errores)) { ?>
             <div class="alert alert-danger" role="alert">
               <ul>
