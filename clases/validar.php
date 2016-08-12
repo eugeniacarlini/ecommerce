@@ -91,6 +91,7 @@ class Validar {
       {
           $errores[] = "Por favor elija un sexo";
       }
+      // Esto debería validarse desde la BDD, no desde acá, porque es menos seguro.
       // if ($this->userRepository->existeElMail($miUsuario["mail"]))
       // {
       //     $errores[] = "Usuario ya registrado";

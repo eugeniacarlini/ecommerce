@@ -22,11 +22,11 @@ array(
   'icon' => 'music'
 ),
 array(
-  'title' => 'Fantasía',
+  'title' => 'Fantasia',
   'icon' => 'search'
 ),
 array(
-  'title' => 'Películas',
+  'title' => 'Peliculas',
   'icon' => 'heart'
 ),
 array(
@@ -34,7 +34,7 @@ array(
   'icon' => 'star'
 ),
 array(
-  'title' => 'Diversión',
+  'title' => 'Diversion',
   'icon' => 'user'
 ),
 array(
@@ -42,7 +42,7 @@ array(
   'icon' => 'off'
 ),
 array(
-  'title' => 'Música',
+  'title' => 'Musica',
   'icon' => 'signal'
 ),
 array(
@@ -58,7 +58,7 @@ array(
   'icon' => 'flag'
 ),
 array(
-  'title' => 'Tipografía',
+  'title' => 'Tipografia',
   'icon' => 'headphones'
 )
 ];

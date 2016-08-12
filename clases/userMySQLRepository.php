@@ -32,12 +32,15 @@ class UserMySQLRepository extends UserRepository {
 
 	public function guardarUsuario(Usuario $miUsuario)
 	{
+		// Existe el id del usuario? No, viene null.
 		if ($miUsuario->getId())
 		{
+			// Si existe, quiero obtener el id y guardarlo en this. Acá modifico los datos del perfil.
 			if ($this->getUsuarioById($miUsuario->getId()))
 			{
 				$stmt = $this->miConexion->prepare("UPDATE usuario set nombre = :nombre, apellido = :apellido, mail = :mail, sexo = :sexo, password = :password WHERE id = :id");
 			}
+			// Si no existe, creo un nuevo usuario
 			else
 			{
 				$stmt = $this->miConexion->prepare("INSERT INTO usuario (id, nombre, apellido, sexo, password, mail) values (:id, :nombre, :apellido, :sexo, :password, :mail)");
@@ -55,36 +58,6 @@ class UserMySQLRepository extends UserRepository {
 		$stmt->bindValue(":sexo", $miUsuario->getSexo());
 		$stmt->bindValue(":password", $miUsuario->getPassword());
 		$stmt->bindValue(":mail", $miUsuario->getMail());
-
-		$stmt->execute();
-
-		if ($miUsuario->getId() == null)
-		{
-			$miUsuario->setId($this->miConexion->lastInsertId());
-		}
-	}
-
-	public function editarUsuario(Usuario $miUsuario)
-	{
-		if ($miUsuario->getId())
-		{
-			if ($this->getUsuarioById($miUsuario->getId()))
-			{
-				$stmt = $this->miConexion->prepare("UPDATE usuario set nombre = :nombre, apellido = :apellido, mail = :mail, password = :password, sexo = :sexo, WHERE id = :id");
-			}
-
-			$stmt->bindValue(":id", $miUsuario->getId());
-		}
-		else
-		{
-			$stmt = $this->miConexion->prepare("INSERT INTO usuario (nombre, apellido, mail, password, sexo) values (:nombre, :apellido, :mail, :password, :sexo )");
-		}
-
-		$stmt->bindValue(":nombre", $miUsuario->getNombre());
-		$stmt->bindValue(":apellido", $miUsuario->getApellido());
-		$stmt->bindValue(":mail", $miUsuario->getMail());
-		$stmt->bindValue(":password", $miUsuario->getPassword());
-		$stmt->bindValue(":sexo", $miUsuario->getSexo());
 
 		$stmt->execute();
 

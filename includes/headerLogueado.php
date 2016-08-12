@@ -1,5 +1,6 @@
 <?php
-	$usuario = getUsuarioLogueado();
+	$usuarioActivo = getUsuarioLogueado();
+	$usuarioAVer = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
 	$imagen = glob('uploads/avatars/' . "*.*");
 ?>
 
@@ -58,12 +59,12 @@
 						<li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								<img class="avatar img-circle" src="<?php echo $imagen[0] ?>" alt="Avatar" />
-								<?php echo $usuario->getNombre() ?> <span class="caret"></span>
+								<?php echo $usuarioAVer->getNombre() ?> <span class="caret"></span>
 							</a>
 		          <ul class="dropdown-menu">
-		            <li><a href="verPerfil.php">Mi perfil</a></li>
-		            <li><a href="cargarProducto.php">Subir producto</a></li>
-		            <li><a href="logout.php">Cerrar sesión</a></li>
+		            <li><a href="verPerfil.php" title="Mi perfil">Mi perfil</a></li>
+		            <li><a href="cargarProducto.php" title="Subir producto">Subir producto</a></li>
+		            <li><a href="logout.php" title="Cerrar sesión">Cerrar sesión</a></li>
 		          </ul>
 		        </li>
           </ul>

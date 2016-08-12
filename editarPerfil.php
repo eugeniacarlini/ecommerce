@@ -1,6 +1,8 @@
 <?php
 require_once("soporte.php");
 $usuarioActivo = getUsuarioLogueado();
+
+// Acá obtengo el id del objeto de tipo usuario.
 $usuarioAVer = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
 
 $imagen = glob('uploads/avatars/' . "*.*");
@@ -11,11 +13,18 @@ if ($_POST)
 
 	if (empty($errores))
 	{
-		$miUsuario = $_POST;
-		$usuario = new Usuario($_POST);
-		// var_dump($usuario);exit;
+		// Aca estoy recuperando el usuario pero desde la base de datos, no como objeto de tipo usuario.
+		//$usuario = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
+
+		$usuarioAVer->setNombre($_POST['nombre']);
+		$usuarioAVer->setApellido($_POST['apellido']);
+		$usuarioAVer->setSexo($_POST['sexo']);
+		// $usuarioAVer->setMail($_POST['mail']);
+		$usuarioAVer->setPassword($_POST['password']);
+
 		// Editar datos del perfil del usuario en la BDD
-		$repositorio->getUserRepository()->editarUsuario($usuario);
+		$repositorio->getUserRepository()->guardarUsuario($usuarioAVer);
+		$usuarioAVer->guardarImagen($usuarioAVer);
 		header("location:index.php");exit;
 	}
 }
@@ -35,6 +44,7 @@ else
       <div class="col-md-offset-2 col-md-8">
         <h1>Editar mi perfil</h1>
         <form class="register-form" action="" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="id-usuario-hidden" value="<?php echo $usuarioAVer->getId() ?>">
           <?php if (!empty($errores)) { ?>
             <div class="alert alert-danger" role="alert">
               <ul>
