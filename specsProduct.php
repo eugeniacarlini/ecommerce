@@ -2,10 +2,34 @@
 	require_once('soporte.php');
   require_once("clases/producto.php");
   require_once("clases/productMySQLRepository.php");
-	//require_once('clases/followerMYSQLrepository.php');
+	require_once('clases/followerMYSQLrepository.php');
 	require_once('clases/follower.php');
+
 	$usuarioActivo = getUsuarioLogueado();
-	$miProducto = $repositorio->getProductRepository()->getProductoById($_GET["id"]);
+	$usuarioAVer = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
+
+	// $miProducto = $repositorio->getProductRepository()->getProductoById($_GET["id"]);
+	// var_dump($miProducto);exit;
+
+	$productoAFollowing = $repositorio->getFollowRepository()->getId_Follower($usuarioActivo->getId());
+	var_dump($productoAFollowing);exit;
+	// $productoAFollowing = $repositorio->getFollowRepository()->getId_Follower($follower);
+
+	if ($_POST) {
+		// $follower = new Follower($_POST);
+
+		$productoAFollowing->setId_Follower($_POST);
+		$productoAFollowing->setId_Following($_POST);
+
+		$repositorio->getFollowRepository()->guardarFollower($usuarioAVer);
+		var_dump($repositorio);exit;
+	}
+
+
+
+
+
+
 
 	if (estaLogueado())
 	{
@@ -43,18 +67,11 @@
             <button type="button" class="btn btn-success btn-lg">Comprar</button>
 
 						<form action="" method="post">
-							<input type="text" class="form-control" id="id-usuario" name="id-follower" value="<?php echo $usuarioActivo->getId()?>" />
-							<input type="text" name="id-following" value="<?php echo $miProducto->getIdUsuario()?>">
-							<button type="submit" name="button">Follow</button>
-							<?php
-							// var_dump($_POST);exit;
-								// $follower = new Follower($_POST);
-								// var_dump($follower);exit;
-								// $repositorio->followerMYSQLrepository->guardarFollower($follower);
-
-							?>
+							<input type="text" class="form-control" id="id_usuario" name="id_follower" value="<?php echo $usuarioActivo->getId()?>" />
+							<input type="text" name="id_following" value="<?php echo $miProducto->getIdUsuario()?>">
+							<input type="submit" name="name" value="Follow">
 						</form>
-					</div>
+												</div>
         </div>
       </div>
     </div>

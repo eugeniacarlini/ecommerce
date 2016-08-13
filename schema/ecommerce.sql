@@ -25,10 +25,13 @@ DROP TABLE IF EXISTS `Followers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Followers` (
-  `id_Follower` int(11) NOT NULL,
+  `id_follower` int(11) NOT NULL,
   `id_following` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id_Follower`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_Follower_UNIQUE` (`id_follower`),
+  UNIQUE KEY `id_following_UNIQUE` (`id_following`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +40,7 @@ CREATE TABLE `Followers` (
 
 LOCK TABLES `Followers` WRITE;
 /*!40000 ALTER TABLE `Followers` DISABLE KEYS */;
+INSERT INTO `Followers` VALUES (21,21,1);
 /*!40000 ALTER TABLE `Followers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +89,7 @@ CREATE TABLE `usuario` (
   `password` text NOT NULL,
   `mail` varchar(400) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +98,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (6,'la','la','1','asdasdas','kakaka'),(7,'gonza','gonza','Masculino','$2y$10$lwz2wHtgX3R2O910OcXcfe6ScfrEGBPqmIHpQIw31sDcmWj3vWYW2','gonza@gmail.com'),(8,'euge','euge','Femenino','$2y$10$FUrGqqzp.9nsYUz2kzfTR.SvD5HljsLqvgccHy1eZW3GOGyn7g5.a','euge@gmail.com'),(9,'eugee','eugee','Masculino','$2y$10$jzDk9/6iQwe.O2qiGMxJ4..cQakZWs5WoCKDJJFXOTHctudS8f4kS','eugee@eugee.com'),(10,'test','test','Masculino','$2y$10$3kY05CqMHY9T4UY2VdXs9.m/iXuEErUnTSGn1ocal6dH7wjVKzMCm','test@test.com'),(11,'test','test','Masculino','$2y$10$ioDAJ3yz7Ploiww2EZVhP.0OcDnXgFDgBjKaWEtr1Qz4qEDBp5qzu','test2@a.com'),(12,'hola','hola','Masculino','$2y$10$MwUg5559CPJLXLfRTmyUSeGMSKQgfG7oadHp/zG.HAr88//55fk8S','hola@a.com'),(13,'nico','nico','Femenino','$2y$10$E8RZJ8hsJrGXQ3Axwocs6.AxQJLiOvjYMy15vk3psTC3pM3R2f9LC','nico@cagon.com'),(14,'mama','mama','Masculino','$2y$10$Ka6We84CZUxuthGZ7q8rV.DGXTGgSseJy6TOwyYcl/sVHu.l/mFja','mama@mama.com'),(15,'holaa','holaa','Femenino','$2y$10$tJQYxswxdryS8s52xCS01uapmaRGrMGNeP/YzmtkYTl19eEVWiVbO','holaa@holaa.com'),(16,'chau','chau','Masculino','$2y$10$6RXNAqM9lcHdpa43cy.IueR18RCkfNsSJ/1YpBwLbzb6xNFe9AgA.','chau@chau.com'),(17,'chau','chau','Masculino','$2y$10$Du2o.ISk25AXzIuJOshPueKhrB8GRhG9Q4toJUrhwxjazAu/ZTVwy','chau2@chau.com'),(18,'chau','chau','Masculino','$2y$10$BUpqLp1aZBqOVnM5sYVcEOMWAjC0Atrf0kkjrPWVgwUolT3wsbUhy','2chau2@chau.com'),(19,'mnb','mnb','Masculino','$2y$10$jyJqeG5u9zzycHAkh4Q2..oGM/4Xh2i3GV8rBeGsGXDBNZf0Izh62','jiji@a.com'),(20,'dnaji','jladjk','Femenino','$2y$10$K7FjFAIT5Zl8Ao3XCI3E4eTAQhfyhHGC7pGfLjk41bSSBzVtohMI2','djias@ajioas.c'),(21,'gon','gon','Masculino','$2y$10$zipWxtsJF5HNpt/TLawp9eK4XNbqQ0VOs7zj/W6spbD6WVI/1OcJm','gonzalo@gmail.com');
+INSERT INTO `usuario` VALUES (6,'la','la','1','asdasdas','kakaka'),(7,'gonza','gonza','Masculino','$2y$10$lwz2wHtgX3R2O910OcXcfe6ScfrEGBPqmIHpQIw31sDcmWj3vWYW2','gonza@gmail.com'),(8,'euge','euge','Femenino','$2y$10$FUrGqqzp.9nsYUz2kzfTR.SvD5HljsLqvgccHy1eZW3GOGyn7g5.a','euge@gmail.com'),(9,'eugee','eugee','Masculino','$2y$10$jzDk9/6iQwe.O2qiGMxJ4..cQakZWs5WoCKDJJFXOTHctudS8f4kS','eugee@eugee.com'),(10,'test','test','Masculino','$2y$10$3kY05CqMHY9T4UY2VdXs9.m/iXuEErUnTSGn1ocal6dH7wjVKzMCm','test@test.com'),(11,'test','test','Masculino','$2y$10$ioDAJ3yz7Ploiww2EZVhP.0OcDnXgFDgBjKaWEtr1Qz4qEDBp5qzu','test2@a.com'),(12,'hola','hola','Masculino','$2y$10$MwUg5559CPJLXLfRTmyUSeGMSKQgfG7oadHp/zG.HAr88//55fk8S','hola@a.com'),(13,'nico','nico','Femenino','$2y$10$E8RZJ8hsJrGXQ3Axwocs6.AxQJLiOvjYMy15vk3psTC3pM3R2f9LC','nico@cagon.com'),(14,'mama','mama','Masculino','$2y$10$Ka6We84CZUxuthGZ7q8rV.DGXTGgSseJy6TOwyYcl/sVHu.l/mFja','mama@mama.com'),(15,'holaa','holaa','Femenino','$2y$10$tJQYxswxdryS8s52xCS01uapmaRGrMGNeP/YzmtkYTl19eEVWiVbO','holaa@holaa.com'),(16,'chau','chau','Masculino','$2y$10$6RXNAqM9lcHdpa43cy.IueR18RCkfNsSJ/1YpBwLbzb6xNFe9AgA.','chau@chau.com'),(17,'chau','chau','Masculino','$2y$10$Du2o.ISk25AXzIuJOshPueKhrB8GRhG9Q4toJUrhwxjazAu/ZTVwy','chau2@chau.com'),(18,'chau','chau','Masculino','$2y$10$BUpqLp1aZBqOVnM5sYVcEOMWAjC0Atrf0kkjrPWVgwUolT3wsbUhy','2chau2@chau.com'),(19,'mnb','mnb','Masculino','$2y$10$jyJqeG5u9zzycHAkh4Q2..oGM/4Xh2i3GV8rBeGsGXDBNZf0Izh62','jiji@a.com'),(20,'dnaji','jladjk','Femenino','$2y$10$K7FjFAIT5Zl8Ao3XCI3E4eTAQhfyhHGC7pGfLjk41bSSBzVtohMI2','djias@ajioas.c'),(21,'gon','gon','Masculino','$2y$10$zipWxtsJF5HNpt/TLawp9eK4XNbqQ0VOs7zj/W6spbD6WVI/1OcJm','gonzalo@gmail.com'),(22,'Maria','gon','Masculino','$2y$10$JLft6LTa.DXav4BMVQqV7.o5t30x/zAG5BR2iB717m1xmF3tceKeS','gonzalo@gmail.com');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -107,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-09 19:15:31
+-- Dump completed on 2016-08-11 21:46:08

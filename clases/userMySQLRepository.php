@@ -57,7 +57,6 @@ class UserMySQLRepository extends UserRepository {
 		$stmt->bindValue(":mail", $miUsuario->getMail());
 
 		$stmt->execute();
-
 		if ($miUsuario->getId() == null)
 		{
 			$miUsuario->setId($this->miConexion->lastInsertId());

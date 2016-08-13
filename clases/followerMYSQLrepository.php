@@ -1,7 +1,6 @@
 <?php
 require_once ("soporte.php");
-require_once ("spectsProduct.php");
-require_once("follower.php?>");
+
 class FollowerMYSQLrepository {
 
 	private $miConexion;
@@ -12,29 +11,32 @@ class FollowerMYSQLrepository {
 	}
 
 
-public function guardarFollower(Follower $follower)
-{
-  if ($follower->getId())
-  {
-    if ($this->getProductoById($follower->getId()))
-    {
-      $stmt = $this->miConexion->prepare("UPDATE user_follow SET follower = :follower, following = :following WHERE id = :id");
-    }
-    else
-    {
-      $stmt = $this->miConexion->prepare("INSERT INTO user_follow (id, follower, following) values (:id, :follower, :following)");
-    }
+	public function guardarFollower(Follower $follower)
+	{
+		// var_dump($follower);exit;
+		if ($follower->getId())
+		{
+			if ($this->getUsuarioById($follower->getId()))
+			{
+				$stmt = $this->miConexion->prepare("UPDATE Followers SET id_follower = :id_follower, id_following = :id_following WHERE id = :id");
+			}else{
 
-    $stmt->bindValue(":id", $follower->getId());
+				$stmt = $this->miConexion->prepare("INSERT INTO Followers (id_follower, id_following) values (:id_follower, :id_following)");
+			}
 
-  }
-  else
-  {
-    $stmt = $this->miConexion->prepare("INSERT INTO user_follow (id, follower, following) values (:id, :follower, :following)");
-  }
+			$stmt->bindValue(":id", $follower->getId());
+
+		}
+		else
+		{
+			$stmt = $this->miConexion->prepare("INSERT INTO Followers (id_follower, id_following) values (:id_follower, :id_following)");
+		}
 
 
-  $stmt->bindValue(":follower", $follower->get());
-  $stmt->bindValue(":following", $follower->());
-  $stmt->execute();
+		$stmt->bindValue(":id_follower", $follower->getId_Follower());
+		$stmt->bindValue(":id_following", $follower->getId_following());
+
+		$stmt->execute();
+
+	}
 }
