@@ -70,6 +70,22 @@ class ProductMySQLRepository extends ProductRepository {
 		return $this->arrayToProducto($productoArray);
 	}
 
+	public function getProductsOfUser()
+	{
+		$stmt = $this->miConexion->prepare("SELECT * FROM producto WHERE idUsuario = :id");
+
+		$stmt->bindValue(":id", $id);
+
+		$stmt->execute();
+
+		$productoArray = $stmt->fetch();
+
+		if ($productoArray == false)
+		{
+			return null;
+		}
+	}
+
 	public function getAllproducts()
 	{
 		$stmt = $this->miConexion->prepare("SELECT * from producto ORDER BY fechaPublicacion DESC");

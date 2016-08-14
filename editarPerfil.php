@@ -88,7 +88,7 @@ else
 						</div>
 						<div class="col-md-5">
 							<div class="form-group text-center">
-								<img class="img-rounded" src="<?php echo $imagen[0] ?>" alt="" />
+								<img class="img-rounded" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="" />
 								<label class="btn btn-default">
 									Elige una imagen<input type="file" id="imagen" name="imagen" style="display: none;">
 								</label>

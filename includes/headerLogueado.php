@@ -58,7 +58,7 @@
           <ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								<img class="avatar img-circle" src="<?php echo $imagen[0] ?>" alt="Avatar" />
+								<img class="avatar img-circle" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="Avatar" />
 								<?php echo $usuarioAVer->getNombre() ?> <span class="caret"></span>
 							</a>
 		          <ul class="dropdown-menu">

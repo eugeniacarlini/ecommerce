@@ -55,7 +55,7 @@
 									<?php foreach ($todosLosProductos as $producto) { ?>
 										<article class="item thumbnail text-center">
 											<a href="specsProduct.php?id=<?php echo $producto->getID() ?>	">
-												<img class="product-item lazyOwl" data-src="<?php echo $producto->getURLimagen()  ?>" alt="<?php echo $producto->getID() ?>">
+												<img class="product-item lazyOwl" data-src="<?php echo $producto->getURLimagen() ?>" alt="<?php echo $producto->getID() ?>">
 												<div class="caption">
 													<h3><?php echo $producto->getTitulo() ?></h3>
 													<h4><?php //echo $producto->getAutor() ?></h4>

@@ -1,7 +1,6 @@
 <?php
 	require_once("soporte.php");
 	$usuarioActivo = getUsuarioLogueado();
-
 	$usuarioPerfil = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
 
 	$dirname = "uploads/avatars/";
@@ -33,7 +32,7 @@
             </ul>
           </div>
         <?php } ?>
-				<img class="img-rounded center-block" src="<?php echo $imagen[0] ?>" alt="" />
+				<img class="img-rounded center-block" src="<?php echo $usuarioPerfil->getURLImagen() ?>" alt="" />
 				<p><?php echo $usuarioPerfil->getNombre() ?></p>
 				<p><?php echo $usuarioPerfil->getApellido() ?></p>
 				<p><?php echo $usuarioPerfil->getMail() ?></p>

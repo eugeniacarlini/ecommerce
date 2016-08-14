@@ -4,7 +4,9 @@
   require_once("clases/productMySQLRepository.php");
 	//require_once('clases/followerMYSQLrepository.php');
 	require_once('clases/follower.php');
+	
 	$usuarioActivo = getUsuarioLogueado();
+	$usuarioAVer = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
 	$miProducto = $repositorio->getProductRepository()->getProductoById($_GET["id"]);
 
 	if (estaLogueado())
@@ -24,17 +26,17 @@
       <div class="row product-row padding-row">
         <div class="col-md-5">
 					<div class="product-image">
-						<img src="uploads/products/<?php echo $_GET['id'] . '.jpg' ?>" />
+						<img src="<?php echo $miProducto->getURLImagen() ?>" />
 					</div>
         </div>
         <div class="col-md-7">
 					<div class="product-description">
             <h1 class="title">
-							<?php echo $miProducto->getTitulo().'!!' ?>
+							<?php echo $miProducto->getTitulo() ?>
 							Great Outdoors
 						</h1>
 						<h3 class="description">Diseñado por
-							<a href="#perfil-usuario"><?php echo $miProducto->getIdUsuario() ?></a>
+							<a href="#perfil-usuario"><?php echo $usuarioAVer->getNombre() ?></a>
 						</h3>
             <h5 class="price">
             	<?php echo $miProducto->getPrecio() ?>
@@ -68,7 +70,7 @@
 					<div class="col-md-3 text-center">
 						<div class="user-data-profile">
 							<img class="img-rounded" src="img/euge.jpg" alt="Euge" />
-							<h3><?php echo $miProducto ?></h3>
+							<h3>@<?php echo $usuarioAVer->getNombre() ?></h3>
 							<button type="button" class="btn btn-success btn-block">Seguir</button>
 							<ul id="following">
 								<li><a href="#"><h3>40</h3>Seguidores</a></li>
@@ -79,7 +81,7 @@
 
 					<div class="col-md-9">
 						<div class="user-products">
-							<h1>Productos</h1>
+							<h1>Productos del usuario</h1>
 						</div>
 					</div>
 

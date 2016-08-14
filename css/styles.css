@@ -6805,6 +6805,10 @@ input[type="file"]:focus {
 a {
   cursor: pointer;
 }
+h1,
+h2 {
+  margin-bottom: 10px;
+}
 .navbar-categories {
   background-color: #37474e;
   padding: 6px 0;
@@ -6828,6 +6832,10 @@ a {
 .register-form {
   background-color: #ffffff;
   padding: 20px;
+}
+.register-form img {
+  max-width: 70%;
+  margin-bottom: 20px;
 }
 #owl-demo .item img {
   display: block;

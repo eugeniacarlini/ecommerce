@@ -89,4 +89,19 @@ class Usuario {
 		}
 	}
 
+	public function getExtension()
+	{
+		$name = $this->getId();
+		$matching = glob("uploads/avatars/" . $name . ".*");
+
+		$info = pathinfo($matching[0]);
+		$ext = $info['extension'];
+		return $ext;
+	}
+
+	public function getURLImagen()
+	{
+		return "uploads/avatars/" . $this->getId() . "." . $this->getExtension();
+	}
+
 }
