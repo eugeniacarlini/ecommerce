@@ -2,12 +2,29 @@
 	require_once('soporte.php');
   require_once("clases/producto.php");
   require_once("clases/productMySQLRepository.php");
-	//require_once('clases/followerMYSQLrepository.php');
+	require_once('clases/followerMYSQLrepository.php');
 	require_once('clases/follower.php');
-	
+
 	$usuarioActivo = getUsuarioLogueado();
 	$usuarioAVer = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
 	$miProducto = $repositorio->getProductRepository()->getProductoById($_GET["id"]);
+
+	// $productoAFollowing = $repositorio->getFollowRepository()->getId_Follower($usuarioActivo->getId());
+	// $productoAFollowing = $repositorio->getFollowRepository()->getId_Follower($follower);
+
+	if ($_POST) {
+		$follower = new Follower($_POST);
+
+
+		$repositorio->getFollowRepository()->guardarFollower($follower);
+	}
+		$idFollowing = $miProducto->getId();
+		$seguidores= $repositorio->getFollowRepository()->mostrarFollower($idFollowing);
+
+
+		// // SELECT COUNT(*), idFollowing FROM Followers WHERE `idfollower` = 41 group by idFollowing
+
+
 
 	if (estaLogueado())
 	{
@@ -45,18 +62,11 @@
             <button type="button" class="btn btn-success btn-lg">Comprar</button>
 
 						<form action="" method="post">
-							<input type="text" class="form-control" id="id-usuario" name="id-follower" value="<?php echo $usuarioActivo->getId()?>" />
-							<input type="text" name="id-following" value="<?php echo $miProducto->getIdUsuario()?>">
-							<button type="submit" name="button">Follow</button>
-							<?php
-							// var_dump($_POST);exit;
-								// $follower = new Follower($_POST);
-								// var_dump($follower);exit;
-								// $repositorio->followerMYSQLrepository->guardarFollower($follower);
-
-							?>
+							<input type="text" class="form-control" id="id_usuario" name="id_follower" value="<?php echo $usuarioActivo->getId()?>" />
+							<input type="text" name="id_following" value="<?php echo $miProducto->getIdUsuario()?>">
+							<input type="submit" name="name" value="Follow">
 						</form>
-					</div>
+												</div>
         </div>
       </div>
     </div>
