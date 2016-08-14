@@ -81,7 +81,7 @@
 				<div class="row padding-row">
 					<div class="col-md-3 text-center">
 						<div class="user-data-profile">
-							<img class="img-rounded" src="img/euge.jpg" alt="Euge" />
+							<img class="img-rounded" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="" />
 							<h3>@<?php echo $usuarioAVer->getNombre() ?></h3>
 							<button type="button" class="btn btn-success btn-block">Seguir</button>
 							<ul id="following">
@@ -104,11 +104,4 @@
 
 </div>
 
-<footer class="footer">
-	<div class="hidden-xs hidden-sm col-md-2 col-lg-2">
-
-	</div>
-	<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-		<?php include("includes/footer.php"); ?>
-	</div>
-</footer>
+<?php include('includes/footer.php'); ?>

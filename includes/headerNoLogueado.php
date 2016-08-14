@@ -14,6 +14,7 @@
   <link href="libs/owl.carousel.css" rel="stylesheet">
   <link href="libs/owl.theme.css" rel="stylesheet">
 
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -25,24 +26,111 @@
 <header>
   <nav class="navbar navbar-default">
     <div class="container">
-      <div class="col-md-2">
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <i class="fa fa-bars" aria-hidden="true"></i>
-          </button>
-          <a class="navbar-brand" href="index.php" title="Sticky">
-            Sticky
-          </a>
+            <a class="navbar-brand" href="index.php" title="Sticky">
+              Sticky
+            </a>
         </div>
       </div>
+      <div class="col-xs-10 col-sm-10 col-md-2 col-lg-2">
+        <div class="navbar-headert">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+        </div>
+      </div>
+
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <div class="col-md-10">
+        <div class="visible-md visible-lg col-md-10 col-lg-10 hidden-xs visible-sm">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="register.php" title="Registrate">Registrate</a></li>
-            <li><a href="login.php" title="Ingresar">Ingresar</a></li>
+            <li>
+              <a
+                tabindex="1"
+                data-toggle="popover"
+                data-placement="bottom"
+                data-popover-content="#login">
+                Ingresar</a>
+            </li>
+          </ul>
+        </div>
+        <div class="visible-xs hidden-sm col-xs-10 col-sm-10 hidden-md hidden-lg">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="register.php" title="Registrate">Registrate</a></li>
+            <li><a href="login.php" title="Registrate">Ingresar</a></li>
           </ul>
         </div>
       </div>
     </div>
   </nav>
 </header>
+
+<div id="login" class="hidden">
+    <div class="popover-heading text-center">
+      <h5 class="text-center">Iniciar sesión</h5>
+    </div>
+
+    <div class="popover-body">
+      <?php
+        require_once("soporte.php");
+
+        if ($auth->estaLogueado())
+        {
+          header("location:index.php");exit;
+        }
+
+        if ($_POST) {
+          $errores = $validar->validarLogin();
+
+          if (empty($errores))
+          {
+            // Loguearlo
+            $usuario = $repositorio->getUserRepository()->getUsuarioByMail($_POST["mail"]);
+
+            $auth->loguear($usuario);
+            // Si me puso que lo recuerde, recordarlo
+            if (isset($_POST["recordame"])) {
+              //recordarlo
+              setcookie("usuarioLogueado", $usuario->getId(), time() + 60 * 60 * 24 * 3);
+            }
+
+            // Redirigirlo
+            header("location:index.php");exit;
+          }
+        }
+      ?>
+
+      <div class="row">
+        <div class="col-md-12">
+          <form class="register-form" action="" method="post" enctype="multipart/form-data">
+            <?php if (!empty($errores)) { ?>
+              <div class="alert alert-danger" role="alert">
+                <ul>
+                  <?php foreach ($errores as $error) { ?>
+                    <li>
+                      <?php echo $error ?>
+                    </li>
+                  <?php } ?>
+                </ul>
+              </div>
+            <?php } ?>
+            <div class="form-group">
+              <label for="mail">Email</label>
+              <input type="email" class="form-control" id="mail" name="mail" />
+            </div>
+            <div class="form-group">
+              <label for="password">Contraseña</label>
+              <input type="password" class="form-control" id="password" name="password" />
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" />Recordarme
+              </label>
+            </div>
+            <input type="submit" class="btn btn-success btn-block" name="login" value="Ingresar" />
+          </form>
+        </div>
+      </div>
+    </div>
+</div>

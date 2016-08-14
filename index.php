@@ -83,8 +83,3 @@
   </div>
 
 	<?php include("includes/footer.php"); ?>
-
-	<script src="libs/jquery-1.9.1.min.js"></script>
-	<script src="libs/bootstrap-select.min.js"></script>
-	<script src="libs/owl.carousel.js"></script>
-	<script src="js/main.js"></script>

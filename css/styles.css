@@ -5327,6 +5327,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
+  width: 400px;
   font-family: "ptsansregular", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -5846,6 +5847,12 @@ header .navbar-brand {
   padding: 20px;
   overflow: hidden;
 }
+.product-wrapper {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 0 15px;
+  overflow: hidden;
+}
 .product {
   max-width: 100%;
 }
@@ -5856,6 +5863,9 @@ header .navbar-brand {
 .register-form img {
   max-width: 70%;
   margin-bottom: 20px;
+}
+#demo {
+  margin: 0 15px;
 }
 #owl-demo .item img {
   display: block;

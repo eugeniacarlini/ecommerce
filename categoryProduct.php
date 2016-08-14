@@ -23,7 +23,7 @@
 
 		<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
 			<?php if (empty($todosLosProductos)): ?>
-				<div class="product-row">
+				<div class="product-wrapper">
 					<p>No se encontró ningún producto en la categoría <?php echo $_GET['id'] ?>.</p>
 				</div>
 			<?php else: ?>
@@ -53,7 +53,3 @@
 </div>
 
 <?php include("includes/footer.php"); ?>
-
-<script src="libs/jquery.min.js"></script>
-<script src="libs/bootstrap-select.min.js"></script>
-<script src="js/main.js"></script>

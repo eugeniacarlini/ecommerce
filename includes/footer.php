@@ -86,5 +86,10 @@
 
   <script src="libs/jquery.min.js"></script>
   <script src="libs/bootstrap.min.js"></script>
+  <script src="libs/bootstrap-select.min.js"></script>
+  <script src="libs/owl.carousel.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- <script src="libs/jquery-1.9.1.min.js"></script> -->
 </body>
 </html>
