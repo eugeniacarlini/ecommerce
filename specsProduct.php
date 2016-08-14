@@ -11,16 +11,22 @@
 
 	// $productoAFollowing = $repositorio->getFollowRepository()->getId_Follower($usuarioActivo->getId());
 	// $productoAFollowing = $repositorio->getFollowRepository()->getId_Follower($follower);
-
+	// if ($_POST) {
+	// 	$follower = new Follower($_POST);
+	// 	$repositorio->getFollowRepository()->guardarFollower($follower);
+	// }
+	$idFollowing = $miProducto->getIdUsuario();
 	if ($_POST) {
-		$follower = new Follower($_POST);
 
+	 $repositorio->getFollowRepository()->removeFriend($idFollowing);
 
-		$repositorio->getFollowRepository()->guardarFollower($follower);
 	}
+
 		$idFollowing = $miProducto->getId();
 		// $seguidores= $repositorio->getFollowRepository()->mostrarFollower($idFollowing);
 
+		$seguidores= $repositorio->getFollowRepository()->mostrarFollower($idFollowing);
+		echo $seguidores["total"];
 
 		// // SELECT COUNT(*), idFollowing FROM Followers WHERE `idfollower` = 41 group by idFollowing
 
@@ -35,6 +41,14 @@
 		include("includes/headerNoLogueado.php");
 	}
 ?>
+<form class="" action="#" method="post">
+	<input type="text" name="unfollow" value="<?php echo $idFollowing  ?>">
+	<button type="submit" name="button">dejar de seguir</button>
+</form>
+
+
+
+
 
 <div class="col-md-12 header-hidden"></div>
 

@@ -25,7 +25,7 @@ if ($_POST)
 		// Editar datos del perfil del usuario en la BDD
 		$repositorio->getUserRepository()->guardarUsuario($usuarioAVer);
 		$usuarioAVer->guardarImagen($usuarioAVer);
-		header("location:index.php");exit;
+		// header("location:index.php");exit;
 	}
 }
 

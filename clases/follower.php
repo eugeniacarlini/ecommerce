@@ -1,6 +1,6 @@
 <?php
 require_once 'auth.php';
-
+require_once 'soporte.php';
 class Follower
 {
   private $id;

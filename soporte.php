@@ -5,7 +5,7 @@ require_once('clases/jsonRepository.php');
 require_once('clases/mySQLRepository.php');
 require_once('clases/usuario.php');
 require_once('clases/producto.php');
-require_once('clases/AuthProduct.php');
+
 
 $tipoRepositorio = "mysql";
 $repositorio = null;
@@ -19,7 +19,7 @@ else if ($tipoRepositorio == "mysql") {
 }
 
 $auth = Auth::getInstance($repositorio->getUserRepository());
-$authP = Authproduct::getInstance($repositorio->getProductRepository());
+// $authP = Authproduct::getInstance($repositorio->getProductRepository());
 $validar = Validar::getInstance($repositorio->getUserRepository());
 // $validarProducto = Validar::getInstance($repositorio->getProductRepository());
 

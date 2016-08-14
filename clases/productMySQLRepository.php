@@ -70,7 +70,7 @@ class ProductMySQLRepository extends ProductRepository {
 		return $this->arrayToProducto($productoArray);
 	}
 
-	public function getProductsOfUser()
+	public function getProductsOfUser($id)
 	{
 		$stmt = $this->miConexion->prepare("SELECT * FROM producto WHERE idUsuario = :id");
 
@@ -78,7 +78,9 @@ class ProductMySQLRepository extends ProductRepository {
 
 		$stmt->execute();
 
-		$productoArray = $stmt->fetch();
+		$productosArray = $stmt->fetchAll();
+		// var_dump($productosArray);exit;
+		return $this->muchosArraysAMuchosProductos($productosArray);
 
 		if ($productoArray == false)
 		{
