@@ -8,8 +8,6 @@
 	$todosLosProductos = $repositorio->getProductRepository()->getAllProducts();
 	//$imgProducto = $repositorio->getProductRepository()->getURLImagen();
 
-	include('includes/categories.php');
-
 	if (estaLogueado())
 	{
 		include("includes/headerLogueado.php");
@@ -20,37 +18,49 @@
 	}
 ?>
 
+<div class="col-md-12 header-hidden"></div>
+
 <div class="container">
     <div class="row">
 
 			<?php include('includes/menu-categorias.php'); ?>
 
-      <div class="col-xs-12 col-sm-12 col-md-10">
-				<div id="demo">
-          <div class="span12">
-            <div id="owl-demo" class="owl-carousel">
-              <div class="item">
-								<img src="img/1.jpg" alt="The Last of us">
+					<div class="hidden-xs hidden-sm col-xs-12 col-sm-12 col-md-10 col-lg-10">
+						<div id="demo">
+							<div class="span12">
+								<div id="owl-demo" class="owl-carousel">
+									<div class="item">
+										<img src="img/1.jpg" alt="The Last of us">
+									</div>
+									<div class="item">
+										<img src="img/2.jpg" alt="GTA V">
+									</div>
+									<div class="item">
+										<img src="img/3.jpg" alt="Mirror Edge">
+									</div>
+								</div>
 							</div>
-              <div class="item">
-								<img src="img/2.jpg" alt="GTA V">
-							</div>
-              <div class="item">
-								<img src="img/3.jpg" alt="Mirror Edge">
-							</div>
-            </div>
-          </div>
-        </div>
+						</div>
+					</div>
 
-				<div class="row">
-	        <div class="col-xs-12 col-sm-10 col-md-10">
-	          <h1>Productos destacados</h1>
-	        </div>
 				</div>
 
-				<div class="product-row">
-					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-12">
+				<div class="row">
+					<div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div>
+
+					<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+						<div class="col-md-12">
+							<h1>Productos destacados</h1>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div>
+
+					<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+						<div class="col-md-12">
+							<div class="product-row">
 								<div id="products-highlights" class="owl-carousel owl-theme">
 									<?php foreach ($todosLosProductos as $producto) { ?>
 										<article class="item thumbnail text-center">
@@ -63,20 +73,18 @@
 												</div>
 											</a>
 										</article>
-									<?php } ?>
+										<?php } ?>
+									</div>
 								</div>
 						</div>
 					</div>
-				</div>
-
-      </div>
 
     </div>
   </div>
+
+	<?php include("includes/footer.php"); ?>
 
 	<script src="libs/jquery-1.9.1.min.js"></script>
 	<script src="libs/bootstrap-select.min.js"></script>
 	<script src="libs/owl.carousel.js"></script>
 	<script src="js/main.js"></script>
-
-  <?php include("includes/footer.php"); ?>

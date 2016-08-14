@@ -39,6 +39,8 @@ else
 }
 ?>
 
+<div class="col-md-12 header-hidden"></div>
+
 <div class="container">
   <div class="row">
       <div class="col-md-offset-2 col-md-8">
@@ -57,7 +59,7 @@ else
             </div>
           <?php } ?>
 					<div class="row">
-						<div class="col-md-7">
+						<div class="col-xs-12 col-sm-7 col-md-7 col-sm-pull-0">
 							<div class="form-group">
 								<label for="nombre">Nombre</label>
 								<input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $usuarioAVer->getNombre() ?>" />
@@ -86,7 +88,7 @@ else
 								<input type="submit" name="borrar-perfil" value="Borrar perfil" class="btn btn-danger pull-right">
 							</div>
 						</div>
-						<div class="col-md-5">
+						<div class="col-xs-12 col-sm-5 col-md-5">
 							<div class="form-group text-center">
 								<img class="img-rounded" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="" />
 								<label class="btn btn-default">

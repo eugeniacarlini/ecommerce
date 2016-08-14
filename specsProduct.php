@@ -19,7 +19,7 @@
 		$repositorio->getFollowRepository()->guardarFollower($follower);
 	}
 		$idFollowing = $miProducto->getId();
-		$seguidores= $repositorio->getFollowRepository()->mostrarFollower($idFollowing);
+		// $seguidores= $repositorio->getFollowRepository()->mostrarFollower($idFollowing);
 
 
 		// // SELECT COUNT(*), idFollowing FROM Followers WHERE `idfollower` = 41 group by idFollowing
@@ -36,17 +36,19 @@
 	}
 ?>
 
+<div class="col-md-12 header-hidden"></div>
+
 <div class="container">
   <div class="row">
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div class="row product-row padding-row">
-        <div class="col-md-5">
+      <div class="product-row">
+        <div class="col-xs-12 col-sm-5 col-md-5">
 					<div class="product-image">
 						<img src="<?php echo $miProducto->getURLImagen() ?>" />
 					</div>
         </div>
-        <div class="col-md-7">
+        <div class="col-xs-12 col-sm-7 col-md-7">
 					<div class="product-description">
             <h1 class="title">
 							<?php echo $miProducto->getTitulo() ?>
@@ -66,14 +68,14 @@
 							<input type="text" name="id_following" value="<?php echo $miProducto->getIdUsuario()?>">
 							<input type="submit" name="name" value="Follow">
 						</form>
-												</div>
+					</div>
         </div>
       </div>
     </div>
   </div>
 
 	<div id="perfil-usuario">
-		<div class="row product-row">
+		<div class="product-row">
 			<div class="col-md-12">
 
 				<div class="row padding-row">
@@ -102,4 +104,11 @@
 
 </div>
 
-<?php include("includes/footer.php"); ?>
+<footer class="footer">
+	<div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+		<?php include("includes/footer.php"); ?>
+	</div>
+</footer>

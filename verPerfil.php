@@ -16,6 +16,8 @@
 	}
 ?>
 
+<div class="col-md-12 header-hidden"></div>
+
 <div class="container">
   <div class="row">
     <div class="col-md-offset-4 col-md-4">

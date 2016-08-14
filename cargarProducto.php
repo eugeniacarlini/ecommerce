@@ -66,6 +66,9 @@ else
   include("includes/headerNoLogueado.php");
 }
 ?>
+
+<div class="col-md-12 header-hidden"></div>
+
 <div class="container">
     <div class="row">
       <div class="col-md-offset-3 col-md-5">

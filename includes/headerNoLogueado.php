@@ -7,6 +7,7 @@
   <title>Sticky - Comprá, publicá y vendé tu remera</title>
   <link rel="stylesheet" href="libs/bootstrap.min.css" >
   <link rel="stylesheet" href="libs/bootstrap-select.min.css">
+  <link rel="stylesheet" href="libs/font-awesome.min.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
 
@@ -27,10 +28,7 @@
       <div class="col-md-2">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <i class="fa fa-bars" aria-hidden="true"></i>
           </button>
           <a class="navbar-brand" href="index.php" title="Sticky">
             Sticky
@@ -38,17 +36,7 @@
         </div>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <div class="col-md-7">
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Buscar...">
-              <button type="submit" class="btn btn-default">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-              </button>
-            </div>
-          </form>
-        </div>
-        <div class="col-md-3">
+        <div class="col-md-10">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="register.php" title="Registrate">Registrate</a></li>
             <li><a href="login.php" title="Ingresar">Ingresar</a></li>
