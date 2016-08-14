@@ -10,17 +10,27 @@ class FollowerMYSQLrepository {
 		$this->miConexion = $miConexion;
 	}
 
-	public function mostrarFollower($idfollowing)
-	{
-		$stmt = $this->miConexion->prepare("SELECT COUNT(*), idFollowing FROM Followers WHERE `idfollower` = $idfollowing group by idFollowing ");
 
-		var_dump($stm);exit;
-		$stmt->bindValue(":idFollowing", $idfollowing);
-		$stmt->bindValue(":idFollower", $idfollower);
+	 public function removeFriend($idFollowing)
+	 {
+
+		 $stmt = $this->miConexion->prepare("DELETE FROM Followers WHERE idFollowing ='$idFollowing'");
+
+			$stmt->bindValue(":idFollowing", $idFollowing);
+
+			$stmt->execute();
+	 }
+
+	public function mostrarFollower($idFollowing)
+	{
+		$stmt = $this->miConexion->prepare("SELECT count(*) as total from Followers where idFollowing = idFollowing");
+
+		$stmt->bindValue(":idFollowing", $idFollowing);
 
 		$stmt->execute();
 
 		$seguidores = $stmt->fetch();
+
 		return $seguidores;
 	}
 
