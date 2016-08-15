@@ -5,15 +5,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sticky - Comprá, publicá y vendé tu remera</title>
-  <link rel="stylesheet" href="libs/bootstrap.min.css" >
+
+  <link rel="stylesheet" href="libs/bootstrap.min.css">
   <link rel="stylesheet" href="libs/bootstrap-select.min.css">
   <link rel="stylesheet" href="libs/font-awesome.min.css">
+  <link rel="stylesheet" href="libs/owl.carousel.css">
+	<link rel="stylesheet" href="libs/owl.theme.css">
   <link rel="stylesheet" href="css/styles.css">
+
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
-
-  <link href="libs/owl.carousel.css" rel="stylesheet">
-  <link href="libs/owl.theme.css" rel="stylesheet">
-
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,6 +51,7 @@
                 data-toggle="popover"
                 data-placement="bottom"
                 data-popover-content="#login">
+                <i class="fa fa-user" aria-hidden="true"></i>
                 Ingresar</a>
             </li>
           </ul>

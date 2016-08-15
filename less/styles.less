@@ -109,7 +109,7 @@ header {
 
 .navbar-categories {
   background-color: #37474e;
-  padding: @padding-base-vertical 0;
+  padding: @padding-base-vertical;
   position: fixed;
   top: 62px;
   left: 0;
@@ -118,13 +118,31 @@ header {
   z-index: 9999;
 
   li {
-    padding: @padding-base-vertical @padding-large-horizontal;
+    padding: @padding-base-vertical + 2;
+
+    .category span:hover {
+      color: @gray-default;
+    }
+
+    &:first-child {
+      border-bottom: 2px solid #404e55;
+
+      .title-menu {
+        color: darken(@gray-lighter, 20%);
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
 
     .category {
-      color: #d3dce0;
+      color: @gray-lighter;
 
       span {
         margin-right: @padding-base-horizontal - 7;
+      }
+
+      .title {
+        color: darken(@gray-lighter, 20%);
       }
     }
   }
@@ -260,4 +278,8 @@ header {
 
 .header-hidden {
   height: 82px;
+}
+
+.dropdown a.dropdown-toggle {
+    line-height: 40px;
 }

@@ -11,14 +11,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sticky - Comprá, publicá y vendé tu remera</title>
-  <link rel="stylesheet" href="libs/bootstrap.min.css" >
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="libs/font-awesome.min.css">
-	<link rel="stylesheet" href="libs/bootstrap-select.min.css">
-  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
 
-	<link href="libs/owl.carousel.css" rel="stylesheet">
-	<link href="libs/owl.theme.css" rel="stylesheet">
+  <link rel="stylesheet" href="libs/bootstrap.min.css">
+	<link rel="stylesheet" href="libs/bootstrap-select.min.css">
+	<link rel="stylesheet" href="libs/font-awesome.min.css">
+	<link rel="stylesheet" href="libs/owl.carousel.css">
+	<link rel="stylesheet" href="libs/owl.theme.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -77,19 +78,19 @@
     <div class="container">
       <div class="col-md-2">
         <div class="navbar-header">
-						<ul class="navbar-toggle">
-							<li class="dropdown ">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									<img class="avatar img-circle" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="Avatar" />
-									<span class="caret"></span>
-								</a>
-								<ul class="dropdown-menu margin">
-									<li><a href="verPerfil.php" title="Mi perfil">Mi perfil</a></li>
-									<li><a href="cargarProducto.php" title="Subir producto">Subir producto</a></li>
-									<li><a href="logout.php" title="Cerrar sesión">Cerrar sesión</a></li>
-								</ul>
-							</li>
-						</ul>
+					<ul class="navbar-toggle">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle line-height" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<img class="avatar img-circle" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="Avatar" />
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu margin">
+								<li><a href="verPerfil.php" title="Mi perfil">Mi perfil</a></li>
+								<li><a href="cargarProducto.php" title="Subir producto">Subir producto</a></li>
+								<li><a href="logout.php" title="Cerrar sesión">Cerrar sesión</a></li>
+							</ul>
+						</li>
+					</ul>
           <a class="navbar-brand" href="index.php" title="Sticky">
 						Sticky
 					</a>
@@ -99,7 +100,7 @@
         <div class="col-md-10">
           <ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+		          <a href="#" class="dropdown-toggle line-height" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								<img class="avatar img-circle" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="Avatar" />
 								<?php echo $usuarioAVer->getNombre() ?> <span class="caret"></span>
 							</a>

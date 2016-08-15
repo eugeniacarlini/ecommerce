@@ -70,11 +70,12 @@ sort($catArray);
 <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
   <aside class="navbar-categories">
     <ul>
+      <li><p class="title-menu">Categorías</p></li>
       <?php foreach ($catArray as $categoria) { ?>
         <li>
           <a class="category" href="categoryProduct.php?id=<?php echo $categoria['title'] ?>" title="<?php echo $categoria['title'] ?>">
             <span class='glyphicon glyphicon-<?php echo $categoria['icon'] ?>' aria-hidden="true"></span>
-            <?php echo $categoria['title'] ?>
+            <span class="title"><?php echo $categoria['title'] ?></span>
           </a>
         </li>
       <?php } ?>

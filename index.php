@@ -30,13 +30,13 @@
 							<div class="span12">
 								<div id="owl-demo" class="owl-carousel">
 									<div class="item">
-										<img src="img/1.jpg" alt="The Last of us">
+										<img src="img/1.jpg" alt="Promoción 1">
 									</div>
 									<div class="item">
-										<img src="img/2.jpg" alt="GTA V">
+										<img src="img/2.jpg" alt="Promoción 2">
 									</div>
 									<div class="item">
-										<img src="img/3.jpg" alt="Mirror Edge">
+										<img src="img/3.jpg" alt="Promoción 3">
 									</div>
 								</div>
 							</div>
