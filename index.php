@@ -6,6 +6,7 @@
 	$products = glob("$dirname" . ".{jpg,png}", GLOB_BRACE);
 
 	$todosLosProductos = $repositorio->getProductRepository()->getAllProducts();
+
 	//$imgProducto = $repositorio->getProductRepository()->getURLImagen();
 
 	if (estaLogueado())
@@ -63,12 +64,13 @@
 							<div class="product-row">
 								<div id="products-highlights" class="owl-carousel owl-theme">
 									<?php foreach ($todosLosProductos as $producto) { ?>
+										<?php $diseñado = $repositorio->getUserRepository()->getUsuarioById($producto->getIdUsuario()) ?>
 										<article class="item thumbnail text-center">
 											<a href="specsProduct.php?id=<?php echo $producto->getID() ?>	">
 												<img class="product-item lazyOwl" data-src="<?php echo $producto->getURLimagen() ?>" alt="<?php echo $producto->getID() ?>">
 												<div class="caption">
 													<h3><?php echo $producto->getTitulo() ?></h3>
-													<h4><?php //echo $producto->getAutor() ?></h4>
+													<h4><span><?php echo '@' . $diseñado->getNombre() ?></span></h4>
 													<h5>$<?php echo $producto->getPrecio() ?></h5>
 												</div>
 											</a>

@@ -67,8 +67,8 @@
 										<a href="specsProduct.php?id=<?php echo $producto->getID() ?>">
 											<img src="<?php echo $producto->getURLimagen() ?>" />
 											<div class="caption">
-												<h3><?php echo $producto->getTitulo() ?></h3>
-												<h4>Diseñado por <span style="color: red;"><?php echo $usuarioAVer->getNombre() ?></span></h4>
+												<h2><?php echo $producto->getTitulo() ?></h2>
+												<h4>Diseñado por<span><?php echo '@' . $usuarioAVer->getNombre() ?></span></h4>
 												<h5>$<?php echo $producto->getPrecio() ?></h5>
 											</div>
 										</a>

@@ -20,7 +20,7 @@
 	$idFollowing = $miProducto->getIdUsuario();
 	$seguidores= $repositorio->getFollowRepository()->mostrarFollower($idFollowing);
 
-	$diseñado=$repositorio->getUserRepository()->getUsuarioById($miProducto->getIdUsuario());
+	$diseñado = $repositorio->getUserRepository()->getUsuarioById($miProducto->getIdUsuario());
 
 
 	if (estaLogueado())
@@ -42,24 +42,23 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
       <div class="product-row">
-        <div class="col-xs-12 col-sm-5 col-md-5">
+        <div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="product-image">
 						<img src="<?php echo $miProducto->getURLImagen() ?>" />
 					</div>
         </div>
-        <div class="col-xs-12 col-sm-7 col-md-7">
+        <div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="product-description">
             <h1 class="title">
 							<?php echo $miProducto->getTitulo() ?>
-							Great Outdoors
 						</h1>
 						<h3 class="description">Diseñado por
-							<a href="#perfil-usuario"><?php echo $diseñado->getNombre() ?></a>
+							<a href="#perfil-usuario"><?php echo '@' . $diseñado->getNombre() ?></a>
 						</h3>
             <h5 class="price">
-            	<?php echo $miProducto->getPrecio() ?>
+            	<?php echo '$' . $miProducto->getPrecio() . ',00' ?>
             </h5>
 
             <button type="button" class="btn btn-success btn-lg">Comprar</button>
@@ -91,7 +90,7 @@
 							<?php
 							$diseñado=$repositorio->getUserRepository()->getUsuarioById($miProducto->getIdUsuario());
  							?>
-							<h3>@<?php echo $deseñado->getNombre() ?></h3>
+							<h3>@<?php echo $diseñado->getNombre() ?></h3>
 							<button type="button" class="btn btn-success btn-block">Seguir</button>
 							<ul id="following">
 								<li><a href="#"><h3><?php echo $seguidores["total"]; ?></h3>Seguidores</a></li>

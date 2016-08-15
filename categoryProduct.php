@@ -45,6 +45,7 @@
 				</div>
 
 				<?php foreach ($todosLosProductos as $producto) { ?>
+					<?php $diseñado =  $repositorio->getUserRepository()->getUsuarioById($producto->getIdUsuario()); ?>
 					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 						<article class="thumbnail text-center">
 							<li>
@@ -52,7 +53,7 @@
 									<img src="<?php echo $producto->getURLimagen() ?>" />
 									<div class="caption">
 										<h3><?php echo $producto->getTitulo() ?></h3>
-										<h4>Diseñado por<span><?php echo $producto->getIdUsuario() ?></span></h4>
+										<h4>Diseñado por<span><?php echo '@' . $diseñado->getNombre() ?></span></h4>
 										<h5>$<?php echo $producto->getPrecio() ?></h5>
 									</div>
 								</a>
