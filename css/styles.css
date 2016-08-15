@@ -5864,6 +5864,7 @@ header .navbar-brand {
 .product-wrapper {
   background-color: #ffffff;
   padding: 20px;
+  margin: 0 15px;
   overflow: hidden;
 }
 .product {

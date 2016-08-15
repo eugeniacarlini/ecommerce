@@ -61,27 +61,29 @@
           </div>
 
           <div class="col-xs-12 col-sm-3 col-md-3">
-            <h4>Redes sociales</h4>
-            <ul class="social-networks-list">
-              <li>
-                <a class="link" href="#" title="Facebook">
-                  <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                  <span class="social-network-name">Facebook</span>
-                </a>
-              </li>
-              <li>
-                <a class="link" href="#" title="Twitter">
-                  <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                  <span class="social-network-name">Twitter</span>
-                </a>
-              </li>
-              <li>
-                <a class="link" href="#" title="Instagram">
-                  <i class="fa fa-instagram" aria-hidden="true"></i>
-                  <span class="social-network-name">Instagram</span>
-                </a>
-              </li>
-            </ul>
+            <div class="margin">
+              <h4>Redes sociales</h4>
+              <ul class="social-networks-list">
+                <li>
+                  <a class="link" href="#" title="Facebook">
+                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    <span class="social-network-name">Facebook</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="link" href="#" title="Twitter">
+                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                    <span class="social-network-name">Twitter</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="link" href="#" title="Instagram">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <span class="social-network-name">Instagram</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
