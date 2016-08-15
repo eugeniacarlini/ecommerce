@@ -104,11 +104,11 @@ class Validar {
       $errores = [];
 
       if (trim($_POST["mail"]) == "") {
-          $errores[] = "No pusiste email";
+          $errores[] = "Por favor complete el email";
       } else if (!$this->userRepository->existeElMail($_POST["mail"])) {
           $errores[] = "El mail no existe";
       } else if (!$this->userRepository->usuarioValido($_POST["mail"], $_POST["password"])) {
-          $errores [] = "El usuario no es valido";
+          $errores [] = "El usuario no es válido";
       }
 
       if (trim($_POST["password"]) == "") {

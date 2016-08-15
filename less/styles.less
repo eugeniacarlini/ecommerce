@@ -157,7 +157,7 @@ header {
 .product-wrapper {
   background-color: @gray-lighten;
   padding: 20px;
-  margin: 0 15px;
+  // margin: 0 15px;
   overflow: hidden;
 }
 
@@ -212,6 +212,12 @@ header {
 #products-highlights .product-item {
   max-width: 100%;
   height: 234px;
+
+}
+
+.caption span {
+  color: @brand;
+  margin-left: 5px;
 }
 
 .dropdown .avatar {
@@ -227,7 +233,11 @@ header {
   background-color: darken(@gray-default, 10%);
   overflow: hidden;
   margin-top: 20px;
-  padding: (@padding-large-vertical + 10px) 0;
+  padding: (@padding-large-vertical + 10px) 0 0 0;
+
+  .margin {
+    margin-bottom: 30px;
+  }
 
   .subscribe-form {
     input {
@@ -255,6 +265,7 @@ header {
 
     .link {
       color: @gray;
+      display: inline-block;
 
       &:hover {
         color: darken(@brand-primary, 10%);
@@ -272,7 +283,6 @@ header {
       display: table-cell;
       vertical-align: middle;
     }
-
   }
 }
 
@@ -281,5 +291,11 @@ header {
 }
 
 .dropdown a.dropdown-toggle {
-    line-height: 40px;
+  line-height: 40px;
+}
+
+.btn-default:hover {
+  background: #FFF;
+  border: 1px solid darken(@brand-primary, 20%);
+  color: darken(@brand-primary, 20%);
 }

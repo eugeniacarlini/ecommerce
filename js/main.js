@@ -14,8 +14,9 @@ $("#products-highlights").owlCarousel({
 });
 
 $('.selectpicker').selectpicker({
-  style: 'btn-info',
-  size: 4
+  style: 'btn-default',
+  size: 8,
+  liveSearch: true
 });
 
 $("[data-toggle=popover]").popover({
