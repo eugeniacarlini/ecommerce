@@ -5,6 +5,11 @@ require_once('clases/jsonRepository.php');
 require_once('clases/mySQLRepository.php');
 require_once('clases/usuario.php');
 require_once('clases/producto.php');
+// require_once("clases/producto.php");
+require_once("clases/productMySQLRepository.php");
+require_once('clases/followerMYSQLrepository.php');
+require_once('clases/follower.php');
+
 
 
 $tipoRepositorio = "mysql";

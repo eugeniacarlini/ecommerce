@@ -38,7 +38,7 @@ class FollowerMYSQLrepository {
 	{
 		if ($follower->getId())
 		{
-			if ($this->getUsuarioById($follower->getId()))
+			if ($this->getUsuarioById($follower->getId_Follower()))
 			{
 				$stmt = $this->miConexion->prepare("UPDATE Followers SET idFollower = :idFollower, idFollowing = :idFollowing WHERE id = :id");
 			}else{

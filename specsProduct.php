@@ -1,34 +1,29 @@
 <?php
 	require_once('soporte.php');
-  require_once("clases/producto.php");
-  require_once("clases/productMySQLRepository.php");
-	require_once('clases/followerMYSQLrepository.php');
-	require_once('clases/follower.php');
+  // require_once("clases/producto.php");
+  // require_once("clases/productMySQLRepository.php");
+	// require_once('clases/followerMYSQLrepository.php');
+	// require_once('clases/follower.php');
 
 	$usuarioActivo = getUsuarioLogueado();
-	$usuarioAVer = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
+  // $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
 	$miProducto = $repositorio->getProductRepository()->getProductoById($_GET["id"]);
 
-	// $productoAFollowing = $repositorio->getFollowRepository()->getId_Follower($usuarioActivo->getId());
-	// $productoAFollowing = $repositorio->getFollowRepository()->getId_Follower($follower);
-	// if ($_POST) {
-	// 	$follower = new Follower($_POST);
-	// 	$repositorio->getFollowRepository()->guardarFollower($follower);
-	// }
+	if (isset($_POST["follow"])) {
+	$follower = new Follower($_POST);
+	$repositorio->getFollowRepository()->guardarFollower($follower);
+
+}
+  if(isset($_POST["unfollow"])) {
 	$idFollowing = $miProducto->getIdUsuario();
-	if ($_POST) {
+	$repositorio->getFollowRepository()->removeFriend($idFollowing);
 
-	 $repositorio->getFollowRepository()->removeFriend($idFollowing);
+}
 
-	}
-
-		$idFollowing = $miProducto->getId();
-		// $seguidores= $repositorio->getFollowRepository()->mostrarFollower($idFollowing);
-
+		$idFollowing = $miProducto->getIdUsuario();
 		$seguidores= $repositorio->getFollowRepository()->mostrarFollower($idFollowing);
-		echo $seguidores["total"];
 
-		// // SELECT COUNT(*), idFollowing FROM Followers WHERE `idfollower` = 41 group by idFollowing
+
 
 
 
@@ -40,14 +35,10 @@
 	{
 		include("includes/headerNoLogueado.php");
 	}
-?>
-<form class="" action="#" method="post">
-	<input type="text" name="unfollow" value="<?php echo $idFollowing  ?>">
-	<button type="submit" name="button">dejar de seguir</button>
-</form>
 
 
 
+	?>
 
 
 <div class="col-md-12 header-hidden"></div>
@@ -69,7 +60,7 @@
 							Great Outdoors
 						</h1>
 						<h3 class="description">Diseñado por
-							<a href="#perfil-usuario"><?php echo $usuarioAVer->getNombre() ?></a>
+							<a href="#perfil-usuario"><?php echo $miProducto->getIdUsuario() ?></a>
 						</h3>
             <h5 class="price">
             	<?php echo $miProducto->getPrecio() ?>
@@ -78,9 +69,14 @@
             <button type="button" class="btn btn-success btn-lg">Comprar</button>
 
 						<form action="" method="post">
-							<input type="text" class="form-control" id="id_usuario" name="id_follower" value="<?php echo $usuarioActivo->getId()?>" />
-							<input type="text" name="id_following" value="<?php echo $miProducto->getIdUsuario()?>">
-							<input type="submit" name="name" value="Follow">
+							<input type="hidden" class="form-control" id="id_usuario" name="id_follower" value="<?php echo $usuarioActivo->getId()?>" />
+							<input type="hidden" name="id_following" value="<?php echo $miProducto->getIdUsuario()?>">
+							<input type="submit" name="follow" value="Follow">
+
+						</form>
+						<form class="" action="#" method="post">
+							<input type="hidden" name="unfollow" value="<?php echo $idFollowing  ?>">
+							<button type="submit" name="unfollow">dejar de seguir</button>
 						</form>
 					</div>
         </div>
@@ -99,7 +95,7 @@
 							<h3>@<?php echo $usuarioAVer->getNombre() ?></h3>
 							<button type="button" class="btn btn-success btn-block">Seguir</button>
 							<ul id="following">
-								<li><a href="#"><h3>40</h3>Seguidores</a></li>
+								<li><a href="#"><h3><?php echo $seguidores["total"]; ?></h3>Seguidores</a></li>
 								<li><a href="#"><h3>53</h3>Siguiendo</a></li>
 							</ul>
 						</div>
