@@ -5,26 +5,22 @@
 	// require_once('clases/followerMYSQLrepository.php');
 	// require_once('clases/follower.php');
 
-	$usuarioActivo = getUsuarioLogueado();
-  // $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
-	$miProducto = $repositorio->getProductRepository()->getProductoById($_GET["id"]);
 
 	if (isset($_POST["follow"])) {
-	$follower = new Follower($_POST);
-	$repositorio->getFollowRepository()->guardarFollower($follower);
-
-}
+		$follower = new Follower($_POST);
+		$repositorio->getFollowRepository()->guardarFollower($follower);
+	}
   if(isset($_POST["unfollow"])) {
-	$idFollowing = $miProducto->getIdUsuario();
-	$repositorio->getFollowRepository()->removeFriend($idFollowing);
-
-}
-
 		$idFollowing = $miProducto->getIdUsuario();
-		$seguidores= $repositorio->getFollowRepository()->mostrarFollower($idFollowing);
+		$repositorio->getFollowRepository()->removeFriend($idFollowing);
 
+	}
+	$miProducto= $repositorio->getProductRepository()->getProductoById($_GET["id"]);
 
+	$idFollowing = $miProducto->getIdUsuario();
+	$seguidores= $repositorio->getFollowRepository()->mostrarFollower($idFollowing);
 
+	$diseñado=$repositorio->getUserRepository()->getUsuarioById($miProducto->getIdUsuario());
 
 
 	if (estaLogueado())
@@ -60,7 +56,7 @@
 							Great Outdoors
 						</h1>
 						<h3 class="description">Diseñado por
-							<a href="#perfil-usuario"><?php echo $miProducto->getIdUsuario() ?></a>
+							<a href="#perfil-usuario"><?php echo $diseñado->getNombre() ?></a>
 						</h3>
             <h5 class="price">
             	<?php echo $miProducto->getPrecio() ?>
@@ -92,7 +88,10 @@
 					<div class="col-md-3 text-center">
 						<div class="user-data-profile">
 							<img class="img-rounded" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="" />
-							<h3>@<?php echo $usuarioAVer->getNombre() ?></h3>
+							<?php
+							$diseñado=$repositorio->getUserRepository()->getUsuarioById($miProducto->getIdUsuario());
+ 							?>
+							<h3>@<?php echo $deseñado->getNombre() ?></h3>
 							<button type="button" class="btn btn-success btn-block">Seguir</button>
 							<ul id="following">
 								<li><a href="#"><h3><?php echo $seguidores["total"]; ?></h3>Seguidores</a></li>
