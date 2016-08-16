@@ -22,16 +22,15 @@
 <div class="container">
   <div class="row">
 
-		<div class="col-md-3">
+		<div class="col-xs-12 col-sm-3 col-md-3">
 			<ul class="nav nav-pills nav-stacked">
 				<li class="active"><a data-toggle="pill" href="#perfil">Perfil</a></li>
-				<li><a data-toggle="pill" href="#publicaciones">Publicaciones</a></li>
+				<li><a data-toggle="pill" href="#publicaciones">Mis publicaciones</a></li>
 			</ul>
 		</div>
 
-		<div class="col-md-9">
+		<div class="col-xs-12 col-sm-9 col-md-9">
 			<div class="tab-content">
-
 				<div id="perfil" class="tab-pane fade in active">
 					<form class="register-form text-center" action="" method="post" enctype="multipart/form-data">
 		        <?php if (!empty($errores)) { ?>
@@ -46,10 +45,9 @@
 		          </div>
 		        <?php } ?>
 						<img class="img-rounded center-block" src="<?php echo $usuarioPerfil->getURLImagen() ?>" alt="" />
-						<p><?php echo $usuarioPerfil->getNombre() ?></p>
+						<h2>@<?php echo $usuarioPerfil->getNombre() ?></h2>
 						<p><?php echo $usuarioPerfil->getApellido() ?></p>
 						<p><?php echo $usuarioPerfil->getMail() ?></p>
-						<a href="index.php" title="Volver" class="btn btn-default">Volver</a>
 						<a href="editarPerfil.php" title="Editar perfil" class="btn btn-success">Editar perfil</a>
 		      </form>
 				</div>
@@ -78,13 +76,10 @@
 						<?php } ?>
 					<?php endif; ?>
 				</div>
-
 			</div>
 		</div>
 	</div>
-
   </div>
 </div>
-
 
 <?php include("includes/footer.php"); ?>

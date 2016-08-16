@@ -30,3 +30,16 @@ $("[data-toggle=popover]").popover({
     return $(title).children(".popover-heading").html();
   }
 });
+
+$('[data-toggle="tooltip"]').tooltip();
+
+var btnFollow = $('#follow');
+var btnUnfollow = $('#unfollow');
+
+$( btnFollow ).on({
+  click: function(event) {
+    event.preventDefault();
+    $(btnFollow).addClass('hidden').removeClass('show');
+    $(btnUnfollow).addClass('show').removeClass('hidden');
+  }
+});

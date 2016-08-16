@@ -21,7 +21,6 @@
 
 		<?php include('includes/menu-categorias.php'); ?>
 
-
 		<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
 			<div class="col-xs-12 col-sm-12 col-md-12">
 				<ol class="breadcrumb">

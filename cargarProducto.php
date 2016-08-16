@@ -13,24 +13,20 @@
 		'Animales',
 		'Bicicletas',
 		'Comics',
+		'Comidas',
 		'Creatividad',
-		'Fantasía',
-		'Películas',
-		'Comida',
+		'Deportes',
 		'Diversión',
+		'Fantasía',
 		'Juegos',
-		'Monstruos',
 		'Música',
 		'Naturaleza',
 		'Patrones',
-		'Política',
-		'Cultura',
-		'Robots',
-		'Eslogans',
-		'Espacio',
-		'Deportes',
+		'Películas',
 		'Tipografía'
 	];
+
+	sort($categorias);
 
 	if ($_POST)
 	{
@@ -55,16 +51,15 @@
 			header("location:index.php");exit;
 		}
 		}
-?>
 
-<?php if (estaLogueado())
-{
-  include("includes/headerLogueado.php");
-}
-else
-{
-  include("includes/headerNoLogueado.php");
-}
+		if (estaLogueado())
+		{
+		  include("includes/headerLogueado.php");
+		}
+		else
+		{
+		  include("includes/headerNoLogueado.php");
+		}
 ?>
 
 <div class="col-md-12 header-hidden"></div>
@@ -74,7 +69,7 @@ else
       <div class="col-md-offset-3 col-md-5">
         <h1>Cargar producto</h1>
         <form class="register-form" action="" method="post" enctype="multipart/form-data">
-					<input type="text" name="fechaPublicacion" value="<?php echo $date;	?>">
+					<input type="hidden" name="fechaPublicacion" value="<?php echo $date;	?>">
           <?php if (!empty($errores)) { ?>
             <div class="alert alert-danger" role="alert">
               <ul>

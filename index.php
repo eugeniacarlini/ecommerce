@@ -70,7 +70,7 @@
 												<img class="product-item lazyOwl" data-src="<?php echo $producto->getURLimagen() ?>" alt="<?php echo $producto->getID() ?>">
 												<div class="caption">
 													<h3><?php echo $producto->getTitulo() ?></h3>
-													<h4><span><?php echo '@' . $diseñado->getNombre() ?></span></h4>
+													<h4>Diseñado por<span><?php echo '@' . $diseñado->getNombre() ?></span></h4>
 													<h5>$<?php echo $producto->getPrecio() ?></h5>
 												</div>
 											</a>
