@@ -89,8 +89,8 @@ if ($_POST)
 
 				<div id="publicaciones" class="tab-pane fade">
 					<?php if (empty($productosUsuario)): ?>
-							<div class="product-row">
-								<p>No se encontró ningún producto en la categoría <?php echo $_GET['id'] ?>.</p>
+							<div class="product-wrapper">
+								<h4>No se encontró ningún producto.</h4>
 							</div>
 						<?php else: ?>
 						<?php foreach ($productosUsuario as $producto) { ?>

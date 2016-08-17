@@ -142,4 +142,23 @@ class UserMySQLRepository extends UserRepository {
 		return $usuarios;
 	}
 
+	public function borrarUsuario($id){
+
+		$stmt = $this->miConexion->prepare("DELETE  from usuario where id = :id");
+
+		$stmt->bindValue(":id", $id);
+		// var_dump($stmt);exit;
+		$stmt->execute();
+
+	}
+	public function borrarProductosUsuario($id){
+
+		$stmt = $this->miConexion->prepare("DELETE from producto where idUsuario = :idUsuario");
+
+		$stmt->bindValue(":idUsuario", $id);
+
+		$stmt->execute();
+
+	}
+
 }

@@ -85,7 +85,8 @@ else
 							<div class="form-group">
 								<a href="verPerfil.php" title="Volver" class="btn btn-default">Volver</a>
 								<input type="submit" name="guardar-cambios" value="Guardar cambios" class="btn btn-success">
-								<input type="submit" name="borrar-perfil" value="Borrar perfil" class="btn btn-danger pull-right">
+								<input type="submit" name="borrar-perfil" value="Borrar perfil" class="btn btn-danger pull-right"><a href="borrarUsuario.php">borraruser</a>
+
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-5 col-md-5">

@@ -50,6 +50,7 @@
 						</h1>
             <h2 class="price">
             	<?php echo '$' . $miProducto->getPrecio() . ',00' ?>
+<<<<<<< Updated upstream
             </h2>
 						<hr />
 						<h5 class="information">Descripción:</h5>
@@ -85,6 +86,26 @@
 						</h5>
 						<hr />
             <button type="button" class="btn btn-success">Comprar</button>
+=======
+            </h5>
+						<form class="" action="" method="post">
+							<input type="text" name="id" value="<?php echo $miProducto->getID()?>">
+
+							<input type="text" name="precio" value="<?php echo $miProducto->getPrecio()?>">
+            <button type="submit" name="comprar" class="btn btn-success btn-lg">Comprar</button>
+					</form>
+
+						<form action="" method="post">
+							<input type="hidden" class="form-control" id="id_usuario" name="id_follower" value="<?php echo $usuarioActivo->getId()?>" />
+							<input type="hidden" name="id_following" value="<?php echo $miProducto->getIdUsuario()?>">
+							<input type="submit" name="follow" value="Follow">
+
+						</form>
+						<form class="" action="#" method="post">
+							<input type="hidden" name="unfollow" value="<?php echo $idFollowing  ?>">
+							<button type="submit" name="unfollow">dejar de seguir</button>
+						</form>
+>>>>>>> Stashed changes
 					</div>
         </div>
       </div>
@@ -103,6 +124,7 @@
 							?>
 							<img class="img-rounded" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="" />
 							<h3>@<?php echo $diseñado->getNombre() ?></h3>
+<<<<<<< Updated upstream
 							<form class="follow-user" method="post">
 								<input type="hidden" class="form-control" id="id_usuario" name="id_follower" value="<?php echo $usuarioActivo->getId()?>" />
 								<input type="hidden" name="id_following" value="<?php echo $miProducto->getIdUsuario()?>">
@@ -115,6 +137,12 @@
 							<ul id="data-followers">
 								<li><h3 class="h3"><?php echo $seguidores["total"]; ?></h3>Seguidores</li>
 								<li><h3 class="h3">53</h3>Siguiendo</li>
+=======
+							<button type="button" class="btn btn-success btn-block">Seguir</button>
+							<ul id="following">
+								<li><a href="#"><h3><?php  echo $seguidores[0]; ?></h3>Seguidores</a></li>
+								<li><a href="#"><h3>53</h3>Siguiendo</a></li>
+>>>>>>> Stashed changes
 							</ul>
 						</div>
 					</div>

@@ -14,7 +14,7 @@ class FollowerMYSQLrepository {
 	 public function removeFriend($idFollowing)
 	 {
 
-		 $stmt = $this->miConexion->prepare("DELETE FROM Followers WHERE idFollowing ='$idFollowing'");
+		 $stmt = $this->miConexion->prepare("DELETE FROM Followers WHERE idFollowing = :idFollowing");
 
 			$stmt->bindValue(":idFollowing", $idFollowing);
 
@@ -23,7 +23,7 @@ class FollowerMYSQLrepository {
 
 	public function mostrarFollower($idFollowing)
 	{
-		$stmt = $this->miConexion->prepare("SELECT count(*) as total from Followers where idFollowing = idFollowing");
+		$stmt = $this->miConexion->prepare("SELECT count(*)  from Followers where idFollowing = idFollowing");
 
 		$stmt->bindValue(":idFollowing", $idFollowing);
 

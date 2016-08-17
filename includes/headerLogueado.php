@@ -2,6 +2,7 @@
 	$usuarioActivo = getUsuarioLogueado();
 	$usuarioAVer = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
 	$imagen = glob('uploads/avatars/' . "*.*");
+	
 ?>
 
 <!DOCTYPE html>
