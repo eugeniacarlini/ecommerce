@@ -10,7 +10,6 @@ class UserJSONRepository extends UserRepository {
 		$usuariosArray = $this->getAllUsers();
 
 		foreach ($usuariosArray as $key => $usuario) {
-
 			if ($mail == $usuario->getMail())
 			{
 				return true;
@@ -32,7 +31,6 @@ class UserJSONRepository extends UserRepository {
 		file_put_contents("usuarios.json", $usuarioJSON . PHP_EOL, FILE_APPEND);
 	}
 
-
 	private function usuarioToArray(Usuario $miUsuario) {
 		$usuarioArray = [];
 
@@ -42,7 +40,6 @@ class UserJSONRepository extends UserRepository {
 		$usuarioArray["mail"] = $miUsuario->getMail();
 		$usuarioArray["sexo"] = $miUsuario->getSexo();
 		$usuarioArray["id"] = $miUsuario->getId();
-
 
 		return $usuarioArray;
 	}
@@ -59,7 +56,6 @@ class UserJSONRepository extends UserRepository {
 		}
 
 		$usuarios = file_get_contents("usuarios.json");
-
 		$usuariosArray = explode(PHP_EOL, $usuarios);
 		$ultimoUsuario = $usuariosArray[count($usuariosArray) - 2 ];
 		$ultimoUsuarioArray = json_decode($ultimoUsuario, true);
@@ -72,7 +68,8 @@ class UserJSONRepository extends UserRepository {
 		$usuario = $this->getUsuarioByMail($mail);
 
 		if ($usuario) {
-			if (password_verify($pass, $usuario->getPassword())) {
+			if (password_verify($pass, $usuario->getPassword()))
+			{
 				return true;
 			}
 		}
@@ -131,5 +128,4 @@ class UserJSONRepository extends UserRepository {
 
 		return $usuarios;
 	}
-
 }

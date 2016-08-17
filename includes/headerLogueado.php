@@ -2,7 +2,6 @@
 	$usuarioActivo = getUsuarioLogueado();
 	$usuarioAVer = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
 	$imagen = glob('uploads/avatars/' . "*.*");
-	
 ?>
 
 <!DOCTYPE html>
@@ -39,10 +38,9 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle line-height" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								<img class="avatar img-circle" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="Avatar" />
-								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu margin">
-								<li><a href="verPerfil.php" title="Mi perfil">Mi perfil</a></li>
+								<li><a href="verPerfil.php" title="Mi cuenta">Mi cuenta</a></li>
 								<li><a href="cargarProducto.php" title="Subir producto">Subir producto</a></li>
 								<li><a href="logout.php" title="Cerrar sesión">Cerrar sesión</a></li>
 							</ul>

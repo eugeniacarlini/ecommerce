@@ -1,46 +1,43 @@
 <?php
-require_once('clases/auth.php');
-require_once('clases/validar.php');
-require_once('clases/jsonRepository.php');
-require_once('clases/mySQLRepository.php');
-require_once('clases/usuario.php');
-require_once('clases/producto.php');
-// require_once("clases/producto.php");
-require_once("clases/productMySQLRepository.php");
-require_once('clases/followerMYSQLrepository.php');
-require_once('clases/follower.php');
+	require_once('clases/auth.php');
+	require_once('clases/validar.php');
+	require_once('clases/jsonRepository.php');
+	require_once('clases/mySQLRepository.php');
+	require_once('clases/usuario.php');
+	require_once('clases/producto.php');
+	require_once("clases/productMySQLRepository.php");
+	require_once('clases/followerMYSQLrepository.php');
+	require_once('clases/follower.php');
 
+	$tipoRepositorio = "mysql";
+	$repositorio = null;
 
-
-
-$tipoRepositorio = "mysql";
-$repositorio = null;
-
-if ($tipoRepositorio == "json")
-{
-	$repositorio = new JSONRepository();
-}
-else if ($tipoRepositorio == "mysql") {
-	$repositorio = new MySQLRepository();
-}
-
-$auth = Auth::getInstance($repositorio->getUserRepository());
-// $authP = Authproduct::getInstance($repositorio->getProductRepository());
-$validar = Validar::getInstance($repositorio->getUserRepository());
-// $validarProducto = Validar::getInstance($repositorio->getProductRepository());
-
-function usuarioValido($mail, $pass)
-{
-	$usuario = getUsuarioByMail($mail);
-
-	if ($usuario) {
-		if (password_verify($pass, $usuario["password"])) {
-			return true;
-		}
+	if ($tipoRepositorio == "json")
+	{
+		$repositorio = new JSONRepository();
+	}
+	else if ($tipoRepositorio == "mysql")
+	{
+		$repositorio = new MySQLRepository();
 	}
 
-	return false;
-}
+	$auth = Auth::getInstance($repositorio->getUserRepository());
+	$validar = Validar::getInstance($repositorio->getUserRepository());
+
+	function usuarioValido($mail, $pass)
+	{
+		$usuario = getUsuarioByMail($mail);
+
+		if ($usuario)
+		{
+			if (password_verify($pass, $usuario["password"]))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
 
 	function getUsuarioByMail($mail)
 	{
@@ -74,7 +71,8 @@ function usuarioValido($mail, $pass)
 		return null;
 	}
 
-	function getUsuarioByParameter($name, $value) {
+	function getUsuarioByParameter($name, $value)
+	{
 		$usuariosArray = getAllUsers();
 
 		foreach ($usuariosArray as $key => $usuario) {

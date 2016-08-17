@@ -3,14 +3,15 @@ $("#owl-demo").owlCarousel({
   slideSpeed : 300,
   paginationSpeed : 400,
   singleItem : true,
-  autoPlay   : true
+  autoPlay   : true,
+  transitionStyle : "fade"
 });
 
 $("#products-highlights").owlCarousel({
   items : 4,
   lazyLoad : true,
   navigation : true,
-  pagination: false
+  pagination: false,
 });
 
 $("#products-user").owlCarousel({

@@ -32,15 +32,12 @@ class UserMySQLRepository extends UserRepository {
 
 	public function guardarUsuario(Usuario $miUsuario)
 	{
-		// Existe el id del usuario? No, viene null.
 		if ($miUsuario->getId())
 		{
-			// Si existe, quiero obtener el id y guardarlo en this. Acá modifico los datos del perfil.
 			if ($this->getUsuarioById($miUsuario->getId()))
 			{
 				$stmt = $this->miConexion->prepare("UPDATE usuario set nombre = :nombre, apellido = :apellido, mail = :mail, sexo = :sexo, password = :password WHERE id = :id");
 			}
-			// Si no existe, creo un nuevo usuario
 			else
 			{
 				$stmt = $this->miConexion->prepare("INSERT INTO usuario (id, nombre, apellido, sexo, password, mail) values (:id, :nombre, :apellido, :sexo, :password, :mail)");
@@ -75,8 +72,10 @@ class UserMySQLRepository extends UserRepository {
 	{
 		$usuario = $this->getUsuarioByMail($mail);
 
-		if ($usuario) {
-			if (password_verify($pass, $usuario->getPassword())) {
+		if ($usuario)
+		{
+			if (password_verify($pass, $usuario->getPassword()))
+			{
 				return true;
 			}
 		}
@@ -147,18 +146,16 @@ class UserMySQLRepository extends UserRepository {
 		$stmt = $this->miConexion->prepare("DELETE  from usuario where id = :id");
 
 		$stmt->bindValue(":id", $id);
-		// var_dump($stmt);exit;
 		$stmt->execute();
-
 	}
-	public function borrarProductosUsuario($id){
-
+	
+	public function borrarProductosUsuario($id)
+	{
 		$stmt = $this->miConexion->prepare("DELETE from producto where idUsuario = :idUsuario");
 
 		$stmt->bindValue(":idUsuario", $id);
 
 		$stmt->execute();
-
 	}
 
 }

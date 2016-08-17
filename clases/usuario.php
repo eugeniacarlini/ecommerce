@@ -19,27 +19,33 @@ class Usuario {
 		$this->sexo = $miUsuario["sexo"];
 	}
 
-	public function getNombre() {
+	public function getNombre()
+	{
 		return $this->nombre;
 	}
 
-	public function getApellido() {
+	public function getApellido()
+	{
 		return $this->apellido;
 	}
 
-	public function getId() {
+	public function getId()
+	{
 		return $this->id;
 	}
 
-	public function getMail() {
+	public function getMail()
+	{
 		return $this->mail;
 	}
 
-	public function getSexo() {
+	public function getSexo()
+	{
 		return $this->sexo;
 	}
 
-	public function getPassword() {
+	public function getPassword()
+	{
 		return $this->password;
 	}
 
@@ -96,6 +102,7 @@ class Usuario {
 
 		$info = pathinfo($matching[0]);
 		$ext = $info['extension'];
+
 		return $ext;
 	}
 
@@ -103,5 +110,4 @@ class Usuario {
 	{
 		return "uploads/avatars/" . $this->getId() . "." . $this->getExtension();
 	}
-
 }

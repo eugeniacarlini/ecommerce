@@ -10,16 +10,15 @@ class FollowerMYSQLrepository {
 		$this->miConexion = $miConexion;
 	}
 
+	public function removeFriend($idFollowing)
+	{
 
-	 public function removeFriend($idFollowing)
-	 {
+		$stmt = $this->miConexion->prepare("DELETE FROM Followers WHERE idFollowing = :idFollowing");
 
-		 $stmt = $this->miConexion->prepare("DELETE FROM Followers WHERE idFollowing = :idFollowing");
+		$stmt->bindValue(":idFollowing", $idFollowing);
 
-			$stmt->bindValue(":idFollowing", $idFollowing);
-
-			$stmt->execute();
-	 }
+		$stmt->execute();
+	}
 
 	public function mostrarFollower($idFollowing)
 	{
@@ -41,25 +40,22 @@ class FollowerMYSQLrepository {
 			if ($this->getUsuarioById($follower->getId_Follower()))
 			{
 				$stmt = $this->miConexion->prepare("UPDATE Followers SET idFollower = :idFollower, idFollowing = :idFollowing WHERE id = :id");
-			}else{
-
+			}
+			else
+			{
 				$stmt = $this->miConexion->prepare("INSERT INTO Followers (idFollower, idFollowing) values (:idFollower, :idFollowing)");
 			}
 
 			$stmt->bindValue(":id", $follower->getId());
-
 		}
 		else
 		{
 			$stmt = $this->miConexion->prepare("INSERT INTO Followers (idFollower, idFollowing) values (:idFollower, :idFollowing)");
 		}
 
-
 		$stmt->bindValue(":idFollower", $follower->getId_Follower());
 		$stmt->bindValue(":idFollowing", $follower->getId_following());
 
 		$stmt->execute();
-
-
 	}
 }

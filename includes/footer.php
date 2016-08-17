@@ -2,9 +2,7 @@
     <div class="container">
       <div class="row">
         <div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div>
-
         <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-
           <div class="col-xs-12 col-sm-5 col-md-5">
             <div class="margin">
               <h4>Suscribite</h4>
@@ -13,7 +11,7 @@
                 <div class="col-md-12">
                   <form class="subscribe-form" action="suscribite.php" method="post">
                     <div class="form-group">
-                      <input type="email" class="form-control pull-left" name="mail" placeholder="Email"  >
+                      <input type="email" class="form-control pull-left" name="mail" placeholder="Email" />
                       <button type="submit" class="btn btn-success">Enviar</button>
                     </div>
                   </form>
@@ -21,7 +19,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-xs-12 col-sm-4 col-md-4">
             <div class="margin">
               <h4>Acerca de</h4>
@@ -59,7 +56,6 @@
               </ul>
             </div>
           </div>
-
           <div class="col-xs-12 col-sm-3 col-md-3">
             <div class="margin">
               <h4>Redes sociales</h4>
@@ -86,7 +82,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </footer>

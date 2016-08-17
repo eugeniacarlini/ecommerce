@@ -1,8 +1,12 @@
 <?php
 	require_once("soporte.php");
 
-	if (estaLogueado()) {
+	if (estaLogueado())
+	{
 		include("includes/headerLogueado.php");
-	} else {
+	}
+	else
+	{
 		include("incudes/headerNoLogueado.php");
-}?>
+	}
+?>

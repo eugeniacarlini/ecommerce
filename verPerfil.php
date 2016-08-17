@@ -3,7 +3,6 @@
 	$usuarioActivo = getUsuarioLogueado();
 	$usuarioPerfil = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
 	$productosUsuario = $repositorio->getProductRepository()->getProductsOfUser($usuarioActivo->getId());
-
 	$dirname = "uploads/avatars/";
 	$imagen = glob($dirname . "*.*");
 
@@ -15,37 +14,26 @@
 	{
 		include("includes/headerNoLogueado.php");
 	}
-?>
 
-<?php
-
-if ($_POST)
-{
-	$errores = $validar->validarEditarUsuario($_POST);
-
-	if (empty($errores))
+	if ($_POST)
 	{
-		// Aca estoy recuperando el usuario pero desde la base de datos, no como objeto de tipo usuario.
-		//$usuario = $repositorio->getUserRepository()->getUsuarioById($usuarioActivo->getId());
+		$errores = $validar->validarEditarUsuario($_POST);
 
-		$usuarioAVer->setNombre($_POST['nombre']);
-		$usuarioAVer->setApellido($_POST['apellido']);
-		$usuarioAVer->setSexo($_POST['sexo']);
-		$usuarioAVer->setMail($_POST['mail']);
-
-		// Editar datos del perfil del usuario en la BDD
-		$repositorio->getUserRepository()->guardarUsuario($usuarioAVer);
-		$usuarioAVer->guardarImagen($usuarioAVer);
+		if (empty($errores))
+		{
+			$usuarioAVer->setNombre($_POST['nombre']);
+			$usuarioAVer->setApellido($_POST['apellido']);
+			$usuarioAVer->setSexo($_POST['sexo']);
+			$usuarioAVer->setMail($_POST['mail']);
+			$repositorio->getUserRepository()->guardarUsuario($usuarioAVer);
+			$usuarioAVer->guardarImagen($usuarioAVer);
+		}
 	}
-}
-
 ?>
 
 <div class="col-md-12 header-hidden"></div>
-
 <div class="container">
   <div class="row">
-
 		<div class="col-xs-12 col-sm-3 col-md-3">
 			<ul class="nav nav-pills nav-stacked">
 				<li class="active">
@@ -65,7 +53,6 @@ if ($_POST)
 				</li>
 			</ul>
 		</div>
-
 		<div class="col-xs-12 col-sm-9 col-md-9">
 			<div class="tab-content">
 				<div id="perfil" class="tab-pane fade in active">
@@ -86,7 +73,6 @@ if ($_POST)
 						<h3><?php echo $usuarioPerfil->getMail() ?></h3>
 		      </form>
 				</div>
-
 				<div id="publicaciones" class="tab-pane fade">
 					<?php if (empty($productosUsuario)): ?>
 							<div class="product-wrapper">
@@ -112,63 +98,59 @@ if ($_POST)
 						<?php } ?>
 					<?php endif; ?>
 				</div>
-
 				<div id="editar-perfil" class="tab-pane fade">
-
-						<form class="register-form" action="" method="post" enctype="multipart/form-data">
-							<input type="hidden" name="id-usuario-hidden" value="<?php echo $usuarioAVer->getId() ?>">
-							<?php if (!empty($errores)) { ?>
-								<div class="alert alert-danger" role="alert">
-									<ul>
-										<?php foreach ($errores as $error) { ?>
-											<li>
-												<?php echo $error ?>
-											</li>
-										<?php } ?>
-									</ul>
+					<form class="register-form" action="" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="id-usuario-hidden" value="<?php echo $usuarioAVer->getId() ?>" />
+						<?php if (!empty($errores)) { ?>
+							<div class="alert alert-danger" role="alert">
+								<ul>
+									<?php foreach ($errores as $error) { ?>
+										<li>
+											<?php echo $error ?>
+										</li>
+									<?php } ?>
+								</ul>
+							</div>
+						<?php } ?>
+						<div class="row">
+							<div class="col-xs-12 col-sm-7 col-md-7 col-sm-pull-0">
+								<div class="form-group">
+									<label for="nombre">Nombre</label>
+									<input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $usuarioAVer->getNombre() ?>" />
 								</div>
-							<?php } ?>
-							<div class="row">
-								<div class="col-xs-12 col-sm-7 col-md-7 col-sm-pull-0">
-									<div class="form-group">
-										<label for="nombre">Nombre</label>
-										<input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $usuarioAVer->getNombre() ?>" />
-									</div>
-									<div class="form-group">
-										<label for="apellido">Apellido</label>
-										<input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $usuarioAVer->getApellido() ?>" />
-									</div>
-									<div class="form-group">
-										<label for="mail">Email</label>
-										<input type="email" class="form-control" id="mail" name="mail" value="<?php echo $usuarioAVer->getMail() ?>" />
-									</div>
-									<div class="form-group">
-										<label for="sexo">Sexo</label>
-										<select class="form-control" name="sexo" id="sexo">
-											<option value="<?php echo $usuarioAVer->getSexo() ?>"><?php echo $usuarioAVer->getSexo() ?></option>
-										</select>
-									</div>
-									<div class="form-group">
-										<input type="submit" name="guardar-cambios" value="Guardar cambios" class="btn btn-success">
-										<a href="borrarUsuario.php" name="borrar-perfil" class="btn btn-danger pull-right">Borrar cuenta</a>
-									</div>
+								<div class="form-group">
+									<label for="apellido">Apellido</label>
+									<input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $usuarioAVer->getApellido() ?>" />
 								</div>
-								<div class="col-xs-12 col-sm-5 col-md-5">
-									<div class="form-group text-center">
-										<img class="img-rounded" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="Avatar" />
-										<label class="btn btn-default">
-											Elige una imagen<input type="file" id="imagen" name="imagen" style="display: none;">
-										</label>
-									</div>
+								<div class="form-group">
+									<label for="mail">Email</label>
+									<input type="email" class="form-control" id="mail" name="mail" value="<?php echo $usuarioAVer->getMail() ?>" />
+								</div>
+								<div class="form-group">
+									<label for="sexo">Sexo</label>
+									<select class="form-control" name="sexo" id="sexo">
+										<option value="<?php echo $usuarioAVer->getSexo() ?>"><?php echo $usuarioAVer->getSexo() ?></option>
+									</select>
+								</div>
+								<div class="form-group">
+									<input type="submit" name="guardar-cambios" value="Guardar cambios" class="btn btn-success" />
+									<a href="borrarUsuario.php" name="borrar-perfil" class="btn btn-danger pull-right">Borrar cuenta</a>
 								</div>
 							</div>
-						</form>
+							<div class="col-xs-12 col-sm-5 col-md-5">
+								<div class="form-group text-center">
+									<img class="img-rounded" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="Avatar" />
+									<label class="btn btn-default">
+										Elige una imagen<input type="file" id="imagen" name="imagen" style="display: none;" />
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
 				</div>
-
 			</div>
 		</div>
 	</div>
-  </div>
 </div>
 
 <?php include("includes/footer.php"); ?>

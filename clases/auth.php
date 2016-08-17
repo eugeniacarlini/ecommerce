@@ -5,8 +5,6 @@ require_once("userRepository.php");
 class Auth {
 
   private $userRepository;
-
-
 	private static $instance = null;
 
 	public static function getInstance(UserRepository $userRepository = null)
@@ -21,55 +19,54 @@ class Auth {
     return Auth::$instance;
   }
 
-    private function setUserRepository(UserRepository $userRepository) {
-        $this->userRepository = $userRepository;
-    }
+  private function setUserRepository(UserRepository $userRepository) {
+    $this->userRepository = $userRepository;
+  }
 
 	private function __construct() {
 
 	}
 
-    public function checkLogin()
+  public function checkLogin()
+  {
+    if (!isset($_SESSION["usuarioLogueado"]))
     {
-        if (!isset($_SESSION["usuarioLogueado"]))
-        {
-            //Me tengo que fijar si hay cookie!
-            if (isset($_COOKIE["usuarioLogueado"])) {
-                $idUsuario = $_COOKIE["usuarioLogueado"];
+      if (isset($_COOKIE["usuarioLogueado"])) {
+        $idUsuario = $_COOKIE["usuarioLogueado"];
 
-                $usuario = $this->userRepository->getUsuarioById($idUsuario);
+        $usuario = $this->userRepository->getUsuarioById($idUsuario);
 
-                $this->loguear($usuario);
-            }
-        }
+        $this->loguear($usuario);
+      }
     }
+  }
 
-    public function loguear($usuario)
+  public function loguear($usuario)
+  {
+    $_SESSION["usuarioLogueado"] = $usuario;
+  }
+
+  public function logout()
+  {
+    session_destroy();
+    $this->unsetCookie("usuarioLogueado");
+  }
+
+  private function unsetCookie($cookie)
+  {
+    setcookie($cookie, "", -1);
+  }
+
+  public function estaLogueado()
+  {
+    return isset($_SESSION["usuarioLogueado"]);
+  }
+
+  public function getUsuarioLogueado() {
+    if ($this->estaLogueado())
     {
-        $_SESSION["usuarioLogueado"] = $usuario;
+      return $_SESSION["usuarioLogueado"];
     }
-
-    public function logout()
-    {
-        session_destroy();
-        $this->unsetCookie("usuarioLogueado");
-    }
-
-    private function unsetCookie($cookie)
-    {
-        setcookie($cookie, "", -1);
-    }
-
-    public function estaLogueado()
-    {
-        return isset($_SESSION["usuarioLogueado"]);
-    }
-
-    public function getUsuarioLogueado() {
-        if ($this->estaLogueado())
-        {
-          return $_SESSION["usuarioLogueado"];
-        }
-        return null;
-    }
+    return null;
+  }
 }

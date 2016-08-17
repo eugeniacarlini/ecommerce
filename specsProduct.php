@@ -7,12 +7,14 @@
 	$diseñado = $repositorio->getUserRepository()->getUsuarioById($miProducto->getIdUsuario());
 	$productosUsuario = $repositorio->getProductRepository()->getProductsOfUser($miProducto->getIdUsuario());
 
-	if (isset($_POST["follow"])) {
+	if (isset($_POST["follow"]))
+	{
 		$follower = new Follower($_POST);
 		$repositorio->getFollowRepository()->guardarFollower($follower);
 	}
 
-  if(isset($_POST["unfollow"])) {
+  if(isset($_POST["unfollow"]))
+	{
 		$idFollowing = $miProducto->getIdUsuario();
 		$repositorio->getFollowRepository()->removeFriend($idFollowing);
 	}
@@ -25,17 +27,11 @@
 	{
 		include("includes/headerNoLogueado.php");
 	}
-
-
-
-	?>
-
+?>
 
 <div class="col-md-12 header-hidden"></div>
-
 <div class="container">
   <div class="row">
-
     <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
       <div class="product-row">
         <div class="col-xs-12 col-sm-12 col-md-6">
@@ -60,7 +56,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="cantidad">Cantidad:</label>
-									<input type="number" class="form-control" name="name" value="Cantidad">
+									<input type="number" class="form-control" name="name" value="Cantidad" />
 								</div>
 							</div>
 							<div class="col-md-6">
@@ -80,49 +76,46 @@
 						</h5>
 						<hr />
             <button type="button" class="btn btn-success">Comprar</button>
-
 					</div>
         </div>
       </div>
     </div>
   </div>
-
+	<?php if (estaLogueado()) { ?>
 	<div class="row">
-			<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
-				<div id="perfil-usuario">
-					<div class="product-row">
-
+		<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+			<div id="perfil-usuario">
+				<div class="row">
 					<div class="col-md-3 text-center">
-						<div class="user-data-profile">
-							<?php
-								$diseñado = $repositorio->getUserRepository()->getUsuarioById($miProducto->getIdUsuario());
-							?>
-							<img class="img-rounded" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="" />
-							<h3>@<?php echo $diseñado->getNombre() ?></h3>
-							<form class="follow-user" method="post">
-								<input type="hidden" class="form-control" id="id_usuario" name="id_follower" value="<?php echo $usuarioActivo->getId()?>" />
-								<input type="hidden" name="id_following" value="<?php echo $miProducto->getIdUsuario()?>">
-								<input id="follow" type="submit" name="follow" value="Seguir" class="btn btn-block btn-default show">
-							</form>
-							<form class="unfollow-user" method="post">
-								<input type="hidden" name="unfollow" value="<?php echo $idFollowing  ?>">
-								<input id="unfollow" type="submit" name="unfollow" value="Dejar de seguir" class="btn btn-block btn-success hidden">
-							</form>
-							<ul id="data-followers">
-								<li><h3 class="h3"><?php echo $seguidores[0]; ?></h3>Seguidores</li>
-								<li><h3 class="h3">23</h3>Siguiendo</li>
-							</ul>
-
+						<div class="product-row">
+							<div class="user-data-profile">
+								<?php
+									$diseñado = $repositorio->getUserRepository()->getUsuarioById($miProducto->getIdUsuario());
+								?>
+								<img class="img-rounded" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="Avatar" />
+								<h3>@<?php echo $diseñado->getNombre() ?></h3>
+								<form class="follow-user" method="post">
+									<input type="hidden" class="form-control" id="id_usuario" name="id_follower" value="<?php echo $usuarioActivo->getId()?>" />
+									<input type="hidden" name="id_following" value="<?php echo $miProducto->getIdUsuario()?>" />
+									<input id="follow" type="submit" name="follow" value="Seguir" class="btn btn-default center-block show" />
+								</form>
+								<form class="unfollow-user" method="post">
+									<input type="hidden" name="unfollow" value="<?php echo $idFollowing  ?>" />
+									<input id="unfollow" type="submit" name="unfollow" value="Dejar de seguir" class="btn btn-block btn-success hidden" />
+								</form>
+								<ul id="data-followers">
+									<li><h3 class="h3"><?php echo $seguidores[0]; ?></h3>Seguidores</li>
+									<li><h3 class="h3">23</h3>Siguiendo</li>
+								</ul>
+							</div>
 						</div>
 					</div>
-
-
 					<div class="col-md-9">
-						<div class="user-products">
-							<h2>Publicaciones del usuario</h2>
-
-							<div class="row">
-								<div class="col-md-12">
+						<div class="product-row">
+							<div class="user-products">
+								<h4>Publicaciones del vendedor</h4>
+								<div class="row">
+									<div class="col-md-12">
 										<div id="products-user" class="owl-carousel owl-theme">
 											<?php foreach ($productosUsuario as $publicacion): ?>
 												<article class="item thumbnail text-center">
@@ -135,23 +128,26 @@
 														</div>
 													</a>
 												</article>
-												<?php endforeach; ?>
+											<?php endforeach; ?>
 										</div>
+									</div>
 								</div>
 							</div>
-
-
-
-
-
 						</div>
 					</div>
-
-					</div>
-
+				</div>
+			</div>
 		</div>
 	</div>
-	</div>
+	<?php } else {  ?>
+		<div class="row">
+			<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+				<div class="product-row no-profile">
+					<h5>Para ver el perfil del vendedor tenés que estar registrado.</h5>
+				</div>
+			</div>
+		</div>
+	<?php } ?>
 </div>
 
-<?php include('includes/footer.php'); ?>
+	<?php include('includes/footer.php'); ?>

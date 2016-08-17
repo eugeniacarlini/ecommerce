@@ -45,7 +45,6 @@ class ProductMySQLRepository extends ProductRepository {
 		{
 			$miProducto->setId($this->miConexion->lastInsertId());
 		}
-
 	}
 
 	private function arrayToProducto(Array $miProducto) {
@@ -79,7 +78,6 @@ class ProductMySQLRepository extends ProductRepository {
 		$stmt->execute();
 
 		$productosArray = $stmt->fetchAll();
-		// var_dump($productosArray);exit;
 		return $this->muchosArraysAMuchosProductos($productosArray);
 
 		if ($productoArray == false)

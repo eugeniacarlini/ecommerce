@@ -5914,16 +5914,18 @@ header .navbar-brand {
 #following li {
   display: inline-block;
 }
-.user-data-profile,
 .user-products {
   padding-top: 20px;
-  padding-bottom: 20px;
+}
+.user-data-profile {
+  padding-top: 20px;
 }
 .user-data-profile h3 {
   padding: 10px 0;
 }
 .user-data-profile #data-followers li {
-  padding-top: 15px;
+  padding: 15px;
+  display: inline-block;
 }
 .user-data-profile #data-followers li .h3 {
   padding: 0;
@@ -6023,6 +6025,7 @@ header .navbar-brand {
 .nav-pills i.fa {
   margin-right: 5px;
 }
-#publicaciones button {
-  margin-top: 10px;
+.no-profile {
+  padding: 20px;
+  margin-top: 20px;
 }
