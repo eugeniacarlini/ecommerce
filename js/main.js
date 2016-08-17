@@ -13,6 +13,13 @@ $("#products-highlights").owlCarousel({
   pagination: false
 });
 
+$("#products-user").owlCarousel({
+  items : 3,
+  lazyLoad : true,
+  navigation : true,
+  pagination: false
+});
+
 $('.selectpicker').selectpicker({
   style: 'btn-default',
   size: 8,

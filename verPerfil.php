@@ -90,7 +90,7 @@ if ($_POST)
 				<div id="publicaciones" class="tab-pane fade">
 					<?php if (empty($productosUsuario)): ?>
 							<div class="product-wrapper">
-								<h4>No se encontró ningún producto.</h4>
+								<h5>No se encontró ningún producto.</h5>
 							</div>
 						<?php else: ?>
 						<?php foreach ($productosUsuario as $producto) { ?>
@@ -101,9 +101,10 @@ if ($_POST)
 											<img src="<?php echo $producto->getURLimagen() ?>" />
 											<div class="caption">
 												<h2><?php echo $producto->getTitulo() ?></h2>
-												<h4>Diseñado por<span><?php echo '@' . $usuarioAVer->getNombre() ?></span></h4>
-												<h5>$<?php echo $producto->getPrecio() ?></h5>
 											</div>
+											<button class="btn btn-default" type="button" name="button">
+												<i class="fa fa-pencil" aria-hidden="true"></i>
+												Editar</button>
 										</a>
 									</li>
 								</article>
@@ -142,10 +143,6 @@ if ($_POST)
 										<input type="email" class="form-control" id="mail" name="mail" value="<?php echo $usuarioAVer->getMail() ?>" />
 									</div>
 									<div class="form-group">
-										<label for="password">Contraseña</label>
-										<input type="password" class="form-control" id="password" name="password" />
-									</div>
-									<div class="form-group">
 										<label for="sexo">Sexo</label>
 										<select class="form-control" name="sexo" id="sexo">
 											<option value="<?php echo $usuarioAVer->getSexo() ?>"><?php echo $usuarioAVer->getSexo() ?></option>
@@ -153,12 +150,12 @@ if ($_POST)
 									</div>
 									<div class="form-group">
 										<input type="submit" name="guardar-cambios" value="Guardar cambios" class="btn btn-success">
-										<!-- <input type="submit" name="borrar-perfil" value="Borrar cuenta" class="btn btn-danger pull-right"> -->
+										<a href="borrarUsuario.php" name="borrar-perfil" class="btn btn-danger pull-right">Borrar cuenta</a>
 									</div>
 								</div>
 								<div class="col-xs-12 col-sm-5 col-md-5">
 									<div class="form-group text-center">
-										<img class="img-rounded" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="" />
+										<img class="img-rounded" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="Avatar" />
 										<label class="btn btn-default">
 											Elige una imagen<input type="file" id="imagen" name="imagen" style="display: none;">
 										</label>

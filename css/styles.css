@@ -6023,3 +6023,6 @@ header .navbar-brand {
 .nav-pills i.fa {
   margin-right: 5px;
 }
+#publicaciones button {
+  margin-top: 10px;
+}
