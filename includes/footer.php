@@ -11,7 +11,7 @@
               <p class="receive-information">Recibí toda nuestra información</p>
               <div class="row">
                 <div class="col-md-12">
-                  <form class="subscribe-form" action="" method="post">
+                  <form class="subscribe-form" action="suscribite.php" method="post">
                     <div class="form-group">
                       <input type="email" class="form-control pull-left" name="mail" placeholder="Email"  >
                       <button type="submit" class="btn btn-success">Enviar</button>
@@ -51,9 +51,9 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#" title="Atención al cliente">
+                  <a href="../contacto.php" title="Contacto">
                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                    Atención al cliente
+                    Contacto
                   </a>
                 </li>
               </ul>
@@ -96,7 +96,5 @@
   <script src="libs/bootstrap-select.min.js"></script>
   <script src="libs/owl.carousel.js"></script>
   <script src="js/main.js"></script>
-
-  <!-- <script src="libs/jquery-1.9.1.min.js"></script> -->
 </body>
 </html>

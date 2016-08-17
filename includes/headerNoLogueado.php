@@ -47,8 +47,9 @@
             <li><a href="register.php" title="Registrate">Registrate</a></li>
             <li>
               <a
-                tabindex="1"
+                tabindex="0"
                 data-toggle="popover"
+                data-trigger="click"
                 data-placement="bottom"
                 data-popover-content="#login">
                 <i class="fa fa-user" aria-hidden="true"></i>

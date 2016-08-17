@@ -13,26 +13,6 @@ Custom styles
 }
 
 @font-face {
-  font-family: 'roboto-light';
-  src: url('../fonts/roboto/light/RobotoCondensedLight.eot');
-  src: url('../fonts/roboto/light/RobotoCondensedLight.eot') format('embedded-opentype'),
-       url('../fonts/roboto/light/RobotoCondensedLight.woff2') format('woff2'),
-       url('../fonts/roboto/light/RobotoCondensedLight.woff') format('woff'),
-       url('../fonts/roboto/light/RobotoCondensedLight.ttf') format('truetype'),
-       url('../fonts/roboto/light/RobotoCondensedLight.svg#RobotoCondensedLight') format('svg');
-}
-
-@font-face {
-  font-family: 'roboto-regular';
-  src: url('../fonts/roboto/regular/RobotoCondensedRegular.eot');
-  src: url('../fonts/roboto/regular/RobotoCondensedRegular.eot') format('embedded-opentype'),
-       url('../fonts/roboto/regular/RobotoCondensedRegular.woff2') format('woff2'),
-       url('../fonts/roboto/regular/RobotoCondensedRegular.woff') format('woff'),
-       url('../fonts/roboto/regular/RobotoCondensedRegular.ttf') format('truetype'),
-       url('../fonts/roboto/regular/RobotoCondensedRegular.svg#RobotoCondensedRegular') format('svg');
-}
-
-@font-face {
   font-family: 'ptsansregular';
   src: url('../fonts/pt-sans/regular/ptsansregular.eot');
   src: url('../fonts/pt-sans/regular/ptsansregular.eot') format('embedded-opentype'),
@@ -169,9 +149,15 @@ header {
   background-color: @gray-lighten;
   padding: 20px;
 
+  .name-user {
+    color: @brand;
+  }
+
   img {
-    max-width: 30%;
+    border: 1px solid @brand-primary;
+    max-width: 200px;
     margin-bottom: 20px;
+    padding: 4px;
   }
 }
 
@@ -192,6 +178,13 @@ header {
 .product-image,
 .product-description {
   margin: 40px 0;
+}
+
+.product-image {
+
+  img {
+    max-width: 330px;
+  }
 }
 
 .product-description {
@@ -221,7 +214,6 @@ header {
 
 #perfil-usuario {
   margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 #following li {
@@ -356,7 +348,7 @@ header {
 }
 
 .dropdown a.dropdown-toggle {
-  line-height: 40px;
+  line-height: 35px;
 }
 
 .btn-default:hover {
@@ -368,4 +360,20 @@ header {
 .tab-content {
   background-color: #FFF;
   overflow: hidden;
+}
+
+.nav-pills {
+
+  li [data-toggle="pill"] {
+    background: darken(@gray-lighter, 5%);
+
+    &:hover {
+      background: darken(@gray-lighter, 3%);
+    }
+  }
+
+  i.fa {
+    margin-right: 5px;
+  }
+
 }

@@ -33,13 +33,37 @@ $("[data-toggle=popover]").popover({
 
 $('[data-toggle="tooltip"]').tooltip();
 
-var btnFollow = $('#follow');
-var btnUnfollow = $('#unfollow');
+// var btnFollow = $('#follow');
+// var btnUnfollow = $('#unfollow');
+//
+// $( btnFollow ).on({
+//   click: function(event) {
+//     event.preventDefault();
+//     $(btnFollow).addClass('hidden').removeClass('show');
+//     $(btnUnfollow).addClass('show').removeClass('hidden');
+//   }
+// });
 
-$( btnFollow ).on({
-  click: function(event) {
-    event.preventDefault();
-    $(btnFollow).addClass('hidden').removeClass('show');
-    $(btnUnfollow).addClass('show').removeClass('hidden');
-  }
-});
+// var lastIndex = localStorage.getItem('lastindex');
+//
+//
+// if (lastIndex == null){
+//   $("#perfil, #publicaciones, #editar-perfil").not(":first").hide();
+// } else {
+//   lastIndex = parseInt(lastIndex) + 1;
+//   $(".tab-pane").children().not(".tab-content:nth-child("+lastIndex+")").hide();
+//   $('ul.nav-pills li').removeClass('active');
+//   $('ul.nav-pills li:nth-child('+lastIndex+')').addClass('active');
+// }
+//
+// $(document).on("click", "ul.nav-pills li", function(){
+//   var i = $(this).index();
+//   localStorage.setItem("lastindex", i);
+//   // add/remove active class
+//   $("ul.nav-pills li").removeClass("active");
+//   $(this).addClass("active")
+//   // hide/show content
+//   $("div.tab-pane .one").hide();
+//   $("div.tab-pane .one:eq( "+ i +")").show();
+//
+// })

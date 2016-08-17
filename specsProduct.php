@@ -1,19 +1,17 @@
 <?php
 	require_once('soporte.php');
-  // require_once("clases/producto.php");
-  // require_once("clases/productMySQLRepository.php");
-	// require_once('clases/followerMYSQLrepository.php');
-	// require_once('clases/follower.php');
 
 	$miProducto= $repositorio->getProductRepository()->getProductoById($_GET["id"]);
 	$idFollowing = $miProducto->getIdUsuario();
 	$seguidores= $repositorio->getFollowRepository()->mostrarFollower($idFollowing);
 	$diseñado = $repositorio->getUserRepository()->getUsuarioById($miProducto->getIdUsuario());
+	$productosUsuario = $repositorio->getProductRepository()->getProductsOfUser($miProducto->getIdUsuario());
 
 	if (isset($_POST["follow"])) {
 		$follower = new Follower($_POST);
 		$repositorio->getFollowRepository()->guardarFollower($follower);
 	}
+
   if(isset($_POST["unfollow"])) {
 		$idFollowing = $miProducto->getIdUsuario();
 		$repositorio->getFollowRepository()->removeFriend($idFollowing);
@@ -40,12 +38,12 @@
 
     <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
       <div class="product-row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-					<div class="product-image">
+        <div class="col-xs-12 col-sm-12 col-md-6">
+					<div class="product-image text-center">
 						<img src="<?php echo $miProducto->getURLImagen() ?>" />
 					</div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="col-xs-12 col-sm-12 col-md-6">
 					<div class="product-description">
             <h1 class="title">
 							<?php echo $miProducto->getTitulo() ?>
@@ -57,23 +55,29 @@
 						<h5 class="information">Descripción:</h5>
 						<p><?php echo $miProducto->getDescripcion() ?></p>
 						<hr />
-						<div class="form-group">
-						  <label for="cantidad">Cantidad:</label>
-						  <select class="form-control" id="cantidad">
-						    <option>1</option>
-						    <option>2</option>
-						    <option>3</option>
-						    <option>4</option>
-						  </select>
-						</div>
-						<div class="form-group">
-							<label for="cantidad">Talle:</label>
-							<select class="form-control" id="cantidad">
-								<option>S</option>
-								<option>M</option>
-								<option>L</option>
-								<option>XL</option>
-							</select>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="cantidad">Cantidad:</label>
+									<select class="form-control" id="cantidad">
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="cantidad">Talle:</label>
+									<select class="form-control" id="cantidad">
+										<option>S</option>
+										<option>M</option>
+										<option>L</option>
+										<option>XL</option>
+									</select>
+								</div>
+							</div>
 						</div>
 						<hr />
 						<h5 class="description">Diseñado por
@@ -88,16 +92,14 @@
   </div>
 
 	<div class="row">
-
-
-			<div class="col-xs-12 col-sm-10 col-md-offset-1 col-md-10">
+			<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
 				<div id="perfil-usuario">
 					<div class="product-row">
 
 					<div class="col-md-3 text-center">
 						<div class="user-data-profile">
 							<?php
-							$diseñado=$repositorio->getUserRepository()->getUsuarioById($miProducto->getIdUsuario());
+								$diseñado = $repositorio->getUserRepository()->getUsuarioById($miProducto->getIdUsuario());
 							?>
 							<img class="img-rounded" src="<?php echo $usuarioAVer->getURLImagen() ?>" alt="" />
 							<h3>@<?php echo $diseñado->getNombre() ?></h3>
@@ -116,14 +118,33 @@
 							</ul>
 						</div>
 					</div>
+				<!-- </div> -->
 
+					<!-- <div class="product-row"> -->
 					<div class="col-md-9">
 						<div class="user-products">
 							<h2>Publicaciones del usuario</h2>
+							<div class="row">
+							<?php foreach ($productosUsuario as $publicacion): ?>
+								<div class="col-md-4">
+									<article class="item thumbnail text-center">
+										<a href="specsProduct.php?id=<?php echo $publicacion->getID() ?>	">
+											<img class="product-item lazyOwl" src="<?php echo $publicacion->getURLimagen() ?>" alt="<?php echo $publicacion->getID() ?>">
+											<div class="caption">
+												<h3><?php echo $publicacion->getTitulo() ?></h3>
+												<h4>Diseñado por<span><?php echo '@' . $diseñado->getNombre() ?></span></h4>
+												<h5>$<?php echo $publicacion->getPrecio() ?></h5>
+											</div>
+										</a>
+									</article>
+								</div>
+							<?php endforeach; ?>
+						</div>
 						</div>
 					</div>
 
-			</div>
+					</div>
+
 		</div>
 	</div>
 	</div>
